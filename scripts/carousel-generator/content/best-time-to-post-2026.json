@@ -1,0 +1,49 @@
+{
+  "title": "Best Time To Post: Data-Driven Analysis 2026",
+  "author": "Data Guru",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Giờ Vàng Đăng Bài 2026",
+      "subheadline": "Phân tích từ dữ liệu lớn"
+    },
+    {
+      "type": "content",
+      "headline": "Facebook",
+      "subheadline": "Thứ 4 & Thứ 6",
+      "content": "Khung giờ vàng: 11h - 13h (Nghỉ trưa) và 19h - 21h (Giải trí tối)."
+    },
+    {
+      "type": "content",
+      "headline": "Instagram",
+      "subheadline": "Cuối tuần",
+      "content": "Thứ 7 & CN hoạt động mạnh. Giờ đẹp: 9h sáng và 8h tối."
+    },
+    {
+      "type": "content",
+      "headline": "LinkedIn",
+      "subheadline": "Giờ hành chính",
+      "content": "Thứ 3 - Thứ 5. Giờ đẹp: 8h - 10h sáng và 16h - 18h chiều."
+    },
+    {
+      "type": "content",
+      "headline": "TikTok",
+      "subheadline": "Khuya & Sáng sớm",
+      "content": "Khung giờ lạ: 6h - 7h sáng và 22h - 24h đêm."
+    },
+    {
+      "type": "list",
+      "headline": "Tuy nhiên",
+      "content": [
+        "Phụ thuộc vào tệp fan của bạn",
+        "Nên test A/B testing",
+        "Chất lượng > Thời điểm"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Check Insight ngay",
+      "content": "Xem lại lịch sử page của bạn để tìm giờ vàng riêng."
+    }
+  ]
+}

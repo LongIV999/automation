@@ -1,0 +1,61 @@
+{
+  "title": "5 Sai Lầm Mua Nhà Lần Đầu",
+  "topic": "5 Sai Lầm Mua Nhà Lần Đầu",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "5 Sai Lầm Mua Nhà Lần Đầu",
+      "subheadline": "Tránh những cạm bẫy tốn kém khi đầu tư bất động sản",
+      "content": "Bạn đang chuẩn bị mua nhà lần đầu? Hãy tránh 5 sai lầm phổ biến này!",
+      "visual": "Modern house with a large red X mark overlay, concerned young couple looking at documents"
+    },
+    {
+      "type": "content",
+      "headline": "Sai Lầm #1",
+      "subheadline": "Không Chuẩn Bị Tài Chính Kỹ Càng",
+      "content": "Nhiều người chỉ tập trung vào giá mua mà quên chi phí phát sinh: phí sang tên, sửa chữa, nội thất, thuế... Hãy chuẩn bị thêm 15-20% tổng giá trị nhà!",
+      "visual": "Calculator, wallet, and financial documents spread on table with highlighted unexpected costs"
+    },
+    {
+      "type": "content",
+      "headline": "Sai Lầm #2",
+      "subheadline": "Không Kiểm Tra Pháp Lý Kỹ Lưỡng",
+      "content": "Sổ đỏ có rõ ràng? Nhà có tranh chấp? Quy hoạch khu vực ra sao? Bỏ qua bước này có thể khiến bạn mất trắng cả tỷ đồng!",
+      "visual": "Red property certificate book (sổ đỏ) with magnifying glass examining details"
+    },
+    {
+      "type": "list",
+      "headline": "Sai Lầm #3",
+      "subheadline": "Chọn Vị Trí Không Phù Hợp",
+      "content": [
+        "❌ Quá xa nơi làm việc",
+        "❌ Thiếu tiện ích xung quanh",
+        "❌ Không có tiềm năng phát triển",
+        "✅ Ưu tiên: giao thông, trường học, bệnh viện"
+      ],
+      "visual": "Map with location pins showing good vs bad residential areas"
+    },
+    {
+      "type": "content",
+      "headline": "Sai Lầm #4",
+      "subheadline": "Vay Quá Khả Năng Tài Chính",
+      "content": "Nguyên tắc vàng: Khoản vay hàng tháng không nên vượt quá 30-40% thu nhập. Đừng để căng thẳng tài chính làm hỏng chất lượng cuộc sống!",
+      "visual": "Person stressed looking at bank loan documents, debt burden visualization"
+    },
+    {
+      "type": "prompt",
+      "headline": "Sai Lầm #5",
+      "subheadline": "Quyết Định Vội Vàng Vì Cảm Xúc",
+      "content": "Hãy tự hỏi bản thân: 'Tôi đang mua nhà vì thực sự cần hay vì áp lực xã hội? Căn nhà này phục vụ mục tiêu dài hạn của tôi?' Dành thời gian suy nghĩ thấu đáo trước khi ký kết.",
+      "visual": "Person pausing to think, checklist with questions about home buying decision"
+    },
+    {
+      "type": "cta",
+      "headline": "Mua Nhà Thông Minh Hơn!",
+      "subheadline": "Lưu bài viết để tham khảo khi cần",
+      "content": "💡 Follow Long Best AI để nhận thêm kiến thức tài chính & đầu tư bất động sản\n\n👉 Tag người thân/bạn bè đang cần mua nhà!\n\n#MuaNhaTuVan #BatDongSan #TaiChinhCaNhan #LongBestAI",
+      "visual": "Long Best AI logo with house keys and success checkmark"
+    }
+  ]
+}

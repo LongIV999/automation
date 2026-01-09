@@ -1,0 +1,50 @@
+{
+    "title": "Case Study: Tăng Engagement 300% Với AI Content",
+    "author": "Growth Hacker",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "Case Study: +300% Engagement",
+            "subheadline": "Bí mật đằng sau sự tăng trưởng thần tốc"
+        },
+        {
+            "type": "content",
+            "headline": "Thực trạng trước khi dùng AI",
+            "subheadline": "Khó khăn chung",
+            "content": "❌ Cạn ý tưởng (Writer's block)\n❌ Tần suất đăng bài thấp (2 bài/tuần)\n❌ Hình ảnh thiếu chuyên nghiệp\n❌ Tương tác lẹt đẹt (< 10 like/bài)"
+        },
+        {
+            "type": "content",
+            "headline": "Giải pháp AI đã áp dụng",
+            "subheadline": "Quy trình mới",
+            "content": "1. Claude: Brainstorm 50 ideas/tuần\n2. ChatGPT: Viết kịch bản & caption viral\n3. Nano Banana: Tạo ảnh minh họa độc quyền\n4. N8N: Tự động đăng bài vào giờ vàng"
+        },
+        {
+            "type": "content",
+            "headline": "Kết quả sau 1 tháng",
+            "subheadline": "Số liệu biết nói",
+            "content": "✅ Tần suất: 14 bài/tuần (2 bài/ngày)\n✅ Reach: Tăng 500%\n✅ Engagement: Tăng 300%\n✅ Tiết kiệm: 20 giờ làm việc/tuần"
+        },
+        {
+            "type": "content",
+            "headline": "Bài học rút ra",
+            "subheadline": "Key Takeways",
+            "content": "AI không làm thay tất cả, nhưng là trợ thủ đắc lực. Quan trọng là chiến lược nội dung (Content Strategy) và sự kiên trì (Consistency)."
+        },
+        {
+            "type": "list",
+            "headline": "Công cụ sử dụng",
+            "content": [
+                "Claude 3.5 Sonnet (Nội dung)",
+                "Nano Banana (Hình ảnh)",
+                "N8N (Automation)",
+                "Google Sheets (Quản lý)"
+            ]
+        },
+        {
+            "type": "cta",
+            "headline": "Bạn muốn kết quả này?",
+            "content": "Follow Long Best AI để nhận lộ trình triển khai chi tiết!"
+        }
+    ]
+}

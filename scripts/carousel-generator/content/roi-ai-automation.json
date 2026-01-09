@@ -1,0 +1,43 @@
+{
+  "title": "ROI Từ AI Automation: Tính Toán Chi Tiết",
+  "author": "Biz Analyst",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "ROI Của AI Automation",
+      "subheadline": "Đầu tư vào AI lãi lời ra sao?"
+    },
+    {
+      "type": "content",
+      "headline": "Chi phí đầu tư",
+      "subheadline": "Công cụ & Setup",
+      "content": "- Tool AI (ChatGPT, MidJourney...): ~$50/tháng\n- Công cụ Automation (N8N, Make): ~$20/tháng\n- Tổng: ~$70/tháng"
+    },
+    {
+      "type": "content",
+      "headline": "Tiết kiệm chi phí",
+      "subheadline": "Nhân sự & Thời gian",
+      "content": "- Thay thế 1 Content Writer ($300)\n- Thay thế 1 Designer cơ bản ($300)\n- Tiết kiệm 40h làm việc/tháng"
+    },
+    {
+      "type": "content",
+      "headline": "Tăng doanh thu",
+      "subheadline": "Hiệu quả công việc",
+      "content": "Content nhiều hơn -> Reach cao hơn -> Khách hàng nhiều hơn. Tăng tỉ lệ chuyển đổi nhờ phản hồi nhanh."
+    },
+    {
+      "type": "list",
+      "headline": "Kết luận",
+      "content": [
+        "ROI > 1000%",
+        "Thu hồi vốn ngay tháng đầu",
+        "Lợi thế cạnh tranh lớn"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Đầu tư ngay",
+      "content": "Đừng để đối thủ vượt mặt bạn!"
+    }
+  ]
+}

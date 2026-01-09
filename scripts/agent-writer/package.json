@@ -1,0 +1,13 @@
+{
+    "name": "agent-writer",
+    "version": "1.0.0",
+    "description": "Agentic Writer using Claude API",
+    "main": "writer.js",
+    "scripts": {
+        "start": "node writer.js"
+    },
+    "dependencies": {
+        "@anthropic-ai/sdk": "^0.33.1",
+        "dotenv": "^16.4.5"
+    }
+}

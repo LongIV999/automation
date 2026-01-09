@@ -1,0 +1,49 @@
+{
+  "title": "Viết Caption Viral: Công Thức 4 Bước",
+  "author": "Copywriter AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Caption Viral",
+      "subheadline": "Công thức viết là dính"
+    },
+    {
+      "type": "content",
+      "headline": "1. Hook (Móc câu)",
+      "subheadline": "3 giây đầu tiên",
+      "content": "Giật tít gây sốc, câu hỏi gợi tò mò hoặc nghịch lý. Ví dụ: 'Đừng mua nhà nếu chưa biết điều này...'"
+    },
+    {
+      "type": "content",
+      "headline": "2. Story (Câu chuyện)",
+      "subheadline": "Kết nối cảm xúc",
+      "content": "Kể một câu chuyện ngắn, relatable (liên quan) đến vấn đề của người đọc."
+    },
+    {
+      "type": "content",
+      "headline": "3. Value (Giá trị)",
+      "subheadline": "Giải pháp",
+      "content": "Chia sẻ kiến thức, mẹo, hoặc giải pháp cụ thể cho vấn đề đã nêu."
+    },
+    {
+      "type": "content",
+      "headline": "4. CTA (Kêu gọi)",
+      "subheadline": "Hành động",
+      "content": "Kêu gọi like, share, lưu lại hoặc comment ý kiến."
+    },
+    {
+      "type": "list",
+      "headline": "Lưu ý",
+      "content": [
+        "Dùng icon hợp lý",
+        "Ngắt dòng dễ đọc",
+        "Tone giọng phù hợp"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Thử viết ngay",
+      "content": "Áp dụng công thức này cho bài post tiếp theo!"
+    }
+  ]
+}

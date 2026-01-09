@@ -162,9 +162,10 @@ async function deleteLocalImages(imagesDir, imageFiles) {
  * Upload toàn bộ carousel (nhiều ảnh)
  * @param {string} imagesDir - Thư mục chứa ảnh
  * @param {string} folderName - Tên folder trên Drive
- * @param {boolean} deleteAfterUpload - Xóa ảnh local sau khi upload (default: from CONFIG)
+ * @param {boolean} deleteAfterUpload - Xóa ảnh local sau khi upload
+ * @param {string} spreadsheetId - ID của Google Sheet cần update
  */
-async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = CONFIG.autoDeleteAfterUpload) {
+async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = CONFIG.autoDeleteAfterUpload, spreadsheetId = null) {
   console.log('🚀 Starting Google Drive upload...');
 
   try {
@@ -226,7 +227,8 @@ async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = 
         // Update Google Sheets
         const sheetsResult = await addPostToSheets({
           ...uploadResult,
-          caption: caption
+          caption: caption,
+          spreadsheetId: spreadsheetId // Pass the specific sheet ID
         });
 
         if (sheetsResult.success) {
@@ -288,12 +290,17 @@ async function main() {
   let imagesDir = null;
   let folderName = null;
   let deleteAfterUpload = CONFIG.autoDeleteAfterUpload; // Default from config
+  let brand = 'longbest'; // default
 
-  for (const arg of args) {
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
     if (arg === '--delete' || arg === '-d') {
       deleteAfterUpload = true;
     } else if (arg === '--keep' || arg === '-k') {
       deleteAfterUpload = false;
+    } else if (arg === '--brand') {
+      brand = args[i + 1];
+      i++; // Skip next arg
     } else if (!imagesDir) {
       imagesDir = arg;
     } else if (!folderName) {
@@ -306,6 +313,19 @@ async function main() {
     process.exit(1);
   }
 
+  // Determine Spreadsheet ID based on brand
+  let spreadsheetId = process.env.GOOGLE_SHEETS_ID;
+  if (brand === 'thachvuland') {
+    spreadsheetId = process.env.GOOGLE_SHEETS_ID_THACHVULAND;
+    console.log('🏢 Processing for brand: Thach Vu Land');
+  } else {
+    console.log('🏢 Processing for brand: Long Best AI');
+  }
+
+  if (!spreadsheetId) {
+    console.warn(`⚠️  No Sheet ID found for brand: ${brand}. Using default or failing purely.`);
+  }
+
   // Check if directory exists
   try {
     await fs.access(imagesDir);
@@ -316,7 +336,7 @@ async function main() {
 
   // Upload
   try {
-    const result = await uploadCarousel(imagesDir, folderName, deleteAfterUpload);
+    const result = await uploadCarousel(imagesDir, folderName, deleteAfterUpload, spreadsheetId);
 
     // Return result as JSON for automation
     if (process.env.JSON_OUTPUT) {

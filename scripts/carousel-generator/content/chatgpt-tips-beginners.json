@@ -1,0 +1,55 @@
+{
+  "title": "5 Mẹo ChatGPT Cho Người Mới Bắt Đầu",
+  "author": "AI Trainer",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "5 Mẹo ChatGPT",
+      "subheadline": "Dành cho người mới bắt đầu (Newbie)"
+    },
+    {
+      "type": "content",
+      "headline": "1. Đóng vai",
+      "subheadline": "Roleplay",
+      "content": "Prompt: 'Hãy đóng vai chuyên gia Marketing 10 năm kinh nghiệm, tư vấn cho tôi về...'"
+    },
+    {
+      "type": "content",
+      "headline": "2. Cung cấp bối cảnh",
+      "subheadline": "Context",
+      "content": "Đừng hỏi trổng. Hãy nói rõ bạn là ai, mục đích là gì, viết cho ai đọc."
+    },
+    {
+      "type": "content",
+      "headline": "3. Chia nhỏ vấn đề",
+      "subheadline": "Step by step",
+      "content": "Đừng bắt nó làm luận văn 1 lúc. Hãy hỏi từng ý nhỏ, từng chương một."
+    },
+    {
+      "type": "content",
+      "headline": "4. Yêu cầu định dạng",
+      "subheadline": "Format",
+      "content": "Yêu cầu rõ đầu ra: Bảng, list markdown, code block, hay đoạn văn ngắn."
+    },
+    {
+      "type": "content",
+      "headline": "5. Feedback lại",
+      "subheadline": "Học hỏi",
+      "content": "Nếu chưa ưng, hãy bảo nó sửa: 'Viết lại giọng văn vui vẻ hơn', 'Ngắn gọn hơn'."
+    },
+    {
+      "type": "list",
+      "headline": "Hãy thử ngay",
+      "content": [
+        "Đóng vai",
+        "Thêm context",
+        "Feedback liên tục"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Follow Long Best AI",
+      "content": "Để học thêm nhiều mẹo AI hay ho!"
+    }
+  ]
+}

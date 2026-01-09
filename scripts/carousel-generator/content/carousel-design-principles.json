@@ -1,0 +1,55 @@
+{
+  "title": "Carousel Design: 7 Nguyên Tắc Vàng",
+  "author": "Design Pro",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Carousel Design",
+      "subheadline": "7 Nguyên tắc thiết kế triệu view"
+    },
+    {
+      "type": "content",
+      "headline": "1. AIDA",
+      "subheadline": "Cấu trúc",
+      "content": "Attention (Bìa) -> Interest (Nội dung) -> Desire (Lợi ích) -> Action (Kêu gọi)."
+    },
+    {
+      "type": "content",
+      "headline": "2. Tương phản",
+      "subheadline": "Contrast",
+      "content": "Sử dụng màu sắc tương phản mạnh giữa chữ và nền để dễ đọc."
+    },
+    {
+      "type": "content",
+      "headline": "3. Ít chữ",
+      "subheadline": "Less is more",
+      "content": "Mỗi slide chỉ nên có 1 ý chính. Dùng font to, rõ ràng."
+    },
+    {
+      "type": "content",
+      "headline": "4. Visual hấp dẫn",
+      "subheadline": "Hình ảnh",
+      "content": "Dùng hình ảnh minh họa chất lượng cao, icon trực quan."
+    },
+    {
+      "type": "content",
+      "headline": "5. Nhất quán",
+      "subheadline": "Thương hiệu",
+      "content": "Màu sắc, font chữ, phong cách phải đồng bộ xuyên suốt."
+    },
+    {
+      "type": "list",
+      "headline": "Checklist",
+      "content": [
+        "Dễ đọc trên mobile?",
+        "Bìa có gây tò mò?",
+        "CTA rõ ràng chưa?"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Thực hành ngay",
+      "content": "Thiết kế carousel tiếp theo của bạn theo 7 nguyên tắc này."
+    }
+  ]
+}

@@ -44,7 +44,7 @@ async function generateCarousel(contentData, outputPath = CONFIG.outputDir) {
     await page.setViewport({
       width: CONFIG.slideWidth,
       height: CONFIG.slideHeight,
-      deviceScaleFactor: 2 // Retina quality
+      deviceScaleFactor: 3 // Higher density for crispness
     });
 
     // Set default timeout
@@ -145,7 +145,7 @@ function createSlideHTML(slideData, slideNumber, globalData) {
             padding: 60px;
             display: flex;
             flex-direction: column;
-            justify-content: ${type === 'title' ? 'center' : 'flex-start'};
+            justify-content: ${type === 'title' || slideNumber >= 2 ? 'center' : 'flex-start'};
             position: relative;
         }
 
@@ -225,24 +225,29 @@ function createSlideHTML(slideData, slideNumber, globalData) {
         ul {
             list-style: none;
             margin: 20px 0;
+            counter-reset: list-counter; /* Initialize counter */
         }
 
         li {
             font-size: ${getFontSize('listItem', '26px')};
             line-height: 1.6;
             margin-bottom: 20px;
-            padding-left: 40px;
+            padding-left: 45px; /* More space for numbers */
             position: relative;
         }
 
         li::before {
-            content: '✓';
+            content: counter(list-counter) "."; /* Use number */
+            counter-increment: list-counter; /* Increment counter */
             position: absolute;
             left: 0;
-            color: var(--accent-green);
-            font-weight: bold;
-            font-size: 32px;
+            color: var(--accent-orange); /* Use Orange for numbers */
+            font-weight: 600;
+            font-size: ${getFontSize('listItem', '26px')};
         }
+
+        /* Keep checkmark for specific class if needed, or remove. 
+           For now, entirely replacing the checkmark style. */
 
         /* Prompt box */
         .prompt-box {
@@ -351,7 +356,11 @@ function formatContent(content) {
   if (Array.isArray(content)) {
     return content.join('<br><br>');
   }
-  return content.replace(/\n/g, '<br>');
+
+  // Replace emoji bullets with simple dashes
+  let cleaned = content; // Removed emoji replacement logic per user request
+
+  return cleaned.replace(/\n/g, '<br>');
 }
 
 /**

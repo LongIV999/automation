@@ -1,0 +1,56 @@
+{
+  "title": "Xu Hướng AI Marketing 2026",
+  "topic": "AI Marketing Trends 2026",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Xu Hướng AI Marketing 2026",
+      "subheadline": "Khám phá 5 xu hướng định hình tương lai marketing",
+      "visual": "Modern futuristic design with AI and marketing icons, vibrant gradient background with purple and blue tones"
+    },
+    {
+      "type": "content",
+      "headline": "1. AI Agents Tự Động Hóa Customer Journey",
+      "content": "AI agents thông minh sẽ quản lý toàn bộ hành trình khách hàng - từ nhận diện nhu cầu, tư vấn sản phẩm, đến chăm sóc sau bán. Tự động 24/7, cá nhân hóa 100%.",
+      "visual": "Illustration of AI bot interacting with multiple customers across different touchpoints, connected journey map"
+    },
+    {
+      "type": "content",
+      "headline": "2. Hyper-Personalization Với Dữ Liệu Real-time",
+      "content": "AI phân tích hành vi người dùng theo thời gian thực để tạo nội dung, ưu đãi và trải nghiệm được cá nhân hóa hoàn toàn cho từng cá nhân, từng thời điểm.",
+      "visual": "Dynamic dashboard showing real-time data streams transforming into personalized content for different user profiles"
+    },
+    {
+      "type": "list",
+      "headline": "3. Predictive Analytics Nâng Cao",
+      "subheadline": "AI dự đoán chính xác hơn bao giờ hết:",
+      "content": [
+        "🎯 Dự báo xu hướng thị trường trước 6-12 tháng",
+        "💰 Tối ưu ngân sách quảng cáo tự động",
+        "📊 Phân tích sentiment đa nền tảng",
+        "🔮 Dự đoán churn rate và lifetime value"
+      ],
+      "visual": "Infographic with prediction charts, trend graphs, and AI analytics visualization"
+    },
+    {
+      "type": "prompt",
+      "headline": "4. AI-Generated Content Chuyên Nghiệp",
+      "content": "Tạo một chiến dịch marketing hoàn chỉnh cho sản phẩm [tên sản phẩm] bao gồm: 5 post mạng xã hội, 3 email marketing, 1 landing page copy, và kịch bản video 60s. Tone: [chuyên nghiệp/thân thiện], Target: [nhóm khách hàng], Goal: [tăng awareness/conversion]",
+      "visual": "Creative workspace showing AI generating multiple content formats simultaneously - social posts, emails, videos"
+    },
+    {
+      "type": "content",
+      "headline": "5. Voice & Visual Search Optimization",
+      "content": "60% tìm kiếm sẽ qua giọng nói và hình ảnh. AI giúp tối ưu nội dung cho tìm kiếm bằng giọng nói, nhận diện hình ảnh và AR/VR experiences.",
+      "visual": "Split screen showing voice search on one side and visual/image search on the other, with AI processing in the middle"
+    },
+    {
+      "type": "cta",
+      "headline": "Sẵn Sàng Dẫn Đầu Với AI?",
+      "subheadline": "Theo dõi Long Best AI để cập nhật xu hướng và công cụ AI mới nhất cho Marketing!",
+      "content": "👉 Follow ngay để không bỏ lỡ insights giá trị",
+      "visual": "Professional call-to-action design with Long Best AI branding, follow button, and engaging colors"
+    }
+  ]
+}

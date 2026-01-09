@@ -1,0 +1,49 @@
+{
+  "title": "Setup N8N Automation Trong 15 Phút",
+  "author": "Tech Guide",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Setup N8N: 15 Phút",
+      "subheadline": "Tự động hóa workflow cực dễ"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 1: Cài đặt",
+      "subheadline": "Docker hoặc Cloud",
+      "content": "Cách nhanh nhất: Đăng ký n8n.cloud (có free trial). Hoặc chạy lệnh Docker 1 dòng trên máy cá nhân."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 2: Kết nối App",
+      "subheadline": "Credentials",
+      "content": "Kết nối Google Sheets, Telegram, Facebook... qua OAuth hoặc API Key."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 3: Vẽ Workflow",
+      "subheadline": "Kéo thả",
+      "content": "Kéo các node vào canvas. Nối chúng lại với nhau theo logic mong muốn (Ví dụ: Khi có tin nhắn -> Gửi vào Sheet)."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 4: Test & Active",
+      "subheadline": "Chạy thử",
+      "content": "Bấm 'Execute Workflow' để test. Nếu ổn, bật switch 'Active' lên."
+    },
+    {
+      "type": "list",
+      "headline": "Mẹo nhỏ",
+      "content": [
+        "Dùng Template có sẵn",
+        "Xem log thường xuyên",
+        "Bắt đầu từ cái đơn giản"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Làm ngay đi!",
+      "content": "Tự động hóa việc chán ngắt để làm việc lớn hơn."
+    }
+  ]
+}

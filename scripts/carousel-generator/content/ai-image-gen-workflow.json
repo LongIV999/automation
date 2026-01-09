@@ -1,0 +1,49 @@
+{
+  "title": "Behind The Scenes: AI Image Generation Workflow",
+  "author": "AI Expert",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Quy Trình Tạo Ảnh AI",
+      "subheadline": "Từ ý tưởng đến tác phẩm hoàn chỉnh"
+    },
+    {
+      "type": "content",
+      "headline": "1. Brainstorming",
+      "subheadline": "Lên ý tưởng",
+      "content": "Xác định chủ đề, phong cách, màu sắc, bố cục mong muốn."
+    },
+    {
+      "type": "content",
+      "headline": "2. Prompting",
+      "subheadline": "Viết lệnh",
+      "content": "Chuyển ý tưởng thành ngôn ngữ mà AI hiểu. Sử dụng cấu trúc: Chủ ngữ + Hành động + Bối cảnh + Phong cách."
+    },
+    {
+      "type": "content",
+      "headline": "3. Generating",
+      "subheadline": "Tạo ảnh thô",
+      "content": "Chạy thử nhiều phiên bản (variations) để chọn ra bố cục tốt nhất."
+    },
+    {
+      "type": "content",
+      "headline": "4. Upscaling & Editing",
+      "subheadline": "Hậu kỳ",
+      "content": "Tăng độ phân giải, sửa lỗi nhỏ bằng photoshop hoặc công cụ AI inpainting."
+    },
+    {
+      "type": "list",
+      "headline": "Công cụ khuyên dùng",
+      "content": [
+        "ChatGPT (Brainstorm)",
+        "Nano Banana / MidJourney (Gen)",
+        "Photoshop (Edit)"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Thử ngay!",
+      "content": "Tự xây dựng workflow của riêng bạn ngay hôm nay."
+    }
+  ]
+}

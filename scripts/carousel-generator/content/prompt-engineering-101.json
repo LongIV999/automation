@@ -1,0 +1,49 @@
+{
+  "title": "Prompt Engineering 101: Viết Prompt Hiệu Quả",
+  "author": "Prompt Engineer",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Prompt Engineering 101",
+      "subheadline": "Nghệ thuật giao tiếp với AI"
+    },
+    {
+      "type": "content",
+      "headline": "Cấu trúc chuẩn",
+      "subheadline": "Framework",
+      "content": "Instruction (Lệnh) + Context (Bối cảnh) + Input Data (Dữ liệu) + Output Indicator (Định dạng đầu ra)."
+    },
+    {
+      "type": "content",
+      "headline": "Rõ ràng & Cụ thể",
+      "subheadline": "Be Specific",
+      "content": "Thay vì 'Viết bài hay', hãy nói 'Viết bài blog 500 từ về SEO, giọng văn chuyên nghiệp'."
+    },
+    {
+      "type": "content",
+      "headline": "Few-Shot Prompting",
+      "subheadline": "Cho ví dụ",
+      "content": "Cung cấp 1-2 ví dụ mẫu về input và output mong muốn để AI học theo."
+    },
+    {
+      "type": "content",
+      "headline": "Chain of Thought",
+      "subheadline": "Tư duy",
+      "content": "Yêu cầu AI 'Hãy suy nghĩ từng bước' (Let's think step by step) để giải quyết vấn đề logic."
+    },
+    {
+      "type": "list",
+      "headline": "Công cụ hỗ trợ",
+      "content": [
+        "OpenAI Playground",
+        "Anthropic Console",
+        "Prompt Library"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Luyện tập ngay",
+      "content": "Viết prompt tốt hơn mỗi ngày để làm chủ AI."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Facebook Auto-Posting: Complete Workflow",
+  "author": "Social Bot",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Facebook Auto-Posting",
+      "subheadline": "Workflow đăng bài tự động từ A-Z"
+    },
+    {
+      "type": "content",
+      "headline": "Mô hình chung",
+      "subheadline": "Flow dữ liệu",
+      "content": "Content Plan (Sheets) -> Trigger (N8N) -> Get Image (Drive) -> Post (FB API) -> Update Status (Sheets)."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 1: Content Plan",
+      "subheadline": "Google Sheets",
+      "content": "Lên lịch bài viết: Caption, Link ảnh, Giờ đăng."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 2: N8N Trigger",
+      "subheadline": "Cron Job",
+      "content": "N8N check Sheet mỗi 15 phút. Lấy bài có giờ đăng <= giờ hiện tại và chưa đăng."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 3: Đăng bài",
+      "subheadline": "API Facebook",
+      "content": "Node HTTP Request gọi API Graph Facebook để upload ảnh và đăng status."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 4: Cập nhật",
+      "subheadline": "Done",
+      "content": "N8N quay lại Sheet đánh dấu bài đó là 'Đã đăng'."
+    },
+    {
+      "type": "list",
+      "headline": "Lưu ý",
+      "content": [
+        "Token Facebook 60 ngày",
+        "Kích thước ảnh chuẩn",
+        "Hạn chế spam"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Setup ngay",
+      "content": "Để Fanpage luôn sống động 24/7."
+    }
+  ]
+}

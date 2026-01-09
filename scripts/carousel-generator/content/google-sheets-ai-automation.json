@@ -1,0 +1,49 @@
+{
+  "title": "Google Sheets + AI: Tự Động Hóa Toàn Bộ",
+  "author": "Sheet Master",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Google Sheets + AI",
+      "subheadline": "Biến bảng tính thành cỗ máy thông minh"
+    },
+    {
+      "type": "content",
+      "headline": "1. AI Formula",
+      "subheadline": "Hàm AI",
+      "content": "Dùng các add-on như GPT for Sheets. Viết hàm =GPT(\"Viết email chào hàng cho khách này\", A2) ngay trong ô."
+    },
+    {
+      "type": "content",
+      "headline": "2. Phân loại dữ liệu",
+      "subheadline": "Tự động tag",
+      "content": "Tự động phân loại feedback khách hàng (Tích cực/Tiêu cực) hàng loạt."
+    },
+    {
+      "type": "content",
+      "headline": "3. Clean Data",
+      "subheadline": "Làm sạch",
+      "content": "AI tự động sửa lỗi chính tả, chuẩn hóa định dạng số điện thoại, địa chỉ."
+    },
+    {
+      "type": "content",
+      "headline": "4. Tự động báo cáo",
+      "subheadline": "Insights",
+      "content": "AI tóm tắt số liệu, tìm xu hướng và viết nhận xét báo cáo hàng tuần."
+    },
+    {
+      "type": "list",
+      "headline": "Công cụ",
+      "content": [
+        "App Script",
+        "GPT for Sheets",
+        "N8N integration"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Tối ưu ngay",
+      "content": "Đừng lãng phí thời gian copy-paste nữa!"
+    }
+  ]
+}

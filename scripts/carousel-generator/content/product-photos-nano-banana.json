@@ -1,0 +1,50 @@
+{
+  "title": "Tạo Product Photos Chuyên Nghiệp Với Nano Banana",
+  "author": "Nano Banana",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Product Photos Đỉnh Cao",
+      "subheadline": "Chụp ảnh sản phẩm không cần Studio với Nano Banana"
+    },
+    {
+      "type": "content",
+      "headline": "Tại sao dùng AI?",
+      "subheadline": "Tiết kiệm chi phí & thời gian",
+      "content": "Không cần thuê studio, nhiếp ảnh gia hay mua thiết bị đắt tiền. Chỉ cần Nano Banana và ý tưởng của bạn."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 1: Chuẩn bị",
+      "subheadline": "Hình ảnh gốc",
+      "content": "Chụp ảnh sản phẩm rõ nét trên nền trắng hoặc tách nền sẵn. Đảm bảo ánh sáng đều."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 2: Viết Prompt",
+      "subheadline": "Mô tả bối cảnh",
+      "content": "Ví dụ: 'Product photography of a perfume bottle on a marble table, surrounded by flowers, soft sunlight, elegant atmosphere.'"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 3: Inpainting/Editing",
+      "subheadline": "Chỉnh sửa chi tiết",
+      "content": "Sử dụng tính năng Inpainting để thay đổi nền hoặc thêm bớt chi tiết nhỏ cho hoàn hảo."
+    },
+    {
+      "type": "list",
+      "headline": "Lợi ích",
+      "content": [
+        "Tốc độ cực nhanh",
+        "Đa dạng bối cảnh",
+        "Chi phí thấp",
+        "Chất lượng cao 4K"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Bắt đầu ngay!",
+      "content": "Tạo bộ ảnh sản phẩm đầu tiên của bạn với Nano Banana hôm nay!"
+    }
+  ]
+}

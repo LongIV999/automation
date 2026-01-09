@@ -1,0 +1,55 @@
+{
+  "title": "5 Sai Lầm Khi Tự Động Hóa Content",
+  "author": "Auto Expert",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "5 Sai Lầm Automation",
+      "subheadline": "Cẩn thận kẻo 'nghiệp quật'"
+    },
+    {
+      "type": "content",
+      "headline": "1. Spam vô tội vạ",
+      "subheadline": "Số lượng > Chất lượng",
+      "content": "Đăng quá nhiều bài rác khiến khán giả unfollow."
+    },
+    {
+      "type": "content",
+      "headline": "2. Thiếu kiểm soát",
+      "subheadline": "Bỏ mặc AI",
+      "content": "Không review nội dung AI tạo ra, dính lỗi ngớ ngẩn hoặc thông tin sai lệch."
+    },
+    {
+      "type": "content",
+      "headline": "3. Bỏ qua tương tác",
+      "subheadline": "Vô cảm",
+      "content": "Chỉ đăng mà không reply comment, không tương tác lại với cộng đồng."
+    },
+    {
+      "type": "content",
+      "headline": "4. Phụ thuộc tool",
+      "subheadline": "Mất gốc",
+      "content": "Khi tool lỗi hoặc đổi thuật toán, hệ thống sụp đổ vì không biết làm thủ công."
+    },
+    {
+      "type": "content",
+      "headline": "5. Lộ liễu",
+      "subheadline": "Robot voice",
+      "content": "Để nguyên văn phong của AI (kiểu 'Là một mô hình ngôn ngữ...'), mất tính người."
+    },
+    {
+      "type": "list",
+      "headline": "Lời khuyên",
+      "content": [
+        "Review trước khi post",
+        "Giữ tương tác thật",
+        "Update kiến thức"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Làm đúng ngay",
+      "content": "Automation là đòn bẩy, không phải thay thế hoàn toàn."
+    }
+  ]
+}

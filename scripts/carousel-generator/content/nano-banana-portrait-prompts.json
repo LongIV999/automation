@@ -1,0 +1,56 @@
+{
+  "title": "Top 7 Nano Banana Prompts Cho Portrait Photography",
+  "author": "Nano Banana",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Top 7 Nano Banana Prompts",
+      "subheadline": "Tuyệt kĩ chụp ảnh chân dung AI siêu thực"
+    },
+    {
+      "type": "content",
+      "headline": "1. Cinematic Lighting",
+      "subheadline": "Ánh sáng điện ảnh",
+      "content": "Prompt: 'Hyper-realistic portrait, cinematic lighting, dramatic shadows, 8k resolution, detailed texture.'\nKết quả: Ảnh có chiều sâu, ánh sáng ấn tượng như phim."
+    },
+    {
+      "type": "content",
+      "headline": "2. Studio Headshot",
+      "subheadline": "Chân dung Studio",
+      "content": "Prompt: 'Professional headshot, studio lighting, neutral background, sharp focus, high definition.'\nKết quả: Ảnh profile chuyên nghiệp, sắc nét."
+    },
+    {
+      "type": "content",
+      "headline": "3. Outdoor Natural",
+      "subheadline": "Ánh sáng tự nhiên",
+      "content": "Prompt: 'Portrait of a woman in a park, golden hour sunlight, bokeh background, natural smile, candid style.'\nKết quả: Ảnh tươi sáng, tự nhiên, nền xóa phông đẹp."
+    },
+    {
+      "type": "content",
+      "headline": "4. Cyberpunk Style",
+      "subheadline": "Phong cách tương lai",
+      "content": "Prompt: 'Cyberpunk portrait, neon lights, futuristic fashion, glowing accessories, rainy city background.'\nKết quả: Ảnh phong cách Sci-fi, màu sắc neon nổi bật."
+    },
+    {
+      "type": "content",
+      "headline": "5. Vintage Film",
+      "subheadline": "Màu phim cổ điển",
+      "content": "Prompt: 'Vintage film portrait, grain texture, faded colors, nostalgic vibe, 1980s fashion.'\nKết quả: Ảnh mang hoài niệm, màu retro."
+    },
+    {
+      "type": "list",
+      "headline": "Mẹo Tối Ưu Prompt",
+      "content": [
+        "Thêm từ khóa ánh sáng (lighting)",
+        "Chỉ định rõ góc máy (angle)",
+        "Mô tả chi tiết trang phục (clothing)",
+        "Sử dụng tỉ lệ khung hình phù hợp (--ar)"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Thử Ngay!",
+      "content": "Follow Nano Banana để cập nhật thêm nhiều prompt xịn sò!"
+    }
+  ]
+}

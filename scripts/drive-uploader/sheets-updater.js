@@ -44,12 +44,12 @@ async function authorize() {
 /**
  * Đọc header row để xác định vị trí các cột
  */
-async function getColumnMapping(auth) {
+async function getColumnMapping(auth, spreadsheetId = CONFIG.spreadsheetId) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   try {
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: CONFIG.spreadsheetId,
+      spreadsheetId: spreadsheetId,
       range: `${CONFIG.sheetName}!A1:Z1`
     });
 
@@ -71,12 +71,12 @@ async function getColumnMapping(auth) {
 /**
  * Tìm row trống tiếp theo
  */
-async function getNextEmptyRow(auth) {
+async function getNextEmptyRow(auth, spreadsheetId = CONFIG.spreadsheetId) {
   const sheets = google.sheets({ version: 'v4', auth });
 
   try {
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: CONFIG.spreadsheetId,
+      spreadsheetId: spreadsheetId,
       range: `${CONFIG.sheetName}!A:A`
     });
 
@@ -99,19 +99,34 @@ async function getNextEmptyRow(auth) {
  * @param {string} postData.status - Status (default: "Ready")
  * @param {string} postData.topic - Topic/Category
  */
+/**
+ * Thêm post mới vào Google Sheets
+ * @param {Object} postData - Dữ liệu post
+ * @param {string} postData.postId - ID của post (tùy chọn, sẽ tự tạo)
+ * @param {string} postData.folderId - Google Drive Folder ID
+ * @param {string} postData.folderLink - Link đến folder
+ * @param {string} postData.folderName - Tên folder
+ * @param {string} postData.caption - Caption cho post
+ * @param {string} postData.status - Status (default: "Ready")
+ * @param {string} postData.topic - Topic/Category
+ * @param {string} postData.spreadsheetId - Override default Spreadsheet ID
+ */
 async function addPostToSheets(postData) {
   console.log('\n📊 Updating Google Sheets...');
+
+  // Determine which spreadsheet to use
+  const spreadsheetId = postData.spreadsheetId || CONFIG.spreadsheetId;
 
   try {
     const auth = await authorize();
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Lấy column mapping
-    const columns = await getColumnMapping(auth);
-    console.log('✓ Column mapping loaded');
+    // Lấy column mapping - Pass spreadsheetId explicitly
+    const columns = await getColumnMapping(auth, spreadsheetId);
+    console.log(`✓ Column mapping loaded for Sheet: ${spreadsheetId.substring(0, 10)}...`);
 
-    // Tìm row trống
-    const nextRow = await getNextEmptyRow(auth);
+    // Tìm row trống - Pass spreadsheetId explicitly
+    const nextRow = await getNextEmptyRow(auth, spreadsheetId);
     console.log(`✓ Next empty row: ${nextRow}`);
 
     // Chuẩn bị data
@@ -148,7 +163,7 @@ async function addPostToSheets(postData) {
     // Batch update
     if (updates.length > 0) {
       await sheets.spreadsheets.values.batchUpdate({
-        spreadsheetId: CONFIG.spreadsheetId,
+        spreadsheetId: spreadsheetId,
         resource: {
           valueInputOption: 'USER_ENTERED',
           data: updates
@@ -157,7 +172,7 @@ async function addPostToSheets(postData) {
 
       console.log('✅ Google Sheets updated successfully!');
       console.log(`📝 Row ${nextRow}: ${rowData.Post_ID}`);
-      console.log(`🔗 Sheet: https://docs.google.com/spreadsheets/d/${CONFIG.spreadsheetId}`);
+      console.log(`🔗 Sheet: https://docs.google.com/spreadsheets/d/${spreadsheetId}`);
 
       return {
         success: true,

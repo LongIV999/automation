@@ -44,7 +44,7 @@ async function generateCarousel(contentData, outputPath = CONFIG.outputDir) {
         await page.setViewport({
             width: CONFIG.slideWidth,
             height: CONFIG.slideHeight,
-            deviceScaleFactor: 2 // Retina quality
+            deviceScaleFactor: 3 // Higher density for crispness
         });
 
         // Set default timeout
@@ -147,7 +147,7 @@ function createSlideHTML(slideData, slideNumber, globalData) {
             padding: 80px 60px; /* More padding top */
             display: flex;
             flex-direction: column;
-            justify-content: ${type === 'title' ? 'center' : 'flex-start'};
+            justify-content: ${type === 'title' || slideNumber >= 2 ? 'center' : 'flex-start'};
             position: relative;
             background-image: 
                 radial-gradient(circle at 10% 10%, rgba(74, 124, 89, 0.05) 0%, transparent 40%),
@@ -253,13 +253,7 @@ function createSlideHTML(slideData, slideNumber, globalData) {
         }
 
         li::before {
-            content: '•'; /* Simple bullet or check */
-            position: absolute;
-            left: 0;
-            color: var(--accent-terracotta);
-            font-weight: bold;
-            font-size: 50px;
-            line-height: 0.6;
+             content: ''; /* Removed default bullet per user request */
         }
         
         /* Box for quotes or emphasis */
