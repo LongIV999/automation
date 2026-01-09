@@ -1,0 +1,517 @@
+{
+    "name": "autopost-tvland",
+    "nodes": [
+        {
+            "parameters": {
+                "path": "a7a26624-4877-44cd-97f7-4f76e2f31b12",
+                "responseMode": "lastNode",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ],
+            "id": "webhook-trigger",
+            "name": "Webhook"
+        },
+        {
+            "parameters": {
+                "resource": "fileFolder",
+                "filter": {
+                    "folderId": {
+                        "__rl": true,
+                        "value": "={{ $json.Drive_Folder_ID }}",
+                        "mode": "url"
+                    }
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+                416,
+                0
+            ],
+            "id": "86784a2f-8498-44f6-af28-1af8ce139520",
+            "name": "Search files and folders",
+            "credentials": {
+                "googleDriveOAuth2Api": {
+                    "id": "1YqDYTAoUT0ShbXU",
+                    "name": "Google Drive account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "documentId": {
+                    "__rl": true,
+                    "value": "1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY",
+                    "mode": "list",
+                    "cachedResultName": "Ke Hoach Noi Dung TVLand",
+                    "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY/edit?usp=sharing"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Content",
+                    "mode": "list",
+                    "cachedResultName": "Content",
+                    "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY/edit?usp=sharing"
+                },
+                "filtersUI": {
+                    "values": [
+                        {
+                            "lookupColumn": "Status",
+                            "lookupValue": "Ready"
+                        }
+                    ]
+                },
+                "options": {
+                    "returnFirstMatch": true
+                }
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+                224,
+                0
+            ],
+            "id": "3215b1a6-1f05-4996-8814-892d858e4232",
+            "name": "Get row(s) in sheet1",
+            "credentials": {
+                "googleSheetsOAuth2Api": {
+                    "id": "UEq1E8RtTrIXqO4R",
+                    "name": "Google Sheets account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "jsCode": "// Lấy toàn bộ item từ node trước\nconst items = $input.all();\n\n// Sắp xếp theo tên file (name), dạng tự nhiên (1.png < 2.png < 10.png)\nitems.sort((a, b) => {\n  const nameA = a.json.name.toLowerCase();\n  const nameB = b.json.name.toLowerCase();\n  return nameA.localeCompare(nameB, undefined, { numeric: true });\n});\n\n// Trả từng item ra lại (vì n8n expects array of items)\nreturn items;\n"
+            },
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                624,
+                0
+            ],
+            "id": "b7065eac-2414-45de-9f4f-3c7cd37c423d",
+            "name": "Code in JavaScript"
+        },
+        {
+            "parameters": {
+                "url": "https://graph.facebook.com/v19.0/me/photos",
+                "method": "POST",
+                "authentication": "none",
+                "sendBinaryData": true,
+                "binaryPropertyName": "data",
+                "options": {
+                    "bodyContentType": "multipart-form-data",
+                    "queryParameters": {
+                        "parameter": [
+                            {
+                                "name": "published",
+                                "value": "false"
+                            }
+                        ]
+                    }
+                },
+                "headers": {
+                    "header": [
+                        {
+                            "name": "Authorization",
+                            "value": "Bearer EAAIlEVK0LRYBQVMB8cfqSy4ZBe1YfnZAu2ee6ZB70fnhYP9hW6cVKfIYGAFpJcPC8fmRl9wQUzliTC0BWSt6Tb2jnVWAut3GCI8U4iwkthEZCmTU6mLNacP8kvuQAHaCYMWNHymmi7iZBmWipV3JlocbTrGXiTJlD7YciB7p7sdEEWfvZC7lLDqpZCBpCOMxIF0ogpqdiuz9tZAlQoQXiQaO"
+                        }
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                1408,
+                80
+            ],
+            "id": "a5ead07c-c1df-4dd1-a25f-6cb2ffe18739",
+            "name": "Facebook Graph API"
+        },
+        {
+            "parameters": {
+                "options": {}
+            },
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+                896,
+                -16
+            ],
+            "id": "62542892-9eb4-4117-9c19-8e44655035b0",
+            "name": "Loop Over Items"
+        },
+        {
+            "parameters": {
+                "operation": "download",
+                "fileId": {
+                    "__rl": true,
+                    "value": "={{ $json.id }} ",
+                    "mode": "id"
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+                1168,
+                32
+            ],
+            "id": "7d3cb2e6-24bf-479e-8f34-efd6289889fd",
+            "name": "Download file",
+            "credentials": {
+                "googleDriveOAuth2Api": {
+                    "id": "1YqDYTAoUT0ShbXU",
+                    "name": "Google Drive account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "assignments": {
+                    "assignments": [
+                        {
+                            "id": "071f9a67-8451-4863-b437-1abe04a57236",
+                            "name": "media_fbid",
+                            "value": "={{ $json.id }}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                1184,
+                -128
+            ],
+            "id": "4b4e0466-40ae-441d-99c8-cddf00dda861",
+            "name": "Edit Fields"
+        },
+        {
+            "parameters": {
+                "aggregate": "aggregateAllItemData",
+                "destinationFieldName": "attached_media",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.aggregate",
+            "typeVersion": 1,
+            "position": [
+                1392,
+                -128
+            ],
+            "id": "e2d37f88-2b07-4ae4-9e99-231dfa114006",
+            "name": "Aggregate"
+        },
+        {
+            "parameters": {
+                "url": "https://graph.facebook.com/v19.0/me/feed",
+                "method": "POST",
+                "authentication": "none",
+                "sendBinaryData": false,
+                "options": {
+                    "bodyContentType": "json"
+                },
+                "bodyParameters": {
+                    "parameter": [
+                        {
+                            "name": "message",
+                            "value": "={{ $('Get row(s) in sheet1').item.json.Caption }}"
+                        },
+                        {
+                            "name": "attached_media",
+                            "value": "={{ $json.attached_media }}"
+                        }
+                    ]
+                },
+                "headers": {
+                    "header": [
+                        {
+                            "name": "Authorization",
+                            "value": "Bearer EAAIlEVK0LRYBQVMB8cfqSy4ZBe1YfnZAu2ee6ZB70fnhYP9hW6cVKfIYGAFpJcPC8fmRl9wQUzliTC0BWSt6Tb2jnVWAut3GCI8U4iwkthEZCmTU6mLNacP8kvuQAHaCYMWNHymmi7iZBmWipV3JlocbTrGXiTJlD7YciB7p7sdEEWfvZC7lLDqpZCBpCOMxIF0ogpqdiuz9tZAlQoQXiQaO"
+                        }
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                1600,
+                -128
+            ],
+            "id": "fc917da5-26c6-49af-b218-c70a7c843759",
+            "name": "Facebook Graph API1"
+        },
+        {
+            "parameters": {
+                "operation": "update",
+                "documentId": {
+                    "__rl": true,
+                    "value": "1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY",
+                    "mode": "list",
+                    "cachedResultName": "Ke Hoach Noi Dung TVLand",
+                    "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY"
+                },
+                "sheetName": {
+                    "__rl": true,
+                    "value": "Content",
+                    "mode": "list",
+                    "cachedResultName": "Content",
+                    "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY/edit#gid=0"
+                },
+                "columns": {
+                    "mappingMode": "defineBelow",
+                    "value": {
+                        "row_number": "={{ $('Get row(s) in sheet1').item.json.row_number }}",
+                        "Link bài Post": "=fb.com/{{ $json.id }}",
+                        "Trạng Thái": "Hoàn Thành"
+                    },
+                    "matchingColumns": [
+                        "row_number"
+                    ],
+                    "schema": [
+                        {
+                            "id": "Ngày",
+                            "displayName": "Ngày",
+                            "required": false,
+                            "defaultMatch": false,
+                            "display": true,
+                            "type": "string",
+                            "canBeUsedToMatch": true
+                        },
+                        {
+                            "id": "Giờ",
+                            "displayName": "Giờ",
+                            "required": false,
+                            "defaultMatch": false,
+                            "display": true,
+                            "type": "string",
+                            "canBeUsedToMatch": true
+                        },
+                        {
+                            "id": "Nội dung",
+                            "displayName": "Nội dung",
+                            "required": false,
+                            "defaultMatch": false,
+                            "display": true,
+                            "type": "string",
+                            "canBeUsedToMatch": true
+                        },
+                        {
+                            "id": "Hình Ảnh",
+                            "displayName": "Hình Ảnh",
+                            "required": false,
+                            "defaultMatch": false,
+                            "display": true,
+                            "type": "string",
+                            "canBeUsedToMatch": true
+                        },
+                        {
+                            "id": "Link bài Post",
+                            "displayName": "Link bài Post",
+                            "required": false,
+                            "defaultMatch": false,
+                            "display": true,
+                            "type": "string",
+                            "canBeUsedToMatch": true
+                        },
+                        {
+                            "id": "Trạng Thái",
+                            "displayName": "Trạng Thái",
+                            "required": false,
+                            "defaultMatch": false,
+                            "display": true,
+                            "type": "string",
+                            "canBeUsedToMatch": true
+                        }
+                    ],
+                    "attemptToConvertTypes": false,
+                    "convertFieldsToString": false
+                },
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 4.7,
+            "position": [
+                1808,
+                -128
+            ],
+            "id": "09f241f4-090a-4cfb-a358-9822d6cb831b",
+            "name": "Update row in sheet",
+            "credentials": {
+                "googleSheetsOAuth2Api": {
+                    "id": "UEq1E8RtTrIXqO4R",
+                    "name": "Google Sheets account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "hours"
+                        }
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1.3,
+            "position": [
+                -16,
+                0
+            ],
+            "id": "6c3a299f-4374-40b2-8984-da8c9d0a0203",
+            "name": "Schedule Trigger"
+        }
+    ],
+    "pinData": {},
+    "connections": {
+        "Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Get row(s) in sheet1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Search files and folders": {
+            "main": [
+                [
+                    {
+                        "node": "Code in JavaScript",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Code in JavaScript": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Over Items",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Facebook Graph API": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Over Items",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Loop Over Items": {
+            "main": [
+                [
+                    {
+                        "node": "Edit Fields",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Download file",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Download file": {
+            "main": [
+                [
+                    {
+                        "node": "Facebook Graph API",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Edit Fields": {
+            "main": [
+                [
+                    {
+                        "node": "Aggregate",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Aggregate": {
+            "main": [
+                [
+                    {
+                        "node": "Facebook Graph API1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Facebook Graph API1": {
+            "main": [
+                [
+                    {
+                        "node": "Update row in sheet",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Get row(s) in sheet1": {
+            "main": [
+                [
+                    {
+                        "node": "Search files and folders",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Schedule Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Get row(s) in sheet1",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "active": false,
+    "settings": {
+        "executionOrder": "v1",
+        "timeSavedMode": "fixed",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "callerPolicy": "workflowsFromSameOwner",
+        "executionTimeout": -1,
+        "availableInMCP": true
+    },
+    "tags": []
+}

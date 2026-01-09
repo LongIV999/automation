@@ -1,0 +1,50 @@
+{
+  "title": "5 Mẹo Sử Dụng AI Hiệu Quả - Từ Zero Đến Hero",
+  "author": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "5 Mẹo AI Bạn Cần Biết",
+      "subheadline": "Từ người dùng bình thường thành AI Power User"
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo #1: Prompt Cụ Thể",
+      "subheadline": "Đừng hỏi chung chung, hãy chi tiết!",
+      "content": "❌ SAI: 'Viết bài về marketing'\n\n✅ ĐÚNG: 'Viết bài 500 từ về Facebook Ads cho shop thời trang, target nữ 18-25 tuổi, tone trẻ trung, có 3 tips cụ thể'"
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo #2: Cho AI Vai Trò",
+      "subheadline": "Biến AI thành chuyên gia",
+      "content": "Bắt đầu prompt bằng:\n\n'Bạn là chuyên gia Marketing 10 năm kinh nghiệm...'\n\n'Bạn là designer chuyên nghiệp...'\n\n→ AI sẽ trả lời chuyên sâu hơn!"
+    },
+    {
+      "type": "list",
+      "headline": "Mẹo #3: Dùng Few-Shot Learning",
+      "content": [
+        "Cho AI xem ví dụ trước khi yêu cầu",
+        "Ví dụ: 'Như kiểu này: [mẫu], bây giờ làm cho topic khác'",
+        "AI sẽ hiểu phong cách bạn muốn",
+        "Tỷ lệ thành công tăng 80%"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo #4: Break Down Tasks",
+      "subheadline": "Chia nhỏ thành từng bước",
+      "content": "❌ SAI: 'Tạo campaign marketing hoàn chỉnh'\n\n✅ ĐÚNG:\n1. 'Brainstorm 10 ý tưởng campaign'\n2. 'Chọn ý tưởng hay nhất và viết outline'\n3. 'Viết copy cho từng phần'"
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo #5: Iterative Refinement",
+      "subheadline": "Cải thiện dần, đừng mong hoàn hảo ngay",
+      "content": "Lần 1: 'Viết draft'\nLần 2: 'Làm ngắn gọn hơn'\nLần 3: 'Thêm số liệu cụ thể'\nLần 4: 'Tone trẻ trung hơn'\n\n→ Mỗi lần một tốt hơn!"
+    },
+    {
+      "type": "cta",
+      "headline": "Apply Ngay!",
+      "content": "5 mẹo này sẽ tăng hiệu quả AI lên 10 lần!"
+    }
+  ]
+}

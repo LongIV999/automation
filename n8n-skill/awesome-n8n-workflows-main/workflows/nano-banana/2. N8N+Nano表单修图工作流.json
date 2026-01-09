@@ -1,0 +1,457 @@
+{
+  "name": "2. N8N+Nano表单修图工作流",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "AI图像创作助手 - Gemini Nano",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "提示词",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "参考图",
+              "fieldType": "file",
+              "acceptFileTypes": ".jpg,.png,.jpeg"
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        240
+      ],
+      "id": "f3a34f52-0e6d-4c92-884c-ae122546b846",
+      "name": "On form submission",
+      "webhookId": "form-webhook-id"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Code节点 - 组装payload并初始化重试计数\nconst inputItems = $input.all();\nconst firstItem = $input.first();\nconst prompt = firstItem.json[\"提示词\"];\n\n// 收集所有图片的 binary 属性名及元数据\nconst images = [];\nfor (let itemIndex = 0; itemIndex < inputItems.length; itemIndex++) {\n  const item = inputItems[itemIndex];\n  if (!item.binary) continue;\n\n  for (const [fieldName, binaryData] of Object.entries(item.binary)) {\n    if (binaryData?.mimeType?.startsWith('image/')) {\n      images.push({\n        itemIndex,\n        propertyName: fieldName,\n        mimeType: binaryData.mimeType,\n        fileName: binaryData.fileName || `${fieldName}`,\n      });\n    }\n  }\n}\n\n// 构建 content 数组\nconst content = [];\nif (prompt && String(prompt).trim()) {\n  content.push({\n    type: \"text\",\n    text: String(prompt).trim(),\n  });\n}\n\n// 将图片转为 data URL（兼容 filesystem / 内存）\nasync function toDataUrl(itemIndex, propertyName, mime) {\n  // 官方推荐的方式：通过 helper 获取真实 Buffer\n  const buf = await this.helpers.getBinaryDataBuffer(itemIndex, propertyName); // docs: getBinaryDataBuffer\n  const b64 = buf.toString('base64');\n  return `data:${mime || 'application/octet-stream'};base64,${b64}`;\n}\n\n// 处理图片（若存在）\nfor (const img of images) {\n  const dataUrl = await toDataUrl.call(this, img.itemIndex, img.propertyName, img.mimeType);\n  content.push({\n    type: \"image_url\",\n    image_url: { url: dataUrl },\n  });\n}\n\n// 若既无文本也无图片，则补一条默认文本\nif (content.length === 0) {\n  content.push({\n    type: \"text\",\n    text: \"请分析这个内容\",\n  });\n}\n\n// 构建 payload\nconst payload = {\n  model: \"google/gemini-2.5-flash-image-preview:free\",\n  messages: [\n    {\n      role: \"user\",\n      content,\n    },\n  ],\n};\n\n// 返回 payload 和重试计数\nreturn [\n  {\n    json: {\n      apiPayload: payload,\n      retryCount: 0,\n      maxRetries: 5,\n      originalFormData: firstItem.json,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        240
+      ],
+      "id": "9e027fd6-ff8e-4670-91c5-3aee2f9e1439",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openRouterApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.apiPayload }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        912,
+        240
+      ],
+      "id": "c1d16d0e-15d0-4ba1-b6f4-bf1dcee35832",
+      "name": "HTTP Request",
+      "credentials": {
+        "openRouterApi": {
+          "id": "Gznd0x5bFCQLHmnw",
+          "name": "OpenRouter account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "merge-api-response",
+              "name": "apiResponse",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "id": "keep-max-retries",
+              "name": "maxRetries",
+              "value": "={{ $('Code').item.json.maxRetries }}",
+              "type": "number"
+            },
+            {
+              "id": "keep-api-payload",
+              "name": "apiPayload",
+              "value": "={{ $('Code').item.json.apiPayload }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1136,
+        192
+      ],
+      "id": "2d9ccbb3-6437-426f-a50b-327f2c622f40",
+      "name": "Merge Response Data"
+    },
+    {
+      "parameters": {
+        "errorMessage": "网络连接失败，请稍后重试"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        352
+      ],
+      "id": "3c0a64a6-b4f2-4f20-8a20-c693d0dd0491",
+      "name": "Network Error"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "content-filter-check",
+              "leftValue": "={{ $json.apiResponse.choices[0].finish_reason === \"content_filter\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1328,
+        160
+      ],
+      "id": "0d595785-1f04-4978-a693-d2b5c4df3652",
+      "name": "Content Filter Check"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "抱歉，您的内容包含不当信息",
+        "completionMessage": "请重新上传参考图或者修改提示词后重试",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        1536,
+        32
+      ],
+      "id": "4b32f4b7-ef49-4a0b-a956-cf0dfb5c553d",
+      "name": "Prohibited Content End",
+      "webhookId": "prohibited-webhook-id"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "image-exists-check",
+              "leftValue": "={{ $json.apiResponse.choices[0].message.images }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1536,
+        240
+      ],
+      "id": "ceabc7fc-b4e3-4192-9092-f9fcfaba4b98",
+      "name": "Image Check"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1728,
+        368
+      ],
+      "id": "bfec1758-ad40-4418-ba3c-70f26621b1a9",
+      "name": "Wait",
+      "webhookId": "wait-webhook-id"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "extract-base64",
+              "name": "base",
+              "value": "={{ $json.apiResponse.choices[0].message.images[0].image_url.url.split(\",\")[1] }}",
+              "type": "string"
+            },
+            {
+              "id": "extract-mime",
+              "name": "mime",
+              "value": "={{ $json.apiResponse.choices[0].message.images[0].image_url.url.match(/^data:([^;]+)/)[1] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1744,
+        128
+      ],
+      "id": "c9036d14-a563-4a4c-8abd-39332d9ec50b",
+      "name": "Extract Image Data"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "base",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1936,
+        128
+      ],
+      "id": "554fcbc9-cb7c-4e38-af88-12da80d75dc3",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "respondWith": "returnBinary",
+        "completionTitle": "🎉 您的图片已生成完成！",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 1,
+      "position": [
+        2096,
+        128
+      ],
+      "id": "e76cd19b-62c9-4048-9eae-0aaf91e67062",
+      "name": "Success Form",
+      "webhookId": "success-webhook-id"
+    },
+    {
+      "parameters": {
+        "content": "#### 配置 OpenRouter 凭证 👇",
+        "height": 80,
+        "width": 214,
+        "color": 3
+      },
+      "id": "4b9c146d-13e1-46a0-8f23-eac2935516d5",
+      "name": "Sticky Note12",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        848,
+        192
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 🎨 N8N+Nano表单修图工作流\n#### [AI自动化场景实战课：让重复工作成为过去式](https://dcn0h1uoszk5.feishu.cn/wiki/C0i9wU5S4iPWIJkONKEcbNktnAd)\n\n\n📋 基本信息\n• 工作流名称: Nano-Form-Image-Editor\n• 版本: v1.0.0\n• 技术栈: N8N + OpenRouter + Form Trigger\n• 支持模式: 文生图 + 图片修图\n\n🎯 功能概述\n基于表单的AI图像创作助手，支持纯文生图和上传图片修图两种模式。\n用户通过表单界面提交提示词和可选参考图，系统智能识别需求并调用 Nano 模型生成高质量图片。\n\n⚙️ 配置说明\n1. Form Trigger配置\n   ○ 表单标题: AI图像创作助手 - Gemini Nano\n   ○ 提示词字段: 必填文本域，支持详细描述\n   ○ 参考图字段: 可选文件上传，支持.jpg/.png/.jpeg\n\n2. Code节点关键逻辑\n   ○ 智能识别上传的图片文件\n   ○ 自动组装多模态API请求体\n   ○ 处理文本+图片的复合输入\n\n\n💡 使用场景\n• 纯文生图: 只填写提示词，快速生成创意图片\n• AI修图: 上传参考图+描述需求，智能图片编辑\n• 风格转换: 将现有图片转换为不同艺术风格\n• 角色创作: 根据描述生成角色形象或手办效果",
+        "height": 720,
+        "width": 2208,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        64,
+        -128
+      ],
+      "typeVersion": 1,
+      "id": "7c7c99d4-b4ce-4b80-9717-7c34c48bfb00",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Merge Response Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Network Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Response Data": {
+      "main": [
+        [
+          {
+            "node": "Content Filter Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Filter Check": {
+      "main": [
+        [
+          {
+            "node": "Prohibited Content End",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Image Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Check": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Extract Image Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Image Data": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Success Form",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0a055525-1458-469b-ac1a-1bf316266ece",
+  "meta": {
+    "instanceId": "382e376cf0c77261ab58b52fb5203072e6f3d632e43adf5a68c3823147c39dcd"
+  },
+  "id": "V0iU3KKKxKRvX725",
+  "tags": []
+}

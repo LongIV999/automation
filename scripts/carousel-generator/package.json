@@ -1,0 +1,17 @@
+{
+  "name": "longbest-carousel-generator",
+  "version": "1.0.0",
+  "description": "Tự động generate carousel images cho Long Best AI",
+  "main": "generator.js",
+  "scripts": {
+    "generate": "node generator.js",
+    "test": "node test-generator.js"
+  },
+  "keywords": ["carousel", "image-generation", "automation"],
+  "author": "Long Best AI",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "dotenv": "^16.0.0"
+  }
+}

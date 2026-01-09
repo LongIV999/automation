@@ -1,0 +1,56 @@
+{
+  "title": "Top Nano Banana Prompts - Tạo Ảnh Đẹp Như Thần",
+  "author": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "7 Prompt Nano Banana Đỉnh Cao",
+      "subheadline": "Từ thực tế thành nghệ thuật chỉ trong 1 câu lệnh"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #1: Cinematic Portrait",
+      "subheadline": "Biến ảnh selfie thành poster điện ảnh",
+      "content": "/imagine A portrait in golden hour light, cinematic color grading, bokeh background, shallow depth of field, professional photography --style raw --ar 4:5"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #2: Product Photography",
+      "subheadline": "Chụp sản phẩm như studio chuyên nghiệp",
+      "content": "/imagine Clean white background, studio lighting, product shot from 45-degree angle, soft shadows, commercial photography, high-end advertisement --v 6"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #3: Street Photography",
+      "subheadline": "Phong cách National Geographic",
+      "content": "/imagine Urban street scene, dramatic natural light, candid moment, photojournalism style, gritty texture, Leica aesthetic, documentary photography --style raw"
+    },
+    {
+      "type": "list",
+      "headline": "Bí Quyết Prompt Hiệu Quả",
+      "content": [
+        "Chỉ định rõ LIGHTING (Golden hour, Studio, Neon)",
+        "Đặt CAMERA ANGLE (Dutch, Bird's eye, Macro)",
+        "Thêm STYLE reference (Cinematic, Minimalist)",
+        "Dùng --ar 4:5 cho Instagram, Facebook"
+      ]
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #4: Food Photography",
+      "subheadline": "Làm món ăn trở nên đắt giá gấp 10 lần",
+      "content": "/imagine Overhead flat lay, natural window light from left, rustic wooden table, food styling with fresh herbs, magazine editorial photography --ar 4:5"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #5: Artistic Relight",
+      "subheadline": "Thay đổi hoàn toàn không khí ảnh",
+      "content": "/imagine Neon cyberpunk lighting, purple and teal color scheme, moody atmosphere, dramatic rim light, futuristic aesthetic, high contrast --style raw"
+    },
+    {
+      "type": "cta",
+      "headline": "Sẵn Sàng Thử?",
+      "content": "Mở Nano Banana và copy các prompt này ngay!"
+    }
+  ]
+}

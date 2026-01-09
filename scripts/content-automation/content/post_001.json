@@ -1,0 +1,51 @@
+{
+    "title": "5 Nhóm Người Trước Làn Sóng AI",
+    "topic": "AI Personas",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "5 Nhóm Người Trước\nLàn Sóng AI",
+            "subheadline": "Bạn thuộc nhóm nào trong kỷ nguyên bùng nổ trí tuệ nhân tạo?",
+            "visual": "modern_ai_art"
+        },
+        {
+            "type": "content",
+            "headline": "1. Người Lạc Quan Công Nghệ",
+            "content": "Những người luôn sẵn sàng đón nhận và thử nghiệm mợi công cụ mới. Họ coi AI là trợ thủ đắc lực để tăng 10x năng suất.",
+            "visual": "optimist_graphic"
+        },
+        {
+            "type": "content",
+            "headline": "2. Người Hoài Nghi",
+            "content": "Luôn đặt câu hỏi về tính xác thực và đạo đức của AI. Họ lo ngại về sự thay thế con người và những mặt tối của công nghệ.",
+            "visual": "skeptic_graphic"
+        },
+        {
+            "type": "list",
+            "headline": "Đặc Điểm Nhóm Thích Nghi",
+            "content": [
+                "Học hỏi kỹ năng Prompt Engineering",
+                "Tích hợp AI vào workflow hàng ngày",
+                "Luôn cập nhật tin tức công nghệ",
+                "Tìm kiếm cơ hội mới từ AI"
+            ]
+        },
+        {
+            "type": "prompt",
+            "headline": "Thử Prompt Này Ngay",
+            "subheadline": "Dành cho nhóm muốn bắt đầu thích nghi",
+            "content": "Hãy đóng vai một chuyên gia tư vấn chiến lược, phân tích cách AI có thể tối ưu hóa quy trình làm việc trong lĩnh vực Marketing của tôi..."
+        },
+        {
+            "type": "content",
+            "headline": "Tương Lai Thuộc Về Ai?",
+            "content": "Không phải AI sẽ thay thế con người, mà là những người dùng AI sẽ thay thế những người không dùng AI.",
+            "visual": "future_quote"
+        },
+        {
+            "type": "cta",
+            "headline": "Bắt Đầu Ngay Hôm Nay",
+            "content": "Follow Long Best AI để không bỏ lỡ làn sóng công nghệ này!"
+        }
+    ]
+}

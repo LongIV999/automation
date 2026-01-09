@@ -1,0 +1,53 @@
+{
+  "title": "10 Prompt AI Cho Bất Động Sản",
+  "topic": "AI Prompts for Real Estate",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "10 Prompt AI Giúp Môi Giới BĐS Tiết Kiệm 5 Tiếng/Tuần",
+      "subheadline": "Từ viết mô tả đến tạo ảnh render - tất cả chỉ với AI"
+    },
+    {
+      "type": "content",
+      "headline": "Tại Sao Bạn Cần Dùng AI?",
+      "content": "Thời gian là vàng bạc với môi giới BĐS. Mỗi ngày phải viết hàng chục mô tả property, chỉnh ảnh, trả lời khách hàng...\n\nAI giúp bạn làm tất cả nhanh gấp 10 lần!"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #1: Viết Mô Tả Property",
+      "subheadline": "Copy prompt này vào ChatGPT:",
+      "content": "Viết mô tả bất động sản hấp dẫn cho:\n- Loại hình: [Căn hộ/Nhà phố/Đất nền]\n- Diện tích: [80m2]\n- Vị trí: [Quận 7, TP.HCM]\n- Giá: [3.5 tỷ]\n- Điểm nổi bật: [View sông, gần trường học]\n\nYêu cầu: Ngắn gọn, hấp dẫn, tập trung lợi ích"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt #2: Tạo Ảnh Render Nội Thất",
+      "subheadline": "Dùng với Midjourney hoặc Nano Banana Pro:",
+      "content": "Modern luxury living room, Vietnamese style, wooden furniture, natural light from floor-to-ceiling windows, indoor plants, 4K, architectural photography, warm tone, realistic --ar 16:9"
+    },
+    {
+      "type": "list",
+      "headline": "8 Prompt Khác Bạn Sẽ Nhận",
+      "content": [
+        "Trả lời tin nhắn khách hàng tự động",
+        "Tạo caption Facebook hấp dẫn",
+        "Phân tích thị trường địa phương",
+        "Viết email follow-up chuyên nghiệp",
+        "Tạo video script giới thiệu BĐS",
+        "So sánh giá khu vực",
+        "Tư vấn pháp lý cơ bản",
+        "Lên kế hoạch marketing tháng"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Kết Quả Thực Tế",
+      "content": "Anh Minh (Môi giới HCM) chia sẻ:\n\n\"Trước đây mất 2 ngày tạo content cho 20 căn. Giờ chỉ cần 2 tiếng. Tôi có thời gian gặp khách nhiều hơn, doanh số tăng 300%!\""
+    },
+    {
+      "type": "cta",
+      "headline": "Nhận Ngay 10 Prompts Đầy Đủ!",
+      "content": "💬 Comment \"BĐS\" bên dưới để nhận file PDF miễn phí"
+    }
+  ]
+}

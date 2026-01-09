@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Best AI - Workflow Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #141413 0%, #2a2a28 100%);
+            color: #faf9f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #d97757;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 60px;
+            color: #788c5d;
+        }
+
+        .workflow {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .step {
+            background: rgba(250, 249, 245, 0.05);
+            border: 2px solid rgba(250, 249, 245, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(217, 119, 87, 0.2);
+            border-color: #d97757;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d97757, #788c5d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d97757;
+        }
+
+        .step-time {
+            margin-left: auto;
+            background: rgba(217, 119, 87, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #d97757;
+            font-weight: bold;
+        }
+
+        .step-content {
+            margin-left: 80px;
+        }
+
+        .step-description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .step-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .detail-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #788c5d;
+        }
+
+        .detail-title {
+            font-weight: bold;
+            color: #788c5d;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .detail-value {
+            color: #faf9f5;
+            font-size: 16px;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-top: 15px;
+            border: 1px solid rgba(217, 119, 87, 0.3);
+        }
+
+        .code-block code {
+            color: #d97757;
+        }
+
+        .arrow {
+            text-align: center;
+            font-size: 48px;
+            color: #788c5d;
+            margin: -20px 0;
+        }
+
+        .highlight {
+            background: rgba(217, 119, 87, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #d97757;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #788c5d;
+            color: #141413;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .auto-badge {
+            background: #d97757;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #d97757, #788c5d);
+        }
+
+        .summary {
+            background: linear-gradient(135deg, rgba(217, 119, 87, 0.2), rgba(120, 140, 93, 0.2));
+            border: 2px solid #d97757;
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .summary h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #d97757;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .stat-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d97757;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #788c5d;
+            margin-top: 10px;
+        }
+
+        .tech-stack {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-item {
+            background: rgba(217, 119, 87, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(217, 119, 87, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Long Best AI Automation Workflow</h1>
+        <div class="subtitle">Từ Content JSON → Facebook Post trong 7 phút</div>
+
+        <div class="workflow timeline">
+
+            <!-- STEP 1 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Tạo Content JSON</div>
+                    <div class="step-time">⏱ 5 phút</div>
+                    <span class="badge">Thủ công</span>
+                </div>
+                <div class="step-content">
+                    <div class="step-description">
+                        Tạo file JSON chứa nội dung cho 7 slides carousel. Mỗi slide có thể là:
+                        <span class="highlight">title</span>,
+                        <span class="highlight">content</span>,
+                        <span class="highlight">prompt</span>,
+                        <span class="highlight">list</span>, hoặc
+                        <span class="highlight">cta</span>
+                    </div>
+
+                    <div class="step-details">
+                        <div class="detail-box">
+                            <div class="detail-title">📁 File Path</div>
+                            <div class="detail-value">scripts/content-automation/content/post_001.json</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">📄 Format</div>
+                            <div class="detail-value">JSON với slides array</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">🎯 Output</div>
+                            <div class="detail-value">7 slides với nội dung đầy đủ</div>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+<code>{
+  "title": "10 Prompt AI Hay Nhất",
+  "slides": [
+    {"type": "title", "headline": "...", "subheadline": "..."},
+    {"type": "content", "headline": "...", "content": "..."},
+    {"type": "prompt", "headline": "...", "content": "..."},
+    {"type": "list", "headline": "...", "content": ["..."]},
+    ...
+    {"type": "cta", "headline": "...", "content": "..."}
+  ]
+}</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <!-- STEP 2A -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Generate Carousel Images</div>
+                    <div class="step-time">⏱ 20 giây</div>
+                    <span class="badge auto-badge">Tự động</span>
+                </div>
+                <div class="step-content">
+                    <div class="step-description">
+                        <strong>generator.js</strong> sử dụng <span class="highlight">Puppeteer</span> (headless Chrome)
+                        để render HTML thành PNG với độ phân giải cao (2160x2700px - Retina quality)
+                    </div>
+
+                    <div class="step-details">
+                        <div class="detail-box">
+                            <div class="detail-title">🛠 Tool</div>
+                            <div class="detail-value">Puppeteer + Node.js</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">📐 Size</div>
+                            <div class="detail-value">1080x1350 (4:5 ratio)</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">🎨 Design</div>
+                            <div class="detail-value">HTML + CSS (Poppins + Lora)</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">📸 Output</div>
+                            <div class="detail-value">01.png - 07.png</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-item">Puppeteer</div>
+                        <div class="tech-item">Google Fonts API</div>
+                        <div class="tech-item">HTML5 Canvas</div>
+                        <div class="tech-item">PNG Export</div>
+                    </div>
+
+                    <div class="code-block">
+<code>cd scripts/carousel-generator
+node generator.js content.json output/post_001
+# → Generates: 01.png, 02.png, ..., 07.png</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <!-- STEP 2B -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Upload to Google Drive</div>
+                    <div class="step-time">⏱ 10 giây</div>
+                    <span class="badge auto-badge">Tự động</span>
+                </div>
+                <div class="step-content">
+                    <div class="step-description">
+                        <strong>upload.js</strong> sử dụng <span class="highlight">Google Drive API</span>
+                        để tạo folder mới và upload 7 ảnh theo thứ tự. Trả về <span class="highlight">Folder ID</span>
+                        để dùng cho bước tiếp theo.
+                    </div>
+
+                    <div class="step-details">
+                        <div class="detail-box">
+                            <div class="detail-title">🛠 API</div>
+                            <div class="detail-value">Google Drive v3</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">🔐 Auth</div>
+                            <div class="detail-value">OAuth 2.0 (credentials.json)</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">📁 Folder Format</div>
+                            <div class="detail-value">YYYY-MM-DD_Topic_Name</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">🆔 Output</div>
+                            <div class="detail-value">Folder ID + Link</div>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+<code>cd scripts/drive-uploader
+node upload.js ../carousel-generator/output/post_001 "2026-01-10_AI_Prompts"
+
+# Output:
+# ✓ Folder ID: 1AbCdEfGhIjKlMnOp
+# 🔗 Link: https://drive.google.com/drive/folders/1AbC...</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <!-- STEP 3 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Update Google Sheets</div>
+                    <div class="step-time">⏱ 2 phút</div>
+                    <span class="badge">Thủ công</span>
+                </div>
+                <div class="step-content">
+                    <div class="step-description">
+                        Mở Google Sheets → Tab "Posts" → Thêm row mới với Folder ID từ bước trước,
+                        viết caption hấp dẫn, và set <span class="highlight">Status = "Ready"</span>
+                    </div>
+
+                    <div class="step-details">
+                        <div class="detail-box">
+                            <div class="detail-title">📊 Sheet</div>
+                            <div class="detail-value">Long Best AI - Content Calendar</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">📑 Tab</div>
+                            <div class="detail-value">Posts</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">✍️ Fields</div>
+                            <div class="detail-value">ID, Caption, Drive_Folder_ID, Status</div>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+<code>| ID       | Caption           | Drive_Folder_ID  | Status |
+|----------|-------------------|------------------|--------|
+| post_001 | 10 prompt AI...   | 1AbCdEfGhIj...   | Ready  |</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrow">↓</div>
+
+            <!-- STEP 4 -->
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-title">n8n Auto-Post to Facebook</div>
+                    <div class="step-time">⏱ Tự động (mỗi 15 phút)</div>
+                    <span class="badge auto-badge">Tự động</span>
+                </div>
+                <div class="step-content">
+                    <div class="step-description">
+                        n8n workflow chạy mỗi 15 phút, đọc posts có Status = "Ready",
+                        download ảnh từ Drive, post carousel lên Facebook,
+                        và update Status = "Published" + Post URL
+                    </div>
+
+                    <div class="step-details">
+                        <div class="detail-box">
+                            <div class="detail-title">🤖 Platform</div>
+                            <div class="detail-value">n8n Workflow Automation</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">⏰ Trigger</div>
+                            <div class="detail-value">Schedule (Every 15 min)</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">📡 API</div>
+                            <div class="detail-value">Facebook Graph API</div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="detail-title">✅ Update</div>
+                            <div class="detail-value">Status + Post URL + Date</div>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-item">n8n</div>
+                        <div class="tech-item">Google Sheets API</div>
+                        <div class="tech-item">Google Drive API</div>
+                        <div class="tech-item">Facebook Graph API</div>
+                    </div>
+
+                    <div class="code-block">
+<code>Workflow Flow:
+1. Read Sheets (Status = "Ready")
+2. Get Drive_Folder_ID
+3. Download 7 images from Drive
+4. Post carousel to Facebook Page
+5. Update Sheets:
+   - Status: "Published"
+   - Post_URL: "https://facebook.com/..."
+   - Published_Date: NOW()</code>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SUMMARY -->
+        <div class="summary">
+            <h2>📊 Performance Metrics</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">phút/post</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">87%</div>
+                    <div class="stat-label">thời gian tiết kiệm</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">bước thủ công</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">bước tự động</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; font-size: 20px; opacity: 0.9;">
+                <strong>Trước automation:</strong> 55 phút/post<br>
+                <strong>Sau automation:</strong> 7 phút/post<br>
+                <strong>Tiết kiệm:</strong> 48 phút/post
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

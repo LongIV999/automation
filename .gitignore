@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Credentials & Secrets
+scripts/drive-uploader/credentials.json
+scripts/drive-uploader/token.json
+scripts/drive-uploader/.env
+*.env
+.env.*
+
+# Brand-specific credentials (Multi-brand system)
+brands/*/credentials/
+brands/*/.env
+brands/*/credentials.json
+brands/*/token.json
+
+# Outputs
+scripts/carousel-generator/output/
+brands/*/output/
+*.log
+
+# System files
+.DS_Store
+.agent/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backups
+*.bak
+backup/
+backups/

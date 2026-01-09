@@ -1,0 +1,47 @@
+{
+  "title": "Test Post - Long Best AI",
+  "topic": "Testing Automation System",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Hệ Thống Automation Đã Sẵn Sàng!",
+      "subheadline": "Tạo content nhanh gấp 7 lần"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 1: Tạo Content",
+      "content": "Viết nội dung vào file JSON.\n\nChỉ mất 5 phút!"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 2: Generate Ảnh",
+      "content": "Script tự động tạo 7 ảnh carousel.\n\nChất lượng cao, brand đúng chuẩn."
+    },
+    {
+      "type": "content",
+      "headline": "Bước 3: Upload Drive",
+      "content": "Tự động upload lên Google Drive.\n\nĐánh số: 01.png, 02.png... 07.png"
+    },
+    {
+      "type": "list",
+      "headline": "Lợi Ích",
+      "content": [
+        "Tiết kiệm 87% thời gian",
+        "Tự động hóa 80% quy trình",
+        "Chất lượng đồng nhất",
+        "Dễ dàng scale lên"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Kết Quả",
+      "content": "Từ 55 phút → 7 phút mỗi post!\n\nFocus vào content chất lượng, không lo kỹ thuật."
+    },
+    {
+      "type": "cta",
+      "headline": "Bắt Đầu Ngay!",
+      "content": "Comment 'AI' để nhận hướng dẫn chi tiết ✨"
+    }
+  ]
+}

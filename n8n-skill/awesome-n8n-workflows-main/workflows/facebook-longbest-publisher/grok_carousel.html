@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grok xAI Carousel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F4F3EE;
+            --text-color: #000000;
+            --accent-color: #C15F3C;
+            --secondary-color: #B1ADA1;
+            --slide-width: 1080px;
+            --slide-height: 1350px;
+        }
+
+        body {
+            background-color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .slide-container {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background-color: var(--bg-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Scanline/Noise texture */
+        .texture-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .header-deco {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 5;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: var(--text-color);
+            font-weight: 800;
+        }
+
+        /* Slide 1: Hook */
+        #slide-1 {
+            display: flex;
+            flex-direction: column;
+        }
+        .s1-image-container {
+            height: 65%;
+            width: 100%;
+            position: relative;
+        }
+        .s1-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .s1-content {
+            padding: 60px 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .tagline {
+            color: var(--accent-color);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin: 0 0 30px 0;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+        .subheadline {
+            font-family: 'Merriweather', serif;
+            font-size: 28px;
+            line-height: 1.4;
+            color: #444;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Generic Content Slide */
+        .content-slide {
+            padding: 120px 80px 80px 80px;
+        }
+        .slide-title {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 30px;
+            display: inline-block;
+        }
+        .slide-body {
+            font-family: 'Merriweather', serif;
+            font-size: 28px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .slide-body li {
+            margin-bottom: 25px;
+            padding-left: 10px;
+        }
+        .highlight-box {
+            background-color: #fff;
+            border: 1px solid var(--secondary-color);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .visual-area {
+            width: 100%;
+            height: 500px;
+            margin-top: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .visual-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Slide 4 Special */
+        .before-after {
+            display: flex;
+            gap: 10px;
+            height: 400px;
+            margin-top: 40px;
+        }
+        .ba-left, .ba-right {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .ba-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #000;
+            color: #fff;
+            padding: 5px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 20px;
+        }
+
+        /* Slide 8: CTA */
+        #slide-8 {
+            background-color: #111;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        #slide-8 h2 {
+            font-size: 72px;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+        #slide-8 p {
+            font-family: 'Merriweather', serif;
+            font-size: 32px;
+            color: #ccc;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+        .cta-box {
+            border: 2px solid var(--accent-color);
+            padding: 30px 60px;
+            margin-top: 60px;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1 -->
+    <div class="slide-container" id="slide-1">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">Long Best AI • Weekly Update</div>
+        <div class="s1-image-container">
+            <img src="/Users/admin/.gemini/antigravity/brain/3bdfa242-6dc3-4dcc-9771-a26865ae3b67/grok_aurora_portrait_1767853814923.png" class="s1-img">
+        </div>
+        <div class="s1-content">
+            <div class="tagline">News Alert</div>
+            <h1>Grok 3 & xAI:<br>Cuộc Lật Đổ Ngoạn Mục?</h1>
+            <div class="subheadline">Không chỉ là chatbot, đây là 'Siêu Ứng Dụng' AI mới ngay trên X.</div>
+        </div>
+        <div class="slide-number">01/08</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide-container content-slide">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">Architecture</div>
+        <div class="slide-title">Grok 3: Quái Vật Mới</div>
+        <div class="slide-body">
+            <ul>
+                <li><strong>Ra mắt T2/2025:</strong> Đánh dấu sự trở lại của Elon.</li>
+                <li><strong>Hạ tầng khủng:</strong> Đào tạo trên cụm 100,000 GPU H100 lớn nhất thế giới.</li>
+                <li><strong>Sức mạnh xử lý:</strong> Khả năng suy luận (Reasoning) vượt trội GPT-4o.</li>
+            </ul>
+            <div class="highlight-box">
+                "Điểm khác biệt: Dữ liệu thời gian thực từ nền tảng X là vũ khí tối thượng mà không AI nào khác có được."
+            </div>
+        </div>
+        <div class="slide-number">02/08</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide-container content-slide">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">Visual Model</div>
+        <div class="slide-title">Aurora: Vẻ Đẹp "Rùng Mình"</div>
+        <div class="visual-area">
+             <!-- reusing portrait for now as it represents Aurora -->
+            <img src="/Users/admin/.gemini/antigravity/brain/3bdfa242-6dc3-4dcc-9771-a26865ae3b67/grok_aurora_portrait_1767853814923.png" class="visual-img" style="object-position: center 20%;">
+        </div>
+        <div class="slide-body" style="margin-top: 30px;">
+            <p>xAI đã chia tay Flux để tự xây dựng <strong>Aurora</strong>.</p>
+            <ul>
+                <li><strong>Hyper-Realism:</strong> Da người, ánh sáng đạt độ chân thực mức "uncanny".</li>
+                <li><strong>Ứng dụng:</strong> Làm poster phim, quảng cáo, meme high-end trong bài giây.</li>
+            </ul>
+        </div>
+        <div class="slide-number">03/08</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide-container content-slide">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">New Features</div>
+        <div class="slide-title">Extend & Upscale</div>
+        <div class="before-after">
+            <div class="ba-left">
+                <div class="ba-label">Before</div>
+                <img src="/Users/admin/.gemini/antigravity/brain/3bdfa242-6dc3-4dcc-9771-a26865ae3b67/grok_extend_landscape_1767853835800.png" style="width: 200%; height: 100%; object-fit: cover; object-position: center;">
+            </div>
+            <div class="ba-right">
+                <div class="ba-label">Extending...</div>
+                <img src="/Users/admin/.gemini/antigravity/brain/3bdfa242-6dc3-4dcc-9771-a26865ae3b67/grok_extend_landscape_1767853835800.png" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+        <div class="slide-body" style="margin-top: 30px;">
+            <p>Bạn không cần Photoshop nữa.</p>
+            <ul>
+                <li><strong>Extend:</strong> Tự động "vẽ thêm" bối cảnh xung quanh cực khớp.</li>
+                <li><strong>Upscale:</strong> Biến ảnh mờ thành ảnh 4K sắc nét.</li>
+            </ul>
+        </div>
+        <div class="slide-number">04/08</div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide-container content-slide">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">Workflow</div>
+        <div class="slide-title">Sửa Ảnh Bằng Giọng Nói</div>
+        <div class="slide-body">
+            <p>Trải nghiệm như có một designer riêng ngồi cạnh.</p>
+            <div class="highlight-box" style="font-style: italic; color: #555;">
+                User: "Bỏ cái mũ ra và thay bằng kính râm."<br>
+                Grok: *Xử lý ngay lập tức*
+            </div>
+            <ul>
+                <li>Dùng <strong>cọ (brush)</strong> để chọn vùng cần sửa.</li>
+                <li>Ra lệnh bằng voice hoặc text.</li>
+                <li>Tốc độ phản hồi cực nhanh.</li>
+            </ul>
+        </div>
+        <div class="slide-number">05/08</div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide-container content-slide">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">Multimodal</div>
+        <div class="slide-title">Đa Giác Quan</div>
+        <div class="slide-body">
+            <div style="display: flex; gap: 20px; margin-bottom: 30px;">
+                <div style="flex: 1; background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
+                    <h3 style="font-size: 24px; margin-top: 0;">Vision (Mắt)</h3>
+                    <p style="font-size: 20px;">Quăng file PDF 100 trang hoặc biểu đồ chứng khoán, Grok tóm tắt trong 3 giây.</p>
+                </div>
+                <div style="flex: 1; background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #ddd;">
+                    <h3 style="font-size: 24px; margin-top: 0;">Voice (Giọng)</h3>
+                    <p style="font-size: 20px;">Chat voice thời gian thực với độ trễ bằng 0. Cảm xúc như người thật.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide-number">06/08</div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide-container content-slide">
+        <div class="texture-overlay"></div>
+        <div class="header-deco">Pricing</div>
+        <div class="slide-title">SuperGrok: Đáng Tiền?</div>
+        <div class="slide-body">
+            <h3 style="font-size: 48px; color: var(--accent-color); margin: 0;">$30<span style="font-size: 24px; color: #333;">/month</span></h3>
+            <p style="margin-top: 10px;">Cao hơn chuẩn thị trường ($20), nhưng:</p>
+            <ul>
+                <li>Truy cập Grok 3 Priority (không giới hạn).</li>
+                <li>Tạo ảnh Aurora không giới hạn.</li>
+                <li>Dùng sớm các tính năng Beta.</li>
+            </ul>
+            <div class="highlight-box">
+                "Nếu bạn sống trên X: <strong>Đáng tiền</strong>.<br>Nếu chỉ chat cơ bản: <strong>Dùng gói thường</strong>."
+            </div>
+        </div>
+        <div class="slide-number">07/08</div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide-container" id="slide-8">
+        <div class="texture-overlay"></div>
+        <div class="header-deco" style="color: #666;">Call to Action</div>
+        <h2>Thử Ngay Extend!</h2>
+        <p>Comment một bức ảnh bất kỳ bên dưới, team Long Best AI sẽ dùng Grok "mở rộng" nó dùm bạn!</p>
+        <div class="cta-box">
+            #LongBestAI
+        </div>
+        <div class="slide-number" style="color: #666;">08/08</div>
+    </div>
+
+</body>
+</html>

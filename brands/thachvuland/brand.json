@@ -1,0 +1,93 @@
+{
+  "brandId": "thachvuland",
+  "name": "Thach Vu Land",
+  "description": "Real estate content automation",
+
+  "colors": {
+    "primary": "#0A2540",
+    "background": "#F4F3EE",
+    "backgroundDark": "#0A2540",
+    "accent": "#4A7C59",
+    "text": "#faf9f5",
+    "textDark": "#000000"
+  },
+
+  "typography": {
+    "headline": "Poppins",
+    "body": "Lora",
+    "sizes": {
+      "h1Title": 72,
+      "h1Content": 56,
+      "h2": 36,
+      "subheadline": 28,
+      "content": 24,
+      "listItem": 26,
+      "promptBox": 22,
+      "slideNumber": 24,
+      "brandCorner": 20
+    }
+  },
+
+  "branding": {
+    "logoText": "Thach Vu Land",
+    "tagline": "Your tagline here",
+    "cornerText": "Thach Vu Land",
+    "website": "",
+    "email": ""
+  },
+
+  "carousel": {
+    "slideWidth": 1080,
+    "slideHeight": 1350,
+    "slideCount": 7,
+    "format": "png",
+    "quality": 2
+  },
+
+  "googleSheets": {
+    "sheetId": "YOUR_GOOGLE_SHEETS_ID",
+    "tabName": "Posts",
+    "contentCalendarTab": "Content_Calendar",
+    "archiveTab": "Archive",
+    "analyticsTab": "Analytics"
+  },
+
+  "googleDrive": {
+    "parentFolderId": null,
+    "folderPrefix": "THACHVULAND",
+    "autoDelete": false
+  },
+
+  "facebook": {
+    "pageId": "YOUR_FACEBOOK_PAGE_ID",
+    "credentialId": "YOUR_N8N_CREDENTIAL_ID",
+    "graphApiVersion": "v19.0"
+  },
+
+  "n8n": {
+    "scheduleInterval": "hours",
+    "scheduleTriggerEnabled": true,
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+
+  "posting": {
+    "frequency": "3x/week",
+    "schedule": ["Monday", "Wednesday", "Friday"],
+    "timezone": "Asia/Ho_Chi_Minh",
+    "autoPost": true
+  },
+
+  "contentPillars": [
+    "Tutorials",
+    "Tips & Tricks",
+    "Case Studies",
+    "Tool Reviews",
+    "News & Updates"
+  ],
+
+  "metadata": {
+    "createdAt": "2026-01-09T07:10:55Z",
+    "createdBy": "brand-manager CLI",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,99 @@
+automation/
+├── 📄 README.md                                    # Overview hệ thống (UPDATED)
+├── 🚀 QUICKSTART.md                                # Bắt đầu trong 10 phút
+├── 📊 WORKFLOW_MANAGEMENT.md                       # Quản lý workflows chi tiết
+├── 📈 DASHBOARD.md                                 # Monitoring & analytics
+├── 📝 CHECKLIST.md                                 # Setup checklist
+├── 🎉 SUMMARY.md                                   # Tổng kết & next steps
+├── .gitignore                                      # Bảo vệ credentials
+│
+├── 🎨 Design & Content
+│   ├── design_philosophy.md                        # Brand guidelines (Cyber-Hustle)
+│   ├── design_carousel.html                        # HTML template
+│   ├── content_nano_banana.md                      # Content example
+│   └── context-longbest.md                         # Strategy context & research
+│
+├── 📁 assets/                                      # Images, resources
+│
+├── 🎯 skill/                                       # Claude skills
+│   └── content-research-writer/
+│       ├── SKILL.md                                # Content writing skill
+│       └── canvas-design/
+│           └── SKILL.md
+│
+├── 🤖 n8n-skill/                                   # n8n workflows
+│   └── awesome-n8n-workflows-main/
+│       └── workflows/
+│           ├── facebook-longbest-publisher/        ⭐ MAIN WORKFLOW
+│           │   ├── facebook-carousel-workflow.json
+│           │   ├── autopost-lbai.json
+│           │   ├── README.md
+│           │   └── research.md
+│           ├── multi-language-translator/
+│           ├── wechat-daily-report/
+│           ├── github-to-feishu-collector/
+│           └── nano-banana/
+│
+├── 🔧 scripts/                                     # Automation scripts
+│   ├── carousel-generator/                         # Generate images
+│   │   ├── 📦 package.json
+│   │   ├── ⚙️ generator.js                        # Main generator
+│   │   ├── 📄 example-content.json                # Template
+│   │   ├── 📖 README.md                           # Documentation
+│   │   └── output/                                 # Generated images
+│   │       └── (post_001/, post_002/, ...)
+│   │
+│   ├── drive-uploader/                             # Upload to Drive
+│   │   ├── 📦 package.json
+│   │   ├── ☁️ upload.js                            # Main uploader
+│   │   ├── 🔐 setup-auth.js                        # OAuth setup
+│   │   ├── 📖 README.md                           # Documentation
+│   │   ├── .env.example                            # Config template
+│   │   ├── credentials.json                        # (GITIGNORED)
+│   │   └── token.json                              # (GITIGNORED)
+│   │
+│   └── content-automation/                         # End-to-end pipeline
+│       ├── 🚀 create-post.sh                      ⭐ MAIN SCRIPT
+│       ├── 📖 README.md                           # Documentation
+│       └── content/                                # Content JSON files
+│           ├── post_001.json
+│           ├── post_002.json
+│           └── ...
+│
+└── 📅 content-calendar/                            # Planning system
+    └── README.md                                   # Sheets setup guide
+
+═══════════════════════════════════════════════════════════
+
+KEY FILES TO KNOW:
+
+🚀 START HERE:
+   1. QUICKSTART.md                    → Setup in 10 minutes
+   2. scripts/content-automation/
+      create-post.sh                   → Run this to create posts
+
+📚 DOCUMENTATION:
+   3. WORKFLOW_MANAGEMENT.md           → Understand the system
+   4. CHECKLIST.md                     → Verify setup
+   5. DASHBOARD.md                     → Monitor performance
+
+🛠 TOOLS:
+   6. scripts/carousel-generator/
+      generator.js                     → Generate images
+   7. scripts/drive-uploader/
+      upload.js                        → Upload to Drive
+
+═══════════════════════════════════════════════════════════
+
+FILE COUNT:
+- Documentation: 10 files
+- Scripts: 3 main scripts
+- n8n workflows: 1 active (facebook-publisher)
+- Templates: Multiple content templates
+
+CREDENTIALS (GITIGNORED):
+- scripts/drive-uploader/credentials.json
+- scripts/drive-uploader/token.json
+- *.env files
+
+═══════════════════════════════════════════════════════════

@@ -1,0 +1,56 @@
+{
+    "topic": "Gemini Antigravity Tips",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "Làm chủ Gemini Antigravity",
+            "subheadline": "Công cụ \"Vibe Coding\" đỉnh cao từ Google. Lập trình chỉ bằng lời nói!",
+            "visual": "modern-tech-dark"
+        },
+        {
+            "type": "content",
+            "headline": "Antigravity là gì?",
+            "content": [
+                "Là công cụ Agentic AI mạnh mẽ của Google Research.",
+                "Cho phép bạn điều khiển VS Code, trình duyệt và terminal thông qua ngôn ngữ tự nhiên.",
+                "Biến ý tưởng thành sản phẩm thực tế trong vài phút mà không cần gõ phím nhiều."
+            ]
+        },
+        {
+            "type": "list",
+            "headline": "Các tài nguyên học tập hàng đầu",
+            "content": [
+                "Video Duy Luân Dễ Thương: Review thực tế cách dùng Antigravity tối ưu.",
+                "Đỗ Khắc Gia Khoa: Hướng dẫn chi tiết Vibe Coding.",
+                "Lập trình FullStack: Thử nghiệm thực tế với kết quả bất ngờ.",
+                "Dev xịn: Hướng dẫn từ A-Z thay thế các công cụ trả phí."
+            ]
+        },
+        {
+            "type": "prompt",
+            "headline": "Mẹo #1: Prompting cụ thể",
+            "subheadline": "Đừng chỉ nói \"Sửa lỗi này\". Hãy mô tả cụ thể ngữ cảnh và kết quả mong muốn.",
+            "content": "Hãy refactor hàm `handleLogin` trong `auth.ts` để thêm xử lý lỗi 429 và hiển thị thông báo toast phù hợp với design system của dự án."
+        },
+        {
+            "type": "prompt",
+            "headline": "Mẹo #2: Tận dụng Context",
+            "subheadline": "Gemini 1.5 Pro có cửa sổ ngữ cảnh cực lớn. Hãy ném toàn bộ codebase vào!",
+            "content": "Dựa trên toàn bộ cấu trúc file trong project hiện tại, hãy đề xuất kiến trúc mới cho module `payments` để tối ưu hóa khả năng mở rộng."
+        },
+        {
+            "type": "content",
+            "headline": "Tại sao nên dùng ngay?",
+            "content": [
+                "Miễn phí (hiện tại) và cực kỳ mạnh mẽ.",
+                "Tích hợp sâu với hệ sinh thái Google Gemini.",
+                "Tăng tốc độ phát triển ứng dụng lên gấp 5-10 lần."
+            ]
+        },
+        {
+            "type": "cta",
+            "headline": "Tham gia Long Best AI ngay!",
+            "content": "Theo dõi fanpage để cập nhật những mẹo AI Agent mới nhất và làm chủ công nghệ tương lai. #LongBestAI #Gemini #Antigravity"
+        }
+    ]
+}

@@ -1,0 +1,392 @@
+{
+  "name": "Facebook Carousel Publisher",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutes": 15
+            }
+          ]
+        }
+      },
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ],
+      "id": "schedule-trigger"
+    },
+    {
+      "parameters": {
+        "authentication": "googleSheetsOAuth2Api",
+        "documentId": {
+          "__rl": true,
+          "mode": "fromURL",
+          "value": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "Posts"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "key": "Status",
+              "value": "Ready",
+              "operator": "equal"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Read Ready Posts",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        450,
+        300
+      ],
+      "id": "read-sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GOOGLE_SHEETS_CRED_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Process Post Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        650,
+        300
+      ],
+      "id": "process-posts"
+    },
+    {
+      "parameters": {
+        "authentication": "googleDriveOAuth2Api",
+        "operation": "list",
+        "useQuery": true,
+        "query": "={{ '\"' + $json['Drive_Folder_ID'] + '\" in parents and trashed = false' }}",
+        "options": {
+          "fields": [
+            "id",
+            "name",
+            "mimeType"
+          ]
+        }
+      },
+      "name": "List Drive Images",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 2,
+      "position": [
+        850,
+        300
+      ],
+      "id": "list-drive-images",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "YOUR_GOOGLE_DRIVE_CRED_ID",
+          "name": "Google Drive Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Process Images",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1050,
+        300
+      ],
+      "id": "process-images"
+    },
+    {
+      "parameters": {
+        "authentication": "googleDriveOAuth2Api",
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $json['id'] }}"
+        }
+      },
+      "name": "Download Image",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 2,
+      "position": [
+        1250,
+        300
+      ],
+      "id": "download-image",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "YOUR_GOOGLE_DRIVE_CRED_ID",
+          "name": "Google Drive Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "page",
+        "operation": "create",
+        "pageId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "contentProperties": {
+          "published": false,
+          "caption": "Temp Image"
+        },
+        "binaryData": true,
+        "binaryPropertyName": "data"
+      },
+      "name": "Upload Start Photos",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1450,
+        300
+      ],
+      "id": "upload-photo",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "YOUR_FB_CRED_ID",
+          "name": "Facebook Graph API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "aggregateItems",
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Aggregate Media IDs",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [
+        1650,
+        300
+      ],
+      "id": "aggregate-ids"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "httpMethod": "POST",
+        "path": "/{{ $('Read Ready Posts').first().json['Page_ID'] || 'me' }}/feed",
+        "options": {
+          "queryParameters": {
+            "parameter": [
+              {
+                "name": "message",
+                "value": "={{ $('Read Ready Posts').first().json['Caption'] }}"
+              },
+              {
+                "name": "attached_media",
+                "value": "={{ $json['id'].map(id => ({ media_fbid: id })) }}"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Publish Carousel",
+      "type": "n8n-nodes-base.facebookGraphApi",
+      "typeVersion": 1,
+      "position": [
+        1850,
+        300
+      ],
+      "id": "publish-carousel",
+      "credentials": {
+        "facebookGraphApi": {
+          "id": "YOUR_FB_CRED_ID",
+          "name": "Facebook Graph API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "googleSheetsOAuth2Api",
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "mode": "fromURL",
+          "value": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": "Posts"
+        },
+        "rowId": "={{ $('Process Post Items').context['item']['json']['row_number'] }}",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "Published",
+            "Post_URL": "={{ 'https://facebook.com/' + $json['id'] }}"
+          }
+        },
+        "options": {}
+      },
+      "name": "Update Sheet Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        2050,
+        300
+      ],
+      "id": "update-sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "YOUR_GOOGLE_SHEETS_CRED_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Read Ready Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Ready Posts": {
+      "main": [
+        [
+          {
+            "node": "Process Post Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Post Items": {
+      "main": [
+        [
+          {
+            "node": "List Drive Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Drive Images": {
+      "main": [
+        [
+          {
+            "node": "Process Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Images": {
+      "main": [
+        [
+          {
+            "node": "Download Image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Aggregate Media IDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Image": {
+      "main": [
+        [
+          {
+            "node": "Upload Start Photos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload Start Photos": {
+      "main": [
+        [
+          {
+            "node": "Process Images",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Media IDs": {
+      "main": [
+        [
+          {
+            "node": "Publish Carousel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Publish Carousel": {
+      "main": [
+        [
+          {
+            "node": "Update Sheet Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Sheet Status": {
+      "main": [
+        [
+          {
+            "node": "Process Post Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

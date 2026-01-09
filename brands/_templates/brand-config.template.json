@@ -1,0 +1,93 @@
+{
+  "brandId": "{{BRAND_ID}}",
+  "name": "{{BRAND_NAME}}",
+  "description": "{{BRAND_DESCRIPTION}}",
+
+  "colors": {
+    "primary": "#C15F3C",
+    "background": "#F4F3EE",
+    "backgroundDark": "#141413",
+    "accent": "#788c5d",
+    "text": "#faf9f5",
+    "textDark": "#000000"
+  },
+
+  "typography": {
+    "headline": "Poppins",
+    "body": "Lora",
+    "sizes": {
+      "h1Title": 72,
+      "h1Content": 56,
+      "h2": 36,
+      "subheadline": 28,
+      "content": 24,
+      "listItem": 26,
+      "promptBox": 22,
+      "slideNumber": 24,
+      "brandCorner": 20
+    }
+  },
+
+  "branding": {
+    "logoText": "{{BRAND_NAME}}",
+    "tagline": "{{BRAND_TAGLINE}}",
+    "cornerText": "{{BRAND_NAME}}",
+    "website": "",
+    "email": ""
+  },
+
+  "carousel": {
+    "slideWidth": 1080,
+    "slideHeight": 1350,
+    "slideCount": 7,
+    "format": "png",
+    "quality": 2
+  },
+
+  "googleSheets": {
+    "sheetId": "{{SHEETS_ID}}",
+    "tabName": "Posts",
+    "contentCalendarTab": "Content_Calendar",
+    "archiveTab": "Archive",
+    "analyticsTab": "Analytics"
+  },
+
+  "googleDrive": {
+    "parentFolderId": null,
+    "folderPrefix": "{{FOLDER_PREFIX}}",
+    "autoDelete": false
+  },
+
+  "facebook": {
+    "pageId": "{{FACEBOOK_PAGE_ID}}",
+    "credentialId": "{{N8N_FACEBOOK_CREDENTIAL_ID}}",
+    "graphApiVersion": "v19.0"
+  },
+
+  "n8n": {
+    "scheduleInterval": "hours",
+    "scheduleTriggerEnabled": true,
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+
+  "posting": {
+    "frequency": "3x/week",
+    "schedule": ["Monday", "Wednesday", "Friday"],
+    "timezone": "Asia/Ho_Chi_Minh",
+    "autoPost": true
+  },
+
+  "contentPillars": [
+    "Tutorials",
+    "Tips & Tricks",
+    "Case Studies",
+    "Tool Reviews",
+    "News & Updates"
+  ],
+
+  "metadata": {
+    "createdAt": "{{CREATED_AT}}",
+    "createdBy": "brand-manager CLI",
+    "version": "1.0.0"
+  }
+}

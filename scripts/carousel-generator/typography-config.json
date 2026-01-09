@@ -1,0 +1,90 @@
+{
+  "_comment": "Typography Configuration for Carousel Generator",
+  "_description": "Điều chỉnh kích thước chữ để dễ đọc hơn khi hiển thị trên Facebook carousel",
+  "fontSizes": {
+    "h1Title": {
+      "value": 100,
+      "unit": "px",
+      "description": "Tiêu đề chính cho slide đầu tiên (title slide)"
+    },
+    "h1Content": {
+      "value": 80,
+      "unit": "px",
+      "description": "Tiêu đề chính cho các slide nội dung"
+    },
+    "h2": {
+      "value": 52,
+      "unit": "px",
+      "description": "Tiêu đề phụ (subheading)"
+    },
+    "subheadline": {
+      "value": 40,
+      "unit": "px",
+      "description": "Câu phụ đề mô tả thêm"
+    },
+    "content": {
+      "value": 34,
+      "unit": "px",
+      "description": "Nội dung chính (body text)"
+    },
+    "listItem": {
+      "value": 38,
+      "unit": "px",
+      "description": "Các mục trong danh sách (bullet points)"
+    },
+    "slideNumber": {
+      "value": 32,
+      "unit": "px",
+      "description": "Số trang (1/7, 2/7, ...)"
+    },
+    "promptBox": {
+      "value": 30,
+      "unit": "px",
+      "description": "Chữ trong hộp prompt/code"
+    },
+    "brandCorner": {
+      "value": 28,
+      "unit": "px",
+      "description": "Brand name ở góc dưới"
+    }
+  },
+  "fontFamilies": {
+    "heading": "Poppins",
+    "body": "Lora",
+    "monospace": "Courier New"
+  },
+  "fontWeights": {
+    "h1": 800,
+    "h2": 600,
+    "body": 400,
+    "bodyBold": 600
+  },
+  "lineHeights": {
+    "h1": 1.2,
+    "h2": 1.3,
+    "subheadline": 1.4,
+    "content": 1.8,
+    "listItem": 1.6
+  },
+  "spacing": {
+    "h1MarginBottom": 30,
+    "h2MarginBottom": 20,
+    "subheadlineMarginBottom": 40,
+    "listItemMarginBottom": 20
+  },
+  "presets": {
+    "default": {
+      "description": "Kích thước mặc định (cũ) - chữ nhỏ",
+      "multiplier": 1
+    },
+    "readablePreview": {
+      "description": "Tối ưu cho preview trên carousel - chữ to hơn 40%",
+      "multiplier": 1.4
+    },
+    "extraLarge": {
+      "description": "Rất to - cho người kém thị lực hoặc preview rất nhỏ",
+      "multiplier": 1.6
+    }
+  },
+  "currentPreset": "readablePreview"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "longbest-drive-uploader",
+  "version": "1.0.0",
+  "description": "Tự động upload ảnh lên Google Drive với numbered naming",
+  "main": "upload.js",
+  "scripts": {
+    "upload": "node upload.js",
+    "auth": "node setup-auth.js"
+  },
+  "keywords": [
+    "google-drive",
+    "upload",
+    "automation"
+  ],
+  "author": "Long Best AI",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "googleapis": "^128.0.0",
+    "open": "^8.4.2"
+  }
+}
