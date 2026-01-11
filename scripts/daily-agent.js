@@ -13,8 +13,12 @@ const { exec } = require('child_process');
 const path = require('path');
 const util = require('util');
 const execPromise = util.promisify(exec);
+const logger = require('./utils/logger');
+const { sendTelegramNotification, sendSuccessNotification } = require('./utils/notifier');
+const analytics = require('./utils/db');
 
 async function runCommand(command, cwd) {
+    logger.debug(`Running command: ${command}`, { cwd });
     console.log(`\n▶️  Running: ${command}`);
     try {
         const { stdout, stderr } = await execPromise(command, { cwd });
@@ -26,6 +30,12 @@ async function runCommand(command, cwd) {
         }
         return stdout;
     } catch (error) {
+        logger.error(`Command failed: ${command}`, {
+            cwd,
+            error: error.message,
+            stdout: error.stdout,
+            stderr: error.stderr
+        });
         console.error(`❌ Command failed: ${command}`);
         console.error(error.stdout);
         console.error(error.stderr);
@@ -34,28 +44,47 @@ async function runCommand(command, cwd) {
 }
 
 async function main() {
+    const startTime = Date.now();
+    const runId = `run_${Date.now()}`;
+
     // Parse args
     const args = process.argv.slice(2);
-    const brandArgIndex = args.indexOf('--brand');
-    let brand = 'longbest'; // default
-    let topic = '';
 
-    if (brandArgIndex !== -1) {
-        brand = args[brandArgIndex + 1];
-        // Remove brand flag and value to get topic
-        const newArgs = [...args];
-        newArgs.splice(brandArgIndex, 2);
-        topic = newArgs.join(' ').replace(/^"|"$/g, '');
-    } else {
-        topic = args.join(' ').replace(/^"|"$/g, '');
-    }
+    // Helper to get value for flag
+    const getArgValue = (flag) => {
+        const idx = args.indexOf(flag);
+        return idx !== -1 ? args[idx + 1] : null;
+    };
+
+    const brand = getArgValue('--brand') || 'longbest';
+    const style = getArgValue('--style') || 'classic'; // New style arg
+    const autoPublish = args.includes('--auto-publish'); // New publish flag
+
+    // Get topic (remove flags)
+    const topicArgs = args.filter((arg, i) => {
+        if (arg.startsWith('--')) return false;
+        if (i > 0 && args[i - 1].startsWith('--')) return false;
+        return true;
+    });
+    const topic = topicArgs.join(' ').replace(/^"|"$/g, '');
 
     if (!topic) {
         console.error("❌ Please provide a topic.");
-        console.log("Usage: node daily-agent.js \"Your Topic Here\" [--brand name]");
-        console.log("Supported brands: longbest, thachvuland");
+        console.log("Usage: node daily-agent.js \"Your Topic Here\" [--brand name] [--style name] [--auto-publish]");
+        console.log("Supported brands: longbest, thachvuland, queennailbern");
         process.exit(1);
     }
+
+    logger.info('Starting daily agent workflow', {
+        runId,
+        topic,
+        brand,
+        style,
+        autoPublish
+    });
+
+    // Track workflow start in analytics
+    analytics.startWorkflow(runId, brand, topic);
 
     const rootDir = __dirname;
 
@@ -64,20 +93,33 @@ async function main() {
         // 1. Agent Writer
         // ---------------------------------------------------------
         console.log("\n🤖 === STEP 1: CONTENT WRITING (AGENT) ===");
-        const writerOutput = await runCommand(`node writer.js "${topic}" --brand ${brand}`, path.join(rootDir, 'agent-writer'));
+        logger.info('Step 1: Content writing started', { runId, topic, brand });
+
+        const writerOutput = await runCommand(`node writer.js "${topic}" --brand ${brand} --style ${style}`, path.join(rootDir, 'agent-writer'));
 
         // Parse output path
         const match = writerOutput.match(/JSON_OUTPUT_FILE: (.*)/);
-        if (!match) throw new Error("Could not find output file from writer");
+        if (!match) {
+            const error = new Error("Could not find output file from writer");
+            logger.error('Writer output parsing failed', { runId, writerOutput });
+            throw error;
+        }
         const jsonPath = match[1].trim();
         const baseName = path.basename(jsonPath, '.json');
 
+        logger.info('Step 1: Content writing completed', {
+            runId,
+            outputFile: jsonPath,
+            baseName
+        });
         console.log(`✓ Content ready: ${jsonPath}`);
 
         // ---------------------------------------------------------
         // 2. Image Generator
         // ---------------------------------------------------------
         console.log("\n🎨 === STEP 2: IMAGE GENERATION ===");
+        logger.info('Step 2: Image generation started', { runId, baseName });
+
         // Output dir
         const outputDir = path.join(rootDir, 'carousel-generator/output', baseName);
 
@@ -85,39 +127,129 @@ async function main() {
         let generatorScript = 'generator.js';
         if (brand === 'thachvuland') {
             generatorScript = 'generator-tvland.js';
+        } else if (brand === 'queennailbern') {
+            generatorScript = 'generator.js'; // Use default for now, can customize later
         }
 
         // Note: generator.js takes content file and output dir
         // We run from carousel-generator dir to handle relative assets/templates correctly
         await runCommand(`node ${generatorScript} "${jsonPath}" "${outputDir}"`, path.join(rootDir, 'carousel-generator'));
 
+        logger.info('Step 2: Image generation completed', {
+            runId,
+            outputDir,
+            generatorScript
+        });
         console.log(`✓ Images generated: ${outputDir}`);
 
         // ---------------------------------------------------------
         // 2.5 Image Enhancer (New)
         // ---------------------------------------------------------
         console.log("\n🪄  === STEP 2.5: IMAGE ENHANCEMENT ===");
+        logger.info('Step 2.5: Image enhancement started', { runId });
+
         await runCommand(`node enhancer.js "${outputDir}"`, path.join(rootDir, 'carousel-generator'));
 
+        logger.info('Step 2.5: Image enhancement completed', { runId });
         console.log(`✓ Images enhanced and sharpened`);
 
         // ---------------------------------------------------------
-        // 3. Drive Uploader
+        // 3. Drive Uploader (Always Sync)
         // ---------------------------------------------------------
         console.log("\n☁️  === STEP 3: UPLOAD & SYNC ===");
-        // Run upload.js
-        // We run from drive-uploader dir to handle credentials/tokens correctly
-        await runCommand(`node upload.js "${outputDir}" --brand ${brand}`, path.join(rootDir, 'drive-uploader'));
+        logger.info('Step 3: Upload & sync started', { runId, brand });
+
+        // Run upload.js with JSON_OUTPUT enabled for tracking
+        const uploadOutput = await runCommand(`JSON_OUTPUT=1 node upload.js "${outputDir}" --brand ${brand} --topic "${topic}"`, path.join(rootDir, 'drive-uploader'));
+
+        // Try to parse JSON output for analytics
+        try {
+            const lines = uploadOutput.split('\n');
+            const jsonLine = lines.find(line => line.trim().startsWith('{'));
+            if (jsonLine) {
+                const uploadResult = JSON.parse(jsonLine);
+                analytics.trackPost(
+                    uploadResult.folderId,
+                    brand,
+                    topic,
+                    null, // title logic inside trackPost
+                    uploadResult.folderId,
+                    uploadResult.folderLink,
+                    uploadResult.uploadedCount
+                );
+            }
+        } catch (e) {
+            logger.warn('Could not parse upload output for analytics', { error: e.message });
+        }
+
+        logger.info('Step 3: Upload & sync completed', { runId });
+
+        // ---------------------------------------------------------
+        // 4. Auto Publish (Bypass)
+        // ---------------------------------------------------------
+        if (autoPublish) {
+            console.log("\n🚀 === STEP 4: AUTO PUBLISH (FACEBOOK) ===");
+            await runCommand(`node publish-post.js "${outputDir}" ${brand}`, rootDir);
+            console.log("✓ Published to Facebook successfully.");
+        }
 
         // ---------------------------------------------------------
         // Finish
         // ---------------------------------------------------------
+        const duration = Date.now() - startTime;
+        const durationSec = (duration / 1000).toFixed(2);
+
         console.log("\n✨✨✨ AGENT WORKFLOW COMPLETE! ✨✨✨");
         console.log(`Topic: ${topic}`);
         console.log("Status: Ready for n8n to pick up from Google Sheets.");
 
+        logger.info('Workflow completed successfully', {
+            runId,
+            duration: `${duration}ms`,
+            durationSec: `${durationSec}s`,
+            topic,
+            brand,
+            baseName
+        });
+
+        // Track success in analytics
+        analytics.completeWorkflow(runId, duration);
+
+        // Send success notification
+        await sendSuccessNotification('Daily agent workflow completed', {
+            topic,
+            brand,
+            duration: `${durationSec}s`,
+            runId
+        });
+
     } catch (error) {
+        const duration = Date.now() - startTime;
+        const durationSec = (duration / 1000).toFixed(2);
+
         console.error("\n❌ AGENT PROCESS FAILED");
+
+        logger.error('Workflow failed', {
+            runId,
+            error: error.message,
+            stack: error.stack,
+            topic,
+            brand,
+            duration: `${duration}ms`
+        });
+
+        // Track failure in analytics
+        analytics.failWorkflow(runId, duration, error.message);
+
+        // Send error notification
+        await sendTelegramNotification('Daily agent workflow failed', {
+            topic,
+            brand,
+            error: error.message,
+            duration: `${durationSec}s`,
+            runId
+        });
+
         // Error already logged in runCommand
         process.exit(1);
     }

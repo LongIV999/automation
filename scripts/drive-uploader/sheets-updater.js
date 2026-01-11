@@ -15,7 +15,7 @@ const CONFIG = {
   credentialsPath: process.env.GOOGLE_CREDENTIALS_PATH || './credentials.json',
   tokenPath: process.env.GOOGLE_TOKEN_PATH || './token.json',
   spreadsheetId: process.env.GOOGLE_SHEETS_ID || '1RAHjxLDULl0aRWHSX0aqUh1dqv7li7zwi0DZA6atQj0',
-  sheetName: 'Post', // Tên tab trong Google Sheets
+  sheetName: 'Posts', // Tên tab trong Google Sheets
   scopes: [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive.file'
@@ -129,21 +129,27 @@ async function addPostToSheets(postData) {
     const nextRow = await getNextEmptyRow(auth, spreadsheetId);
     console.log(`✓ Next empty row: ${nextRow}`);
 
-    // Chuẩn bị data
-    const timestamp = new Date().toISOString();
+    // Chuẩn bị data - Match new column headers
     const date = new Date().toISOString().split('T')[0];
+    const timestamp = new Date().toISOString();
 
     const rowData = {
       'Post_ID': postData.postId || `post_${Date.now()}`,
-      'Date_Created': date,
+      'Date': date,
+      'Created_At': timestamp,
+      'Topic': postData.topic || extractTopicFromName(postData.folderName),
+      'Brand': postData.brand || '',
+      'Style': postData.style || '',
+      'Content_Type': postData.uploadedCount === 1 ? 'Image' : 'Carousel',
+      'Type': postData.uploadedCount === 1 ? 'Image' : 'Carousel',         // Keep for legacy
+      'Caption': postData.caption || '',
       'Drive_Folder_ID': postData.folderId,
       'Drive_Link': postData.folderLink,
-      'Caption': postData.caption || '',
+      'Folder_Link': postData.folderLink, // Alias for screenshot match
       'Status': postData.status || 'Ready',
-      'Type': 'Carousel',
-      'Topic': postData.topic || extractTopicFromName(postData.folderName),
-      'Images_Count': postData.uploadedCount || '',
-      'Created_At': timestamp
+      'Images': postData.uploadedCount || '',
+      'FB_Post_ID': '',
+      'ReachEngagement': ''
     };
 
     // Build values array theo đúng thứ tự columns

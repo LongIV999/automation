@@ -1,0 +1,38 @@
+{
+    "brand": "Queen Nail Bern",
+    "designStyle": "notebook",
+    "topic": "Stellenangebot: Nageltechniker/in",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "Stellenangebot: Nagel- & Wimperntechniker/in",
+            "subheadline": "Professionelle Karrieremöglichkeit in Bern, Schweiz"
+        },
+        {
+            "type": "content",
+            "headline": "Warum Queen Nail Bern?",
+            "content": "Wir sind stolz darauf, einer der renommiertesten Salons in Bern zu sein. Wir bieten ein freundliches, professionelles Arbeitsumfeld und respektvollen Umgang mit unseren Mitarbeitern."
+        },
+        {
+            "type": "list",
+            "headline": "Attraktive Vorteile",
+            "content": [
+                "Hohes, stabiles Einkommen das ganze Jahr über.",
+                "Gute Sozialleistungen und Feiertagsboni.",
+                "Modernes Arbeitsumfeld mit gehobenem Klientel.",
+                "Regelmäßige Weiterbildungsmöglichkeiten."
+            ]
+        },
+        {
+            "type": "prompt",
+            "headline": "Anforderungen",
+            "content": "Bevorzugt Kandidaten mit Erfahrung in Acryl, Gel und Wimpernverlängerung. Am wichtigsten sind uns jedoch eine fleißige, ehrliche Einstellung und der Wunsch nach einer langfristigen Zusammenarbeit."
+        },
+        {
+            "type": "cta",
+            "headline": "Jetzt bewerben",
+            "visual": "/Users/admin/automation/brands/queennailbern/Nail /12.12/IMG_8305 2.JPG",
+            "content": "📞 Hotline: +41 79 805 00 68\n📍 Adresse: Kramgasse 37, 3011 Bern"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "brand": "Queen Nail Bern",
+    "designStyle": "notebook-typography",
+    "topic": "Tuyển Dụng",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "Tuyển Dụng Kỹ Thuật Viên Nails & Lashes",
+            "subheadline": "Cơ hội làm việc chuyên nghiệp tại Bern, Thụy Sĩ"
+        },
+        {
+            "type": "content",
+            "headline": "Tại Sao Chọn Queen Nail Bern?",
+            "content": "Chúng tôi tự hào là một trong những salon uy tín nhất tại Bern. Môi trường làm việc thân thiện, chuyên nghiệp và tôn trọng nhân viên."
+        },
+        {
+            "type": "list",
+            "headline": "Quyền Lợi Hấp Dẫn",
+            "content": [
+                "Thu nhập cao, ổn định quanh năm.",
+                "Chế độ đãi ngộ tốt, thưởng lễ tết.",
+                "Môi trường làm việc hiện đại, khách sang.",
+                "Được nâng cao tay nghề thường xuyên."
+            ]
+        },
+        {
+            "type": "prompt",
+            "headline": "Yêu Cầu Công Việc",
+            "content": "Ưu tiên ứng viên có kinh nghiệm làm bột, gel, và nối mi. Tuy nhiên, quan trọng nhất là thái độ làm việc chăm chỉ, trung thực và muốn gắn bó lâu dài."
+        },
+        {
+            "type": "cta",
+            "headline": "Ứng Tuyển Ngay",
+            "visual": "/Users/admin/automation/brands/queennailbern/Nail /12.12/IMG_8305 2.JPG",
+            "content": "📞 Hotline: +41 79 805 00 68\n📍 Địa chỉ: Kramgasse 37, 3011 Bern"
+        }
+    ]
+}

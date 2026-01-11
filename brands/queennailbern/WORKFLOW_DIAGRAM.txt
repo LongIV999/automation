@@ -1,0 +1,309 @@
+# Queen Nail Bern - Automation Workflow Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    QUEEN NAIL BERN AUTOMATION SYSTEM                     │
+│                         (5x/week - German Content)                       │
+└─────────────────────────────────────────────────────────────────────────┘
+
+                                    START
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 1: TOPIC INPUT                                                     │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  $ node scripts/daily-agent.js "Topic in German" --brand queennailbern  │
+│                                                                           │
+│  Example Topics:                                                         │
+│  • "5 Trendige Nageldesigns für Winter 2026"                            │
+│  • "7 Tipps für gesunde Nägel"                                          │
+│  • "French Manicure: Zeitlos & Elegant"                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 2: AI CONTENT WRITER (Claude Sonnet)                              │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Input:  Topic + context-queennailbern.md                               │
+│  Output: JSON file with 7 slides                                        │
+│                                                                           │
+│  Slide Structure:                                                        │
+│  ├─ Slide 1: Title (Hook)                                               │
+│  ├─ Slides 2-6: Content (Designs, Tips, Promotions)                     │
+│  └─ Slide 7: CTA (Call to Action)                                       │
+│                                                                           │
+│  Language: German (formal Sie-form)                                      │
+│  Tone: Professional, Elegant, Friendly                                  │
+│                                                                           │
+│  Duration: ~30 seconds                                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 3: IMAGE GENERATOR (Puppeteer + Chrome)                           │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Input:  JSON content file                                              │
+│  Output: 7 PNG images (1080x1350px - Facebook optimized)                │
+│                                                                           │
+│  Design System:                                                          │
+│  • Colors: Pink (#E8B4C8), Blush (#FFF5F8), Purple (#2D1B2E)           │
+│  • Fonts: Playfair Display (headlines) + Montserrat (body)              │
+│  • Style: Feminine, Elegant, Clean, Professional                        │
+│                                                                           │
+│  Files Created:                                                          │
+│  ├─ 01.png (Title slide)                                                │
+│  ├─ 02.png → 06.png (Content slides)                                    │
+│  └─ 07.png (CTA slide)                                                  │
+│                                                                           │
+│  Duration: ~60 seconds                                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 4: IMAGE ENHANCER                                                  │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Input:  7 raw PNG files                                                │
+│  Output: 7 enhanced PNG files                                           │
+│                                                                           │
+│  Enhancements:                                                           │
+│  • Sharpen images for clarity                                           │
+│  • Optimize file size                                                   │
+│  • Enhance contrast                                                     │
+│  • Ready for social media                                               │
+│                                                                           │
+│  Duration: ~20 seconds                                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 5: GOOGLE DRIVE UPLOADER                                          │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Actions:                                                                │
+│  1. Create folder in Google Drive: "QUEENNAIL_topic_YYYYMMDD"          │
+│  2. Upload 7 images to folder                                           │
+│  3. Generate shareable link                                             │
+│                                                                           │
+│  Google Drive Structure:                                                 │
+│  My Drive/                                                               │
+│  └─ QUEENNAIL_nageltrends-winter_20260113/                              │
+│     ├─ 01.png                                                           │
+│     ├─ 02.png                                                           │
+│     └─ ... 07.png                                                       │
+│                                                                           │
+│  Duration: ~40 seconds                                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  STEP 6: GOOGLE SHEETS UPDATER                                          │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Sheet: "Queen Nail Bern - Content Calendar"                            │
+│  Tab: Content_Calendar                                                   │
+│                                                                           │
+│  Updates Row:                                                            │
+│  ┌──────┬─────┬────────────┬──────────┬──────────┬───────────┬─────┐  │
+│  │ Date │ Day │ Topic      │ Type     │ Status   │ Folder_ID │ ... │  │
+│  ├──────┼─────┼────────────┼──────────┼──────────┼───────────┼─────┤  │
+│  │ 1/13 │ Mon │ 5 Trends.. │ Designs  │scheduled │ abc123... │  7  │  │
+│  └──────┴─────┴────────────┴──────────┴──────────┴───────────┴─────┘  │
+│                                                                           │
+│  Status: "scheduled" (ready for auto-posting)                           │
+│                                                                           │
+│  Duration: ~10 seconds                                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                          ┌───────────┴───────────┐
+                          │                       │
+                          ▼                       ▼
+                   ✅ DONE!              📅 WAITING FOR SCHEDULE
+
+═══════════════════════════════════════════════════════════════════════════
+                         AUTO-POSTING WORKFLOW (n8n)
+═══════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  TRIGGER: Schedule (Every Hour)                                          │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Timezone: Europe/Zurich                                                 │
+│  Schedule:                                                               │
+│  • Monday    10:00 → Check for scheduled posts                          │
+│  • Tuesday   15:00 → Check for scheduled posts                          │
+│  • Wednesday 10:00 → Check for scheduled posts                          │
+│  • Thursday  18:00 → Check for scheduled posts                          │
+│  • Friday    12:00 → Check for scheduled posts                          │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  CHECK GOOGLE SHEETS                                                     │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Query: Content_Calendar tab                                             │
+│  Filter:                                                                 │
+│    WHERE Status = "scheduled"                                            │
+│    AND Date = TODAY                                                      │
+│    AND Time = CURRENT_HOUR                                               │
+│                                                                           │
+│  If found → Continue                                                     │
+│  If not   → Stop (wait for next hour)                                    │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  DOWNLOAD IMAGES FROM GOOGLE DRIVE                                       │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Input: Folder_ID from Sheet                                            │
+│  Output: 7 image URLs                                                   │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  FACEBOOK GRAPH API: Upload Photos                                      │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  For each image (1-7):                                                  │
+│    POST /v19.0/{page-id}/photos                                         │
+│    {                                                                    │
+│      "url": "image_url",                                                │
+│      "published": false,  // Unpublished (for carousel)                │
+│      "access_token": "..."                                              │
+│    }                                                                    │
+│                                                                           │
+│  Collect photo IDs: [photo1_id, photo2_id, ..., photo7_id]             │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  FACEBOOK GRAPH API: Publish Carousel Post                              │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  POST /v19.0/{page-id}/feed                                             │
+│  {                                                                       │
+│    "message": "Caption from Sheet",                                     │
+│    "attached_media": [                                                  │
+│      {"media_fbid": "photo1_id"},                                       │
+│      {"media_fbid": "photo2_id"},                                       │
+│      ...                                                                 │
+│      {"media_fbid": "photo7_id"}                                        │
+│    ],                                                                    │
+│    "access_token": "..."                                                │
+│  }                                                                       │
+│                                                                           │
+│  Response: { "id": "POST_ID" }                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│  UPDATE GOOGLE SHEETS                                                    │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Tab: Content_Calendar                                                   │
+│  Action: Update row                                                      │
+│    Status: "published"                                                   │
+│    Posted_At: NOW()                                                      │
+│    FB_Post_ID: "POST_ID"                                                │
+│                                                                           │
+│  Tab: Posts (Archive)                                                    │
+│  Action: Add new row with post details                                  │
+└─────────────────────────────────────────────────────────────────────────┘
+                                      │
+                                      ▼
+                            🎉 POST PUBLISHED!
+                    Visible on Queen Nail Bern Facebook Page
+
+
+═══════════════════════════════════════════════════════════════════════════
+                              WEEKLY SCHEDULE
+═══════════════════════════════════════════════════════════════════════════
+
+┌─────────────┬──────────┬────────────────────┬──────────────────────────┐
+│    Day      │   Time   │   Content Type     │        Theme             │
+├─────────────┼──────────┼────────────────────┼──────────────────────────┤
+│  Monday     │  10:00   │  Nail Designs      │  "Monday Motivation"     │
+│  Tuesday    │  15:00   │  Tips & Care       │  "Tuesday Tips"          │
+│  Wednesday  │  10:00   │  Nail Designs      │  "Midweek Glam"          │
+│  Thursday   │  18:00   │  Promotions        │  "Thursday Treats"       │
+│  Friday     │  12:00   │  Customer Reviews  │  "Friday Features"       │
+└─────────────┴──────────┴────────────────────┴──────────────────────────┘
+
+Timezone: Europe/Zurich
+Frequency: 5 posts/week = 20 posts/month
+
+
+═══════════════════════════════════════════════════════════════════════════
+                            SYSTEM COMPONENTS
+═══════════════════════════════════════════════════════════════════════════
+
+┌──────────────────────┐   ┌──────────────────────┐   ┌──────────────────┐
+│   CONTENT CREATION   │   │   STORAGE & MGMT     │   │   PUBLISHING     │
+├──────────────────────┤   ├──────────────────────┤   ├──────────────────┤
+│ • Claude Sonnet AI   │   │ • Google Drive       │   │ • Facebook API   │
+│ • Puppeteer Engine   │   │ • Google Sheets      │   │ • n8n Workflow   │
+│ • Image Enhancer     │   │ • Brand Config       │   │ • Auto-Schedule  │
+└──────────────────────┘   └──────────────────────┘   └──────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         BRAND CONFIGURATION                               │
+│                     brands/queennailbern/brand.json                       │
+│  • Colors, Fonts, Timezone, Schedule, Content Pillars, APIs             │
+└──────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════
+                            TIME BREAKDOWN
+═══════════════════════════════════════════════════════════════════════════
+
+Manual (Old Way):
+  Research topic:        30 min
+  Write German content:  45 min
+  Design 7 images:      120 min
+  Upload & schedule:     15 min
+  ─────────────────────────────
+  TOTAL PER POST:       210 min (3.5 hours)
+  TOTAL PER WEEK:      1050 min (17.5 hours)
+
+Automated (New Way):
+  Run command:            1 min
+  AI generates content:  30 sec
+  Images generated:      60 sec
+  Enhancement:           20 sec
+  Upload & schedule:     50 sec
+  ─────────────────────────────
+  TOTAL PER POST:         3 min
+  TOTAL PER WEEK:        15 min
+
+TIME SAVED: 17 hours/week! ⏱️💰
+
+
+═══════════════════════════════════════════════════════════════════════════
+                              QUICK COMMANDS
+═══════════════════════════════════════════════════════════════════════════
+
+# Test setup
+cd /Users/admin/automation/brands/queennailbern
+./test-workflow.sh
+
+# Generate content
+cd /Users/admin/automation
+node scripts/daily-agent.js "5 Nageltrends Winter" --brand queennailbern
+
+# View docs
+cat brands/queennailbern/README.md
+cat brands/queennailbern/SETUP_SUMMARY.md
+
+# Check status
+git status
+
+
+═══════════════════════════════════════════════════════════════════════════
+                              WHAT'S NEXT?
+═══════════════════════════════════════════════════════════════════════════
+
+1. [ ] Setup Google Sheets (15 min)
+2. [ ] Get Facebook credentials (30 min)
+3. [ ] Configure n8n workflow (45 min)
+4. [ ] Generate Week 1 content (5 posts × 3 min = 15 min)
+5. [ ] Test first auto-post
+6. [ ] Monitor & optimize
+
+Total setup time: ~2 hours
+Future time per week: ~15 minutes
+
+🚀 Let's automate Queen Nail Bern!
+```

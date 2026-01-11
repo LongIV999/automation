@@ -1,0 +1,111 @@
+{
+  "brandId": "queennailbern",
+  "name": "Queen Nail Bern",
+  "description": "Premium nail salon in Bern, Switzerland - Nagelstudio für perfekte Nägel",
+  "colors": {
+    "primary": "#E8B4C8",
+    "background": "#FFF5F8",
+    "backgroundDark": "#2D1B2E",
+    "accent": "#C77D9D",
+    "text": "#2D1B2E",
+    "textDark": "#FFFFFF"
+  },
+  "typography": {
+    "headline": "Playfair Display",
+    "body": "Montserrat",
+    "sizes": {
+      "h1Title": 72,
+      "h1Content": 56,
+      "h2": 36,
+      "subheadline": 28,
+      "content": 24,
+      "listItem": 26,
+      "promptBox": 22,
+      "slideNumber": 24,
+      "brandCorner": 20
+    }
+  },
+  "branding": {
+    "logoText": "Queen Nail Bern",
+    "tagline": "Perfektion für Ihre Nägel",
+    "cornerText": "Queen Nail",
+    "website": "",
+    "email": "",
+    "location": "Bern, Schweiz"
+  },
+  "carousel": {
+    "slideWidth": 1080,
+    "slideHeight": 1350,
+    "slideCount": 7,
+    "format": "png",
+    "quality": 2
+  },
+  "googleSheets": {
+    "sheetId": "1lZIYlahiL9UkbgmhGiCLxh9ygfP6PVn1qOfpqeXbDP8",
+    "tabName": "Posts",
+    "contentCalendarTab": "Content_Calendar",
+    "archiveTab": "Archive",
+    "analyticsTab": "Analytics"
+  },
+  "googleDrive": {
+    "parentFolderId": null,
+    "folderPrefix": "QUEENNAIL",
+    "autoDelete": false
+  },
+  "facebook": {
+    "pageId": "633948429809789",
+    "credentialId": "EAAIlEVK0LRYBQQZBM4MULlf2q9v62YfPpQ3YnlDZCfPlgEQZBviBdDjR7TGDq4iK0E5uXYMmDzR9jTOGqTy5ZCeYVO2JJQJ1jrqh9i94SfF7lbZBJzfPvojF4pqD8ZCPR6edLqHWZBpdmIY9hGV2QASXUSlw6kUF4JRVJjeXUroMbFqucv2MTHJc2J2k01NTiDuN9xLus5aTJWyin720Qhh",
+    "graphApiVersion": "v19.0"
+  },
+  "n8n": {
+    "scheduleInterval": "hours",
+    "scheduleTriggerEnabled": true,
+    "timezone": "Europe/Zurich"
+  },
+  "posting": {
+    "frequency": "5x/week",
+    "schedule": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "timezone": "Europe/Zurich",
+    "autoPost": true,
+    "bestTimes": {
+      "Monday": "10:00",
+      "Tuesday": "15:00",
+      "Wednesday": "10:00",
+      "Thursday": "18:00",
+      "Friday": "12:00"
+    }
+  },
+  "contentPillars": [
+    "Nail Designs & Trends",
+    "Tips & Care",
+    "Promotions & Pricing",
+    "Customer Reviews",
+    "Behind the Scenes"
+  ],
+  "language": {
+    "primary": "de",
+    "secondary": null,
+    "contentStyle": "professional-friendly"
+  },
+  "targetAudience": {
+    "demographics": "Women 18-55 in Bern area",
+    "interests": [
+      "beauty",
+      "self-care",
+      "nail art",
+      "fashion"
+    ],
+    "location": "Bern, Switzerland"
+  },
+  "metadata": {
+    "createdAt": "2026-01-11T00:00:00Z",
+    "createdBy": "automation-setup",
+    "version": "1.0.0"
+  }
+}

@@ -165,7 +165,7 @@ async function deleteLocalImages(imagesDir, imageFiles) {
  * @param {boolean} deleteAfterUpload - Xóa ảnh local sau khi upload
  * @param {string} spreadsheetId - ID của Google Sheet cần update
  */
-async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = CONFIG.autoDeleteAfterUpload, spreadsheetId = null) {
+async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = CONFIG.autoDeleteAfterUpload, spreadsheetId = null, topic = null, brand = null) {
   console.log('🚀 Starting Google Drive upload...');
 
   try {
@@ -228,7 +228,10 @@ async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = 
         const sheetsResult = await addPostToSheets({
           ...uploadResult,
           caption: caption,
-          spreadsheetId: spreadsheetId // Pass the specific sheet ID
+          spreadsheetId: spreadsheetId,
+          topic: topic, // Pass original topic
+          brand: brand,
+          style: (folderName && folderName.includes('style-notebook')) ? 'notebook' : 'classic' // Infer style from folder name as fallback or pass it explicitly if available
         });
 
         if (sheetsResult.success) {
@@ -291,6 +294,7 @@ async function main() {
   let folderName = null;
   let deleteAfterUpload = CONFIG.autoDeleteAfterUpload; // Default from config
   let brand = 'longbest'; // default
+  let topic = null;
 
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
@@ -300,6 +304,9 @@ async function main() {
       deleteAfterUpload = false;
     } else if (arg === '--brand') {
       brand = args[i + 1];
+      i++; // Skip next arg
+    } else if (arg === '--topic') {
+      topic = args[i + 1];
       i++; // Skip next arg
     } else if (!imagesDir) {
       imagesDir = arg;
@@ -318,6 +325,16 @@ async function main() {
   if (brand === 'thachvuland') {
     spreadsheetId = process.env.GOOGLE_SHEETS_ID_THACHVULAND;
     console.log('🏢 Processing for brand: Thach Vu Land');
+  } else if (brand === 'queennailbern') {
+    // Load brand config for Queen Nail Bern
+    try {
+      const brandConfigPath = path.join(__dirname, '../../brands/queennailbern/brand.json');
+      const brandConfig = JSON.parse(await fs.readFile(brandConfigPath, 'utf-8'));
+      spreadsheetId = brandConfig.googleSheets.sheetId;
+      console.log('🏢 Processing for brand: Queen Nail Bern');
+    } catch (error) {
+      console.warn('⚠️  Could not load Queen Nail Bern config:', error.message);
+    }
   } else {
     console.log('🏢 Processing for brand: Long Best AI');
   }
@@ -336,7 +353,7 @@ async function main() {
 
   // Upload
   try {
-    const result = await uploadCarousel(imagesDir, folderName, deleteAfterUpload, spreadsheetId);
+    const result = await uploadCarousel(imagesDir, folderName, deleteAfterUpload, spreadsheetId, topic, brand);
 
     // Return result as JSON for automation
     if (process.env.JSON_OUTPUT) {

@@ -1,0 +1,57 @@
+{
+    "title": "Sonderaktion bei Queen Nail Bern",
+    "topic": "Sonderaktion bei Queen Nail Bern",
+    "brand": "Queen Nail Bern",
+    "designStyle": "notebook",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "Spezialangebot diesen Monat",
+            "subheadline": "Perfekte Nagelpflege zum Vorzugspreis",
+            "visual": "Elegant display of manicured hands with soft pink polish, luxury nail salon ambiance with gold accents"
+        },
+        {
+            "type": "content",
+            "headline": "Spar-Paket",
+            "content": "Maniküre und Pediküre kombiniert - 20% sparen. Erleben Sie umfassende Nagelpflege für Hände und Füße in Premium-Qualität. Markenprodukte und strenge Hygiene für Ihre Sicherheit.",
+            "visual": "Before and after comparison of hands and feet with professional manicure and pedicure, soft pink and nude tones"
+        },
+        {
+            "type": "list",
+            "headline": "Unsere Spezialangebote",
+            "content": [
+                "Neukunden: 15% Rabatt auf den ersten Besuch",
+                "French Manicure: Classic Elegance zum Sonderpreis",
+                "Gel-Nägel: Bis zu 3 Wochen Haltbarkeit",
+                "Trendige Nail Art: Einzigartige Designs",
+                "Freunde werben: Beide erhalten 10% Rabatt"
+            ],
+            "visual": "Collection of different nail designs showcasing French manicure, gel nails, and artistic nail art in elegant presentation"
+        },
+        {
+            "type": "content",
+            "headline": "Premium Service - Faire Preise",
+            "content": "Bei Queen Nail Bern glauben wir, dass Schönheit nicht teuer sein muss. Erleben Sie professionelle Nagelpflege nach Schweizer Standard, die Ihr Budget schont. Wir verwenden nur hochwertige Produkte.",
+            "visual": "Luxury nail products and tools arranged elegantly, high-end nail polish bottles in soft pink shades, professional salon setting"
+        },
+        {
+            "type": "content",
+            "headline": "Geschenkgutscheine",
+            "content": "Das perfekte Geschenk für Ihre Liebsten. Unsere flexiblen Gutscheine bieten Entspannung und Schönheit für jeden Anlass, sei es Geburtstag, Jubiläum oder als Dankeschön.",
+            "visual": "Elegant gift certificate presentation in soft pink and gold, decorated with delicate floral elements and ribbon"
+        },
+        {
+            "type": "content",
+            "headline": "Treueprogramm",
+            "content": "Sammeln Sie Punkte bei jedem Besuch! Nach 5 Besuchen schenken wir Ihnen eine Gratis-Behandlung. Profitieren Sie als Stammkunde von weiteren exklusiven Vorteilen und Events.",
+            "visual": "Loyalty card design with elegant gold stamps, soft pink background, professional and luxurious appearance"
+        },
+        {
+            "type": "cta",
+            "headline": "Jetzt Termin vereinbaren",
+            "content": "Queen Nails & Lashes, Kramgasse 37, 3011 Bern. Wir freuen uns auf Ihren Besuch!",
+            "subheadline": "📞 Hotline: +41 79 805 00 68",
+            "visual": "Professional nail salon interior at Queen Nail Bern, elegant reception area with soft pink decor, welcoming and luxurious atmosphere"
+        }
+    ]
+}
