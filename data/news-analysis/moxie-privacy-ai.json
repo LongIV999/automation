@@ -1,0 +1,24 @@
+{
+    "article": {
+        "title": "Moxie Marlinspike has a privacy-conscious alternative to ChatGPT",
+        "url": "https://techcrunch.com/2026/01/18/moxie-marlinspike-has-a-privacy-conscious-alternative-to-chatgpt/",
+        "source": "TechCrunch",
+        "category": "Artificial Intelligence",
+        "scraped_at": "2026-01-19T09:51:00Z"
+    },
+    "viral_analysis": {
+        "viral_score": 8,
+        "target_audience": "Tech enthusiasts, privacy advocates, developers",
+        "key_talking_points": [
+            "Moxie Marlinspike (Signal founder) entered the AI space with a focus on privacy.",
+            "Addresses the 'data collection fatigue' many feel with OpenAI/Meta.",
+            "The potential for ads in ChatGPT-like interfaces as a motivator for alternatives."
+        ],
+        "content_angles": [
+            "The 'Signal of AI' has arrived.",
+            "Why your ChatGPT conversations aren't private and why it matters.",
+            "Vietnamese developers: Is it time to switch to privacy-first LLMs for sensitive projects?"
+        ],
+        "viral_potential_reasoning": "High relevance in the VN tech community which values decentralized and privacy-focused tools (Signal, Telegram). The name 'Moxie Marlinspike' carries significant weight in cybersecurity circles."
+    }
+}
