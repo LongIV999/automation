@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Automation Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Scheduler Form */
+        .scheduler-panel {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .scheduler-panel h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #aaa;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #252525;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            background: #2a2a2a;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .brand-option {
+            padding: 10px;
+        }
+
+        .style-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .style-option {
+            padding: 12px;
+            background: #252525;
+            border: 2px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .style-option:hover {
+            border-color: #666;
+        }
+
+        .style-option.selected {
+            border-color: #007bff;
+            background: #1a3d5c;
+        }
+
+        .format-selector {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .format-option {
+            padding: 10px;
+            background: #252525;
+            border: 2px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .format-option:hover {
+            border-color: #666;
+        }
+
+        .format-option.selected {
+            border-color: #007bff;
+            background: #1a3d5c;
+        }
+
+        .format-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .format-desc {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #007bff;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn:disabled {
+            background: #444;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #28a745;
+        }
+
+        .btn-secondary:hover {
+            background: #1e7e34;
+        }
+
+        /* Metrics */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .metric-label {
+            color: #888;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+
+        /* Workflows */
+        .workflows {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .workflow-item {
+            background: #252525;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .workflow-info {
+            flex: 1;
+        }
+
+        .workflow-brand {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #333;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 10px;
+        }
+
+        .workflow-steps {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .step.completed {
+            background: #155724;
+            color: #d4edda;
+        }
+
+        .step.running {
+            background: #1a3d5c;
+            color: #b8daff;
+            animation: pulse 1.5s infinite;
+        }
+
+        .step.failed {
+            background: #721c24;
+            color: #f8d7da;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            display: inline-block;
+        }
+
+        .status-running { background: #007bff; }
+        .status-completed { background: #28a745; }
+        .status-failed { background: #dc3545; }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .connection-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px 16px;
+            background: #333;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            z-index: 1000;
+        }
+
+        .connected { background: #155724; }
+        .disconnected { background: #721c24; }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            background: #1a3d5c;
+            border-left: 4px solid #007bff;
+            border-radius: 8px;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s;
+            z-index: 1000;
+        }
+
+        .notification.success {
+            background: #155724;
+            border-left-color: #28a745;
+        }
+
+        .notification.error {
+            background: #721c24;
+            border-left-color: #dc3545;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #fff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-left: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scheduler-panel {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Content Automation Dashboard</h1>
+
+        <div class="main-grid">
+            <!-- Scheduler Panel -->
+            <div class="scheduler-panel">
+                <h2>📝 Tạo Nội Dung Mới</h2>
+
+                <form id="scheduler-form">
+                    <div class="form-group">
+                        <label>Chọn Fanpage</label>
+                        <select id="brand-select" required>
+                            <option value="">-- Chọn fanpage --</option>
+                            <option value="longbest-ai">Long Best AI (Giáo dục AI)</option>
+                            <option value="queennailbern">Queen Nail Bern (Nail Salon)</option>
+                            <option value="thachvuland">Thach Vu Land (Bất động sản)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Chủ Đề (Topic)</label>
+                        <input type="text" id="topic-input" placeholder="VD: 5 AI Tips cho 2026" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Định Dạng Nội Dung</label>
+                        <div class="format-selector" id="format-selector">
+                            <div class="format-option" data-format="auto">
+                                <div class="format-name">Auto (Tự động)</div>
+                                <div class="format-desc">Hệ thống tự chọn định dạng phù hợp</div>
+                            </div>
+                            <div class="format-option" data-format="carousel-standard">
+                                <div class="format-name">Carousel Standard</div>
+                                <div class="format-desc">5-7 slides với nội dung chi tiết</div>
+                            </div>
+                            <div class="format-option" data-format="carousel-compact">
+                                <div class="format-name">Carousel Compact</div>
+                                <div class="format-desc">3-4 slides ngắn gọn</div>
+                            </div>
+                            <div class="format-option" data-format="single-post">
+                                <div class="format-name">Single Post</div>
+                                <div class="format-desc">1 hình ảnh đơn</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phong Cách Thiết Kế</label>
+                        <div class="style-selector" id="style-selector">
+                            <!-- Will be populated based on brand selection -->
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display: none;">
+                        <label>
+                            <input type="checkbox" id="research-checkbox" style="width: auto; margin-right: 8px;">
+                            Tìm kiếm xu hướng trước khi tạo
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn" id="submit-btn">
+                        <span id="submit-text">🚀 Tạo Ngay</span>
+                    </button>
+                </form>
+
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #333;">
+                    <button class="btn btn-secondary" id="view-sheets-btn">
+                        📊 Xem Google Sheets
+                    </button>
+                </div>
+            </div>
+
+            <!-- Monitor Panel -->
+            <div>
+                <div class="metrics">
+                    <div class="metric-card">
+                        <div class="metric-label">Tổng Workflows</div>
+                        <div class="metric-value" id="metric-total">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Đang Chạy</div>
+                        <div class="metric-value" id="metric-running">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Thành Công</div>
+                        <div class="metric-value" id="metric-success">0</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Thất Bại</div>
+                        <div class="metric-value" id="metric-failed">0</div>
+                    </div>
+                </div>
+
+                <div class="workflows">
+                    <h2 style="margin-bottom: 20px;">⚡ Workflows Đang Chạy</h2>
+                    <div id="workflow-list">
+                        <div class="empty-state">
+                            <p>Chưa có workflow nào. Hãy tạo nội dung mới!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="connection-status disconnected" id="connection-status">
+        Disconnected
+    </div>
+
+    <script>
+        // Brand configurations
+        const brandConfigs = {
+            'longbest-ai': {
+                name: 'Long Best AI',
+                styles: ['notebook', 'tutorial', 'infographic'],
+                sheetId: '1RAHjxLDULl0aRWHSX0aqUh1dqv7li7zwi0DZA6atQj0'
+            },
+            'queennailbern': {
+                name: 'Queen Nail Bern',
+                styles: ['quote', 'infographic'],
+                sheetId: '1MPyLQw9Q4sLlRiSvWSCyY4NvtVGeoDKoib6n3f4PRTo'
+            },
+            'thachvuland': {
+                name: 'Thach Vu Land',
+                styles: ['infographic', 'notebook'],
+                sheetId: '1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY'
+            }
+        };
+
+        // WebSocket connection
+        let ws;
+        let reconnectInterval;
+
+        function connect() {
+            ws = new WebSocket('ws://localhost:3001');
+
+            ws.onopen = () => {
+                console.log('Connected to monitor');
+                document.getElementById('connection-status').className = 'connection-status connected';
+                document.getElementById('connection-status').textContent = 'Connected';
+                clearInterval(reconnectInterval);
+            };
+
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                handleMessage(data);
+            };
+
+            ws.onclose = () => {
+                console.log('Disconnected from monitor');
+                document.getElementById('connection-status').className = 'connection-status disconnected';
+                document.getElementById('connection-status').textContent = 'Disconnected';
+                reconnectInterval = setTimeout(connect, 3000);
+            };
+
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+        }
+
+        function handleMessage(data) {
+            switch (data.type) {
+                case 'state':
+                    updateMetrics(data.metrics);
+                    updateWorkflows(data.workflows);
+                    break;
+                case 'workflow:start':
+                    addWorkflow(data.workflow);
+                    break;
+                case 'workflow:step':
+                    updateWorkflowStep(data.workflowId, data.step);
+                    break;
+                case 'workflow:complete':
+                    completeWorkflow(data.workflow);
+                    break;
+            }
+        }
+
+        function updateMetrics(metrics) {
+            document.getElementById('metric-total').textContent = metrics.total;
+            document.getElementById('metric-running').textContent = metrics.running;
+            document.getElementById('metric-success').textContent = metrics.success;
+            document.getElementById('metric-failed').textContent = metrics.failed;
+        }
+
+        function updateWorkflows(workflows) {
+            const container = document.getElementById('workflow-list');
+            if (workflows.length === 0) {
+                container.innerHTML = '<div class="empty-state"><p>Chưa có workflow nào. Hãy tạo nội dung mới!</p></div>';
+                return;
+            }
+
+            container.innerHTML = workflows.map(w => renderWorkflow(w)).join('');
+        }
+
+        function renderWorkflow(workflow) {
+            const duration = workflow.completedAt
+                ? Math.round((new Date(workflow.completedAt) - new Date(workflow.startedAt)) / 1000)
+                : Math.round((new Date() - new Date(workflow.startedAt)) / 1000);
+
+            return `
+                <div class="workflow-item" id="workflow-${workflow.id}">
+                    <div class="workflow-info">
+                        <div>
+                            <span class="status-indicator status-${workflow.status}"></span>
+                            <strong>${workflow.type}</strong>
+                            <span class="workflow-brand">${workflow.brand}</span>
+                            <span style="color: #666; font-size: 0.875rem;">${duration}s</span>
+                        </div>
+                        <div class="workflow-steps">
+                            ${workflow.steps.map(s => `
+                                <span class="step ${s.status}">${s.name}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addWorkflow(workflow) {
+            updateMetrics({
+                total: parseInt(document.getElementById('metric-total').textContent) + 1,
+                running: parseInt(document.getElementById('metric-running').textContent) + 1,
+                success: parseInt(document.getElementById('metric-success').textContent),
+                failed: parseInt(document.getElementById('metric-failed').textContent)
+            });
+
+            const container = document.getElementById('workflow-list');
+            const emptyState = container.querySelector('.empty-state');
+            if (emptyState) {
+                container.innerHTML = '';
+            }
+
+            container.insertAdjacentHTML('afterbegin', renderWorkflow(workflow));
+        }
+
+        function completeWorkflow(workflow) {
+            const element = document.getElementById(`workflow-${workflow.id}`);
+            if (element) {
+                element.outerHTML = renderWorkflow(workflow);
+            }
+
+            updateMetrics({
+                total: parseInt(document.getElementById('metric-total').textContent),
+                running: parseInt(document.getElementById('metric-running').textContent) - 1,
+                success: parseInt(document.getElementById('metric-success').textContent) + (workflow.status === 'completed' ? 1 : 0),
+                failed: parseInt(document.getElementById('metric-failed').textContent) + (workflow.status === 'failed' ? 1 : 0)
+            });
+
+            // Show notification
+            const success = workflow.status === 'completed';
+            showNotification(
+                success ? '✅ Workflow hoàn thành!' : '❌ Workflow thất bại!',
+                success ? 'success' : 'error'
+            );
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Form handlers
+        document.getElementById('brand-select').addEventListener('change', function() {
+            const brand = this.value;
+            const styleSelector = document.getElementById('style-selector');
+
+            if (!brand) {
+                styleSelector.innerHTML = '';
+                return;
+            }
+
+            const config = brandConfigs[brand];
+            styleSelector.innerHTML = config.styles.map(style => `
+                <div class="style-option" data-style="${style}">
+                    ${style}
+                </div>
+            `).join('');
+
+            // Auto-select first style
+            styleSelector.querySelector('.style-option').classList.add('selected');
+        });
+
+        // Style selector
+        document.getElementById('style-selector').addEventListener('click', function(e) {
+            const option = e.target.closest('.style-option');
+            if (!option) return;
+
+            this.querySelectorAll('.style-option').forEach(el => el.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+
+        // Format selector
+        document.getElementById('format-selector').addEventListener('click', function(e) {
+            const option = e.target.closest('.format-option');
+            if (!option) return;
+
+            this.querySelectorAll('.format-option').forEach(el => el.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+
+        // Auto-select first format
+        document.querySelector('.format-option').classList.add('selected');
+
+        // Form submission
+        document.getElementById('scheduler-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const brand = document.getElementById('brand-select').value;
+            const topic = document.getElementById('topic-input').value.trim();
+            const format = document.querySelector('.format-option.selected')?.dataset.format || 'auto';
+            const style = document.querySelector('.style-option.selected')?.dataset.style || '';
+            const research = document.getElementById('research-checkbox').checked;
+
+            if (!brand || !topic) {
+                showNotification('⚠️ Vui lòng chọn fanpage và nhập topic!', 'error');
+                return;
+            }
+
+            // Disable form
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            submitBtn.disabled = true;
+            submitText.innerHTML = 'Đang xử lý... <span class="loading-spinner"></span>';
+
+            try {
+                const response = await fetch('http://localhost:3002/api/create-content', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        brand,
+                        topic,
+                        format,
+                        style,
+                        research
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showNotification('✅ Workflow đã được khởi động!', 'success');
+                    // Reset form
+                    document.getElementById('topic-input').value = '';
+                } else {
+                    showNotification(`❌ Lỗi: ${result.error}`, 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('❌ Không thể kết nối với server!', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitText.innerHTML = '🚀 Tạo Ngay';
+            }
+        });
+
+        // View sheets button
+        document.getElementById('view-sheets-btn').addEventListener('click', function() {
+            const brand = document.getElementById('brand-select').value;
+            if (!brand) {
+                showNotification('⚠️ Vui lòng chọn fanpage trước!', 'error');
+                return;
+            }
+
+            const sheetId = brandConfigs[brand].sheetId;
+            window.open(`https://docs.google.com/spreadsheets/d/${sheetId}/edit`, '_blank');
+        });
+
+        // Start connection
+        connect();
+    </script>
+</body>
+</html>

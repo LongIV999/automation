@@ -1,0 +1,29 @@
+[
+    {
+        "Ngày": "2026-01-14",
+        "Giờ": "09:00",
+        "Nội dung": "🚀 CLAUDE COWORK: \"ĐỒNG NGHIỆP\" AI NGAY TRÊN MÁY TÍNH CỦA BẠN!\n\nAnthropic vừa tung ra tính năng \"Cowork\" cho Claude Desktop - biến Claude thành một đồng sự thực thụ.\n\n✅ Không chỉ chat: Claude giờ đây có thể truy cập, đọc và chỉnh sửa file trực tiếp trong folder bạn cấp quyền.\n✅ Tự động hóa: Giao việc quản lý file, phân tích dữ liệu, hoặc viết code - Claude tự xử lý như một nhân viên cần mẫn.\n✅ Bảo mật: Hoạt động cục bộ, bạn kiểm soát 100% quyền truy cập.\n\nĐây là bước tiến lớn biến AI từ \"Chatbot\" thành \"Agent\" thực chiến. Bạn đã thử chưa? #Claude #AI #Cowork #Productivity",
+        "Hình Ảnh": "claude_cowork_desktop.jpg",
+        "Trạng Thái": "Ready",
+        "Link bài Post": "",
+        "Loại nội dung": "News/Update"
+    },
+    {
+        "Ngày": "2026-01-15",
+        "Giờ": "09:00",
+        "Nội dung": "🔥 CLAUDE CODE CLI: BIẾN 1 GIỜ CODE THÀNH 5 PHÚT\n\nNếu bạn là Dev, đây là \"vũ khí\" mới không thể thiếu. Claude Code - công cụ dòng lệnh (CLI) mới từ Anthropic.\n\n💻 Tác vụ Agentic: \"Claude, fix bug này\", \"Claude, refactor file này\" -> Nó tự đọc code, tự sửa, tự commit git.\n🧠 Hiểu toàn bộ Project: Không cần copy-paste từng đoạn code, nó hiểu context của cả dự án.\n⚡ Tốc độ kinh hoàng: Giảm thiểu thao tác thừa, tập trung vào logic cốt lõi.\n\nCoding chưa bao giờ \"nhàn\" đến thế! #ClaudeCode #DevTools #Programming #AI",
+        "Hình Ảnh": "claude_code_terminal.jpg",
+        "Trạng Thái": "Ready",
+        "Link bài Post": "",
+        "Loại nội dung": "Deep Dive"
+    },
+    {
+        "Ngày": "2026-01-16",
+        "Giờ": "09:00",
+        "Nội dung": "🔮 TƯƠNG LAI CỦA VIỆC LÀM: KHI AI LÀ ĐỒNG NGHIỆP\n\nSự xuất hiện của Claude Cowork và Claude Code đánh dấu kỷ nguyên \"Agentic AI\".\n\nChúng ta đang chuyển từ việc \"ra lệnh\" cho AI (Prompt Engineering) sang \"phối hợp\" với AI (AI Collaboration). AI không chỉ trả lời câu hỏi, nó *làm việc*.\n\nSẽ ra sao khi mỗi người chúng ta đều quản lý một đội quân AI agents riêng? Kỹ năng quan trọng nhất sắp tới không phải là viết code hay viết văn, mà là... quản lý nhân sự AI.\n\nBạn đã sẵn sàng làm \"Sếp\" chưa? #FutureOfWork #AI #AgenticAI #Leadership",
+        "Hình Ảnh": "ai_coworker_future.jpg",
+        "Trạng Thái": "Ready",
+        "Link bài Post": "",
+        "Loại nội dung": "Opinion"
+    }
+]

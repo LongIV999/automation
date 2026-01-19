@@ -1,0 +1,99 @@
+{
+  "title": "7 Bước Xây Dựng Hệ Thống Tự Động Hóa Nội Dung",
+  "topic": "Tutorial: Building Content Automation System",
+  "brand": "Long Best AI",
+  "designStyle": "tutorial",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "7 Bước Xây Dựng Hệ Thống Tự Động Hóa Nội Dung",
+      "subheadline": "Từ setup ban đầu đến tự động đăng lên Facebook",
+      "content": "Tutorial đầy đủ với code examples và screenshots",
+      "visual": "Clean setup illustration showing workflow from input to output, minimalist tech aesthetic with green accents"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 1: Setup Node.js Environment",
+      "subheadline": "Cài đặt môi trường phát triển cơ bản",
+      "content": "Cài đặt Node.js 16+, npm, và Puppeteer. Tạo thư mục dự án và khởi tạo package.json. Clone repository automation từ GitHub.",
+      "visual": "Terminal screenshot showing npm install commands, with numbered annotations pointing to key steps",
+      "steps": [
+        "Download Node.js từ nodejs.org",
+        "Chạy: npm init -y",
+        "Cài Puppeteer: npm install puppeteer",
+        "Verify: node --version"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Bước 2: Cấu Hình Brand Settings",
+      "subheadline": "Tạo file brand.json cho fanpage",
+      "content": "Tạo thư mục brands/your-brand/ và file brand.json. Định nghĩa màu sắc, fonts, và thông tin branding. Copy template từ brands/_templates/brand-config.template.json.",
+      "visual": "Split screen: left shows folder structure, right shows brand.json code snippet with annotations",
+      "steps": [
+        "Tạo folder: brands/your-brand/",
+        "Copy template: brand-config.template.json",
+        "Chỉnh colors, typography, branding",
+        "Save as brand.json"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Bước 3: Tạo Content JSON",
+      "subheadline": "Viết nội dung theo cấu trúc chuẩn",
+      "content": "Tạo file JSON trong scripts/carousel-generator/content/. Định nghĩa slides với type, headline, subheadline, content. Mỗi carousel cần 7 slides: title, 5 content, và 1 cta.",
+      "visual": "JSON code editor view with syntax highlighting, arrows pointing to key fields: type, headline, content",
+      "steps": [
+        "Tạo file: brandname-topic.json",
+        "Add title slide với hook",
+        "Add 5 content/list slides",
+        "Kết thúc bằng CTA slide"
+      ]
+    },
+    {
+      "type": "list",
+      "headline": "Bước 4: Generate Images",
+      "subheadline": "Chạy generator để tạo PNG files",
+      "content": [
+        "📁 cd scripts",
+        "🎨 node carousel-generator/generator.js content.json output/",
+        "⏱️ Đợi 30-60 giây để Puppeteer render",
+        "✅ Check output folder: 01.png - 07.png"
+      ],
+      "visual": "Before/after: input JSON on left, output PNG grid on right, with progress indicator"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 5: Enhance Images",
+      "subheadline": "Tăng chất lượng hình ảnh",
+      "content": "Chạy enhancer.js để apply filters và tăng độ sắc nét. Script sẽ tự động điều chỉnh contrast, brightness, saturation. Hình ảnh cuối cùng crisp và vibrant hơn 20-30%.",
+      "visual": "Side-by-side comparison: before (left) vs after (right) enhancement, with zoom-in details showing improved quality",
+      "steps": [
+        "node carousel-generator/enhancer.js output/",
+        "Enhance all PNGs in folder",
+        "Original files được overwrite",
+        "Review quality improvements"
+      ]
+    },
+    {
+      "type": "content",
+      "headline": "Bước 6: Upload to Google Drive",
+      "subheadline": "Sync với Drive và Google Sheets",
+      "content": "Sử dụng drive-uploader/upload.js để upload images lên Google Drive. Script tự động tạo folder, upload files, và update Google Sheets với links và metadata. Cần credentials.json và token.json.",
+      "visual": "Workflow diagram: Local files -> Google Drive API -> Sheets update, with authentication flow shown",
+      "steps": [
+        "Setup Google Cloud credentials",
+        "node drive-uploader/upload.js brand-id content-name",
+        "Images uploaded to Drive",
+        "Sheets updated with links"
+      ]
+    },
+    {
+      "type": "cta",
+      "headline": "Hoàn Thành! Bắt Đầu Tự Động Hóa",
+      "subheadline": "Clone full source code và templates",
+      "content": "Repository đầy đủ với scripts, templates, và documentation. Hỗ trợ multi-brand, auto-scheduling, và Facebook publishing. Download ngay để bắt đầu tự động hóa nội dung của bạn.",
+      "visual": "GitHub repo card with star count, download button, tech stack icons (Node.js, Puppeteer, Google APIs)"
+    }
+  ]
+}

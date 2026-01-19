@@ -1,0 +1,61 @@
+{
+  "title": "7 Mẹo Ẩn Khi Sử Dụng Claude Code",
+  "topic": "các mẹo ẩn khi sử dụng claude code",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "7 Mẹo Ẩn Khi Sử Dụng Claude Code",
+      "subheadline": "99% lập trình viên Việt chưa biết những tính năng này",
+      "content": "Khám phá các tính năng ẩn giúp bạn code nhanh hơn gấp 3 lần",
+      "visual": "Clean minimal design with warm cream background, featuring abstract coding symbols and Claude logo in terracotta accent color, modern Vietnamese tech aesthetic"
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo 1: Sử Dụng Context Files",
+      "subheadline": "Giúp Claude hiểu toàn bộ dự án của bạn",
+      "content": "Thêm file .claudecontext vào thư mục gốc. Claude sẽ tự động đọc cấu trúc project, quy tắc coding của bạn và đưa ra suggestions chính xác hơn 80%",
+      "visual": "Before and after split screen showing messy code suggestions vs organized context-aware suggestions, warm color palette with terracotta highlights"
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo 2: Multi-File Editing",
+      "subheadline": "Chỉnh sửa nhiều file cùng lúc",
+      "content": "Nhấn Cmd/Ctrl + P và gõ tên file. Claude có thể edit đồng thời tối đa 5 files liên quan. Tiết kiệm 70% thời gian refactor code",
+      "visual": "Grid layout showing multiple code files being edited simultaneously, clean interface with numbered annotations, professional Vietnamese tech aesthetic"
+    },
+    {
+      "type": "prompt",
+      "headline": "Mẹo 3: Prompt Template Tối Ưu",
+      "subheadline": "Copy prompt này để Claude code chuẩn hơn",
+      "content": "Hãy phân tích code hiện tại của tôi, tìm các vấn đề về performance và security. Sau đó refactor theo best practices của [ngôn ngữ], giữ nguyên logic nghiệp vụ. Giải thích từng thay đổi bằng tiếng Việt",
+      "visual": "Clean code snippet display with monospace font on light background, terracotta accent for code highlighting, minimalist design"
+    },
+    {
+      "type": "list",
+      "headline": "Mẹo 4: Shortcuts Tiết Kiệm Thời Gian",
+      "subheadline": "4 phím tắt ít người biết",
+      "content": [
+        "Cmd/Ctrl + K: Mở chat nhanh ngay trong editor",
+        "Cmd/Ctrl + Shift + L: Chọn tất cả các dòng giống nhau",
+        "Alt + Click: Đặt nhiều con trỏ cùng lúc",
+        "Cmd/Ctrl + /: Yêu cầu Claude giải thích đoạn code đang chọn"
+      ],
+      "visual": "Numbered list with keyboard key icons, clean grid layout, warm cream background with black text and terracotta accent numbers"
+    },
+    {
+      "type": "content",
+      "headline": "Mẹo 5: Debug Mode Thông Minh",
+      "subheadline": "Tìm lỗi nhanh gấp 5 lần",
+      "content": "Paste error message + đoạn code liên quan. Thêm câu: Hãy debug theo phương pháp rubber duck, giải thích từng bước tư duy. Claude sẽ phân tích chi tiết thay vì chỉ fix nhanh",
+      "visual": "Visual debugging workflow diagram, before/after comparison of error messages, professional warm color scheme with clear annotations"
+    },
+    {
+      "type": "cta",
+      "headline": "Nâng Cấp Quy Trình Làm Việc",
+      "subheadline": "Tạo Video và Ảnh AI Chuyên Nghiệp",
+      "content": "Kết hợp Claude Code với Veo 3 và Nano Banana Pro để tạo nội dung minh họa code, tutorial videos, và tài liệu kỹ thuật chuyên nghiệp. Nhắn tin ngay để nhận bản dùng thử trước khi mua",
+      "visual": "Clean CTA design with terracotta button on warm cream background, subtle abstract AI motifs, professional Vietnamese branding, Long Best AI logo placement"
+    }
+  ]
+}

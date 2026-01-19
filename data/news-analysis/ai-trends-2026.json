@@ -1,0 +1,42 @@
+{
+    "source": "MIT Sloan Management Review",
+    "topic": "Top AI Trends 2026",
+    "generated_at": "2026-01-19T10:15:00Z",
+    "trends": [
+        {
+            "rank": 1,
+            "trend": "AI Bubble Deflation",
+            "summary": "Market shift from AI hype to measurable profitability and economic adjustment.",
+            "social_hook": "Is the AI honeymoon over? 2026 marks the year of the reality check.",
+            "details": "Focus shifts from growth to profitability as companies prioritize refining existing tech."
+        },
+        {
+            "rank": 2,
+            "trend": "Internal AI Factories",
+            "summary": "Standardizing AI production pipelines to scale intelligence across the enterprise.",
+            "social_hook": "Stop building tools, start building factories. Here is how AI scales in 2026.",
+            "details": "Consolidated internal platforms for efficient deployment and scaling of AI models."
+        },
+        {
+            "rank": 3,
+            "trend": "Enterprise GenAI Resource",
+            "summary": "GenAI evolves from personal productivity tools to core strategic business assets.",
+            "social_hook": "GenAI is moving from your desktop to the boardroom.",
+            "details": "Integration into strategic functions like Supply Chain, R&D, and Sales."
+        },
+        {
+            "rank": 4,
+            "trend": "Agentic AI Reality Check",
+            "summary": "AI agents hit a trough of disillusionment due to accuracy and security concerns.",
+            "social_hook": "AI Agents: Overhyped today, but essential tomorrow? Let's talk 2026.",
+            "details": "Accuracy and security barriers prevent high-stakes use, but long-term potential remains."
+        },
+        {
+            "rank": 5,
+            "trend": "Leadership & Governance Struggle",
+            "summary": "Ongoing debate over who manages AI: CDO vs CTO vs Business Leads.",
+            "social_hook": "Who owns AI in your company? The 2026 leadership struggle is real.",
+            "details": "Prioritizing standardized governance and clear reporting lines for AI initiatives."
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+  "title": "Design System in 4 Hours With AI",
+  "topic": "Tạo Design System Hoàn Chỉnh Trong 4 Giờ Với AI - Hướng Dẫn Chi Tiết (Claude + Cursor + Figma)",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Tạo Design System Chuyên Nghiệp Chỉ Trong 4 Giờ",
+      "subheadline": "Với Claude AI + Cursor + Figma",
+      "content": "99% designer không biết cách này để tạo Design System nhanh gấp 10 lần",
+      "visual": "Split screen showing before (chaotic design elements scattered) and after (organized, beautiful design system). Warm cream background with Crail accent color highlighting the time saved. Clean, minimalist style with Vietnamese text overlay."
+    },
+    {
+      "type": "content",
+      "headline": "Vấn Đề Của Design System Truyền Thống",
+      "subheadline": "Tốn thời gian và công sức",
+      "content": "Tạo Design System thủ công thường mất 2-4 tuần. Bạn phải định nghĩa màu sắc, typography, components, spacing, và documentation. Quá trình này lặp đi lặp lại và dễ sai sót.",
+      "visual": "Illustration showing a designer overwhelmed with multiple screens, color palettes, component libraries. Use Pampas background with subtle Cloudy accents. Visual metaphor of time slipping away."
+    },
+    {
+      "type": "content",
+      "headline": "Giải Pháp: Kết Hợp Sức Mạnh 3 Công Cụ AI",
+      "subheadline": "Claude + Cursor + Figma làm việc cùng nhau",
+      "content": "Claude AI sẽ tạo design tokens và quy tắc. Cursor AI code components tự động. Figma tổ chức và visualize hệ thống. Kết quả: Design System hoàn chỉnh trong 4 giờ thay vì 4 tuần.",
+      "visual": "Three interconnected circles representing Claude, Cursor, and Figma with arrows showing workflow. Clean grid layout with Crail accent on connection points. Warm, professional aesthetic with clear hierarchy."
+    },
+    {
+      "type": "list",
+      "headline": "5 Bước Tạo Design System Với AI",
+      "subheadline": "Quy trình chi tiết từ zero đến hoàn thiện",
+      "content": [
+        "Bước 1: Dùng Claude tạo design tokens (màu, spacing, typography)",
+        "Bước 2: Claude viết documentation và naming conventions",
+        "Bước 3: Cursor code React components từ tokens",
+        "Bước 4: Import vào Figma và tạo component library",
+        "Bước 5: Claude tạo usage guidelines và best practices"
+      ],
+      "visual": "Numbered step-by-step diagram with icons for each tool. Clean white sections alternating with Pampas cream. Visual flow from top to bottom with progress indicators in Crail color."
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt Mẫu: Tạo Design Tokens Với Claude",
+      "subheadline": "Copy và dán vào Claude để bắt đầu",
+      "content": "Bạn là Design System Architect chuyên nghiệp. Hãy tạo cho tôi một bộ design tokens hoàn chỉnh cho [tên dự án] với yêu cầu sau:\n\n1. Color palette: Primary, secondary, neutral, semantic colors (success, warning, error)\n2. Typography scale: Font families, sizes, weights, line heights\n3. Spacing system: 8pt grid based\n4. Border radius values\n5. Shadow definitions\n\nOutput dưới dạng JSON format, có naming convention rõ ràng và scalable. Brand style: [mô tả phong cách thương hiệu của bạn].",
+      "visual": "Code snippet style presentation with monospace font on light background. Highlighted sections showing the prompt structure. Clean, technical aesthetic with Crail accents on key phrases."
+    },
+    {
+      "type": "content",
+      "headline": "Kết Quả Thực Tế",
+      "subheadline": "Từ ý tưởng đến sản phẩm trong 4 giờ",
+      "content": "Một designer đã thử quy trình này và tạo được Design System với 50+ components, đầy đủ documentation, và code React sẵn sàng sử dụng. Tiết kiệm 90% thời gian so với cách làm thủ công.",
+      "visual": "Before and after timeline comparison. Left side shows 4 weeks traditional method, right side shows 4 hours AI method. Include preview of finished design system components. Professional, clean layout with transformation emphasis using Crail highlights."
+    },
+    {
+      "type": "cta",
+      "headline": "Muốn Tạo Nội Dung Marketing Chuyên Nghiệp Như Thế Này?",
+      "subheadline": "Giải pháp AI tạo Video và Ảnh đỉnh cao",
+      "content": "Long Best AI cung cấp giải pháp tạo Video chuyên nghiệp với Veo 3 và Ảnh AI đẳng cấp với Nano Banana Pro. Tạo content marketing, tutorial videos, và visual assets nhanh gấp 10 lần.\n\nNhắn tin (ib) ngay để nhận bản dùng thử miễn phí trước khi mua.",
+      "visual": "Clean, professional CTA layout with Long Best AI branding. Showcase sample outputs from Veo 3 and Nano Banana Pro in grid format. Warm Pampas background with strong Crail CTA button. Include messaging icon and urgency elements."
+    }
+  ]
+}

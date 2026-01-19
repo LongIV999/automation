@@ -165,7 +165,7 @@ async function deleteLocalImages(imagesDir, imageFiles) {
  * @param {boolean} deleteAfterUpload - Xóa ảnh local sau khi upload
  * @param {string} spreadsheetId - ID của Google Sheet cần update
  */
-async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = CONFIG.autoDeleteAfterUpload, spreadsheetId = null, topic = null, brand = null) {
+async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = CONFIG.autoDeleteAfterUpload, spreadsheetId = null, topic = null, brand = null, sheetName = null) {
   console.log('🚀 Starting Google Drive upload...');
 
   try {
@@ -229,6 +229,7 @@ async function uploadCarousel(imagesDir, folderName = null, deleteAfterUpload = 
           ...uploadResult,
           caption: caption,
           spreadsheetId: spreadsheetId,
+          sheetName: sheetName || 'Post',
           topic: topic, // Pass original topic
           brand: brand,
           style: (folderName && folderName.includes('style-notebook')) ? 'notebook' : 'classic' // Infer style from folder name as fallback or pass it explicitly if available
@@ -320,28 +321,19 @@ async function main() {
     process.exit(1);
   }
 
-  // Determine Spreadsheet ID based on brand
-  let spreadsheetId = process.env.GOOGLE_SHEETS_ID;
-  if (brand === 'thachvuland') {
-    spreadsheetId = process.env.GOOGLE_SHEETS_ID_THACHVULAND;
-    console.log('🏢 Processing for brand: Thach Vu Land');
-  } else if (brand === 'queennailbern') {
-    // Load brand config for Queen Nail Bern
-    try {
-      const brandConfigPath = path.join(__dirname, '../../brands/queennailbern/brand.json');
-      const brandConfig = JSON.parse(await fs.readFile(brandConfigPath, 'utf-8'));
-      spreadsheetId = brandConfig.googleSheets.sheetId;
-      console.log('🏢 Processing for brand: Queen Nail Bern');
-    } catch (error) {
-      console.warn('⚠️  Could not load Queen Nail Bern config:', error.message);
-    }
-  } else {
-    console.log('🏢 Processing for brand: Long Best AI');
+  // Load brand config
+  let brandConfig = null;
+  try {
+    const brandConfigPath = path.join(__dirname, '../../brands', brand, 'brand.json');
+    brandConfig = JSON.parse(await fs.readFile(brandConfigPath, 'utf-8'));
+  } catch (error) {
+    console.warn(`⚠️  Could not load brand config for ${brand}:`, error.message);
   }
 
-  if (!spreadsheetId) {
-    console.warn(`⚠️  No Sheet ID found for brand: ${brand}. Using default or failing purely.`);
-  }
+  const spreadsheetId = brandConfig?.googleSheets?.sheetId || process.env.GOOGLE_SHEETS_ID;
+  const sheetName = brandConfig?.googleSheets?.tabName || 'Post';
+
+  console.log(`🏢 Processing for brand: ${brandConfig?.name || brand}`);
 
   // Check if directory exists
   try {
@@ -353,7 +345,7 @@ async function main() {
 
   // Upload
   try {
-    const result = await uploadCarousel(imagesDir, folderName, deleteAfterUpload, spreadsheetId, topic, brand);
+    const result = await uploadCarousel(imagesDir, folderName, deleteAfterUpload, spreadsheetId, topic, brand, sheetName);
 
     // Return result as JSON for automation
     if (process.env.JSON_OUTPUT) {

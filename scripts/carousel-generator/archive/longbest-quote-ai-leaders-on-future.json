@@ -1,0 +1,67 @@
+{
+  "title": "Quote: Sam Altman về Tương Lai AI",
+  "topic": "Quote/Statement design",
+  "brand": "Long Best AI",
+  "designStyle": "quote",
+  "slides": [
+    {
+      "type": "quote",
+      "quote": "The best way to predict the future is to invent it.",
+      "translation": "Cách tốt nhất để dự đoán tương lai là tạo ra nó.",
+      "author": "Sam Altman",
+      "title": "CEO, OpenAI",
+      "context": "Y Combinator Startup School 2019",
+      "visual": "Minimal quote design with large typography, author image circle, clean background"
+    },
+    {
+      "type": "quote",
+      "quote": "AI will be the best or worst thing ever for humanity.",
+      "translation": "AI sẽ là điều tốt nhất hoặc tệ nhất từng xảy ra với nhân loại.",
+      "author": "Sam Altman",
+      "title": "CEO, OpenAI",
+      "context": "Interview with Lex Fridman 2023",
+      "visual": "Split background: light/dark representing best/worst, centered quote text"
+    },
+    {
+      "type": "quote",
+      "quote": "The best AI will be collaborative, not competitive.",
+      "translation": "AI tốt nhất sẽ là cộng tác, không phải cạnh tranh.",
+      "author": "Demis Hassabis",
+      "title": "CEO, Google DeepMind",
+      "context": "Nature Interview 2024",
+      "visual": "Network diagram with connected nodes in background, quote overlaid"
+    },
+    {
+      "type": "quote",
+      "quote": "Code is poetry written by machines, understood by humans.",
+      "translation": "Code là thơ được viết bởi máy móc, hiểu bởi con người.",
+      "author": "Andrej Karpathy",
+      "title": "Former AI Director, Tesla",
+      "context": "Twitter/X Post 2023",
+      "visual": "Code syntax background (blurred), large quote in foreground, minimal aesthetic"
+    },
+    {
+      "type": "quote",
+      "quote": "AGI by 2027 is not impossible, it's inevitable.",
+      "translation": "AGI vào năm 2027 không phải là không thể, mà là tất yếu.",
+      "author": "Leopold Aschenbrenner",
+      "title": "Former OpenAI Researcher",
+      "context": "Situational Awareness Report 2024",
+      "visual": "Timeline visualization from 2024 to 2027, quote as headline"
+    },
+    {
+      "type": "statement",
+      "headline": "AI Đang Thay Đổi Mọi Thứ",
+      "subheadline": "Và bạn cần chuẩn bị",
+      "content": "Những câu quote trên từ các leaders trong AI industry. Họ đều đồng ý: AI sẽ transform mọi ngành nghề trong 3-5 năm tới. Câu hỏi không phải là 'có nên học AI không', mà là 'bắt đầu từ đâu'.",
+      "visual": "Collage of author portraits with their key quotes, modern editorial design"
+    },
+    {
+      "type": "cta",
+      "headline": "Học AI Từ Những Người Tốt Nhất",
+      "subheadline": "Tutorials, insights, và practical guides",
+      "content": "Long Best AI tổng hợp và dịch những insights quan trọng nhất từ Sam Altman, Andrej Karpathy, và các AI leaders. Follow để cập nhật tin tức và học hỏi từ những người đang shape tương lai.",
+      "visual": "Clean CTA with avatar grid of featured AI leaders, subscribe button"
+    }
+  ]
+}

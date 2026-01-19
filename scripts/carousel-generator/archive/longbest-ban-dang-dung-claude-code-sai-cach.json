@@ -1,0 +1,62 @@
+{
+  "title": "Bạn Đang Dùng Claude Code Sai Cách",
+  "topic": "GSD Framework - Cách sử dụng Claude Code đúng cách",
+  "brand": "Long Best AI",
+  "designStyle": "notebook",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Bạn Đang Dùng Claude Code Sai Cách.",
+      "subheadline": "Giới thiệu GSD: Framework mới để biến ý tưởng thành sản phẩm hoàn chỉnh một cách bền vững.",
+      "content": "Dựa trên phân tích từ video của kênh YouTube 'Chase AI'.",
+      "visual": "Abstract flowing shapes transitioning from chaotic lines on left to organized geometric blocks on right, warm cream background with dark green and gray accents, professional minimalist design"
+    },
+    {
+      "type": "content",
+      "headline": "Lời hứa của AI rất hấp dẫn: Từ ý tưởng đến ứng dụng chỉ trong phút chốc.",
+      "subheadline": "Nhưng thực tế...",
+      "content": "Nhưng thực tế, các phiên làm việc dài với Claude thường dẫn đến sự hỗn loạn. Hiệu suất giảm dần, kết quả thiếu nhất quán, và bạn bị mắc kẹt trong việc 'code theo cảm tính' (vibe coding), chỉ biết hy vọng vào điều tốt nhất.",
+      "visual": "Split screen illustration: left side shows frustrated developer with tangled thought bubbles and messy code, right side shows mobile and desktop dashboards with question mark smoke overlay, dark sketch style with green accent highlights"
+    },
+    {
+      "type": "content",
+      "headline": "Thủ Phạm Chính: Hiện Tượng 'Thôi Rửa Ngữ Cảnh'",
+      "subheadline": "Context decay trong LLM",
+      "content": "Hiệu quả của LLM giảm dần trong một phiên làm việc. Các token ở đầu của sơ ngữ cảnh có tác động mạnh hơn nhiều so với các token ở cuối. Càng trò chuyện lâu, Claude càng 'kém thông minh' đi. Đây là một thực tế của công nghệ.",
+      "visual": "Professional curve graph showing efficiency decay over time, with 'Cao' (high) at start declining to 'Thấp' (low) at end, color gradient from green to gray/red, labeled sections: 'Bắt đầu' -> 'Độ Dài Ngữ Cảnh' -> 'Kết thúc', clean data visualization style"
+    },
+    {
+      "type": "content",
+      "headline": "Giải Pháp: GSD (Get Shit Done) - Một Lớp Điều Phối",
+      "subheadline": "Context engineering orchestration layer",
+      "content": "GSD không phải là một AI khác. Nó là một lớp điều phối kỹ thuật ngữ cảnh (context engineering orchestration layer) hoạt động BÊN TRÊN Claude Code. Nó áp dụt một quy trình có phương pháp để thực thi các dự án, thay vì chỉ đối thoại tự do.",
+      "visual": "Clean workflow diagram showing three connected elements: Developer icon (left) -> GSD Framework box (center, highlighted in green) -> Claude Code API cloud icon (right), arrows connecting them, professional minimal design with cream background"
+    },
+    {
+      "type": "list",
+      "headline": "GSD Framework Hoạt Động Như Thế Nào?",
+      "subheadline": "4 bước chính của quy trình",
+      "content": [
+        "📋 Planning Agent: Phân tích yêu cầu, tạo kế hoạch chi tiết",
+        "🔍 Research Agent: Thu thập thông tin, phân tích codebase",
+        "⚙️ Worker Agents: Thực thi từng task độc lập, ngữ cảnh sạch",
+        "🎯 Orchestrator: Điều phối, tổng hợp kết quả, đảm bảo nhất quán"
+      ],
+      "visual": "Numbered list with icons, each item in separate rounded box, green accent numbers and icons on cream background, clean spacing and hierarchy"
+    },
+    {
+      "type": "content",
+      "headline": "Lợi Ích Cốt Lõi",
+      "subheadline": "Tại sao GSD tốt hơn 'vibe coding'",
+      "content": "Mỗi agent làm việc với context mới, tránh context decay. Kết quả có thể dự đoán được, dễ debug. Có thể scale cho dự án lớn. Tận dụng điểm mạnh của Claude: suy nghĩ sâu, phân tích kỹ, thực thi chính xác.",
+      "visual": "Before/after comparison icons: chaotic spiral vs organized grid, with checkmarks showing benefits: fresh context, predictable results, scalable, analytical depth, modern infographic style"
+    },
+    {
+      "type": "cta",
+      "headline": "Thử GSD Framework Ngay Hôm Nay",
+      "subheadline": "Nâng tầm quy trình development của bạn",
+      "content": "Long Best AI cung cấp template và hướng dẫn chi tiết để triển khai GSD Framework trong dự án của bạn. Tối ưu hóa cách làm việc với AI, tăng năng suất 3-5 lần. Nhắn tin để nhận tài liệu và tư vấn miễn phí.",
+      "visual": "Clean CTA design with terracotta/green button, Long Best AI branding, abstract AI workflow motifs in background, professional minimal aesthetic, Vietnamese branding elements"
+    }
+  ]
+}

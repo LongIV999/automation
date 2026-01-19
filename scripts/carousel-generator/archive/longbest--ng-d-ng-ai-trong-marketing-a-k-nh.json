@@ -1,0 +1,66 @@
+{
+  "title": "Ứng dụng AI trong Marketing Đa Kênh",
+  "topic": "Ứng dụng AI trong marketing đa kênh",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "99% người làm marketing chưa biết cách này",
+      "subheadline": "AI có thể tự động hóa toàn bộ chiến dịch đa kênh của bạn",
+      "content": "Từ Facebook, TikTok đến Email - tất cả chỉ trong 30 phút",
+      "visual": "Clean minimalist design with warm cream background (#F4F3EE), bold black headline text, subtle terracotta accent (#C15F3C) highlighting '99%', abstract geometric shapes representing multiple marketing channels flowing together"
+    },
+    {
+      "type": "content",
+      "headline": "Vấn đề của Marketing Đa Kênh",
+      "subheadline": "Bạn đang mất bao nhiêu thời gian mỗi ngày?",
+      "content": "Viết caption cho Facebook, TikTok, Instagram khác nhau. Tạo hình ảnh phù hợp từng nền tảng. Lên lịch đăng bài cho 5-7 kênh. Phân tích hiệu quả từng kênh riêng lẻ.",
+      "visual": "Split screen showing overwhelmed marketer on left side surrounded by multiple device screens, right side shows calm organized workspace, warm Anthropic color palette with cream backgrounds and terracotta accents"
+    },
+    {
+      "type": "list",
+      "headline": "5 Cách AI Giúp Bạn Tiết Kiệm 5 Giờ Mỗi Ngày",
+      "content": [
+        "Tự động tạo nội dung cho từng nền tảng từ 1 ý tưởng gốc",
+        "Sinh hình ảnh và video phù hợp với từng kênh",
+        "Tối ưu thời gian đăng bài dựa trên dữ liệu",
+        "Phân tích engagement và đưa ra đề xuất cải thiện",
+        "Tạo báo cáo tổng hợp tự động từ tất cả các kênh"
+      ],
+      "visual": "Vertical numbered list layout with clean typography, each item in separate card with subtle cloudy gray (#B1ADA1) borders, terracotta numbered bullets, generous white space between items"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt Mẫu: Tạo Chiến Dịch Đa Kênh",
+      "subheadline": "Copy và điền thông tin sản phẩm của bạn",
+      "content": "Bạn là chuyên gia marketing đa kênh. Tạo chiến dịch quảng cáo cho [TÊN SẢN PHẨM] trên 3 kênh: Facebook, TikTok, Email.\n\nThông tin sản phẩm: [MÔ TẢ]\nĐối tượng: [ĐỐI TƯỢNG MỤC TIÊU]\nMục tiêu: [TĂNG NHẬN DIỆN/BÁN HÀNG]\n\nYêu cầu:\n- Caption phù hợp tone & manner từng nền tảng\n- Gợi ý hình ảnh/video cho mỗi bài đăng\n- Thời gian đăng tối ưu\n- Hashtag phù hợp",
+      "visual": "Code block style layout with monospace font on light cream background, prompt text in clean black with terracotta highlights on key variables in brackets, subtle drop shadow for depth"
+    },
+    {
+      "type": "content",
+      "headline": "Kết Quả Thực Tế",
+      "subheadline": "Doanh nghiệp đã áp dụng AI trong marketing",
+      "content": "Thời gian tạo nội dung giảm 70%. Chi phí thuê content creator tiết kiệm 60%. Engagement rate tăng 45% nhờ tối ưu thời gian đăng. ROI chiến dịch cải thiện 3 lần so với trước.",
+      "visual": "Before/after comparison layout, left side showing traditional workflow with stress indicators, right side showing AI-assisted workflow with growth arrows, use warm Anthropic palette with data visualizations in terracotta accents"
+    },
+    {
+      "type": "list",
+      "headline": "Công Cụ AI Nên Dùng Ngay",
+      "content": [
+        "ChatGPT: Tạo nội dung đa kênh từ 1 brief",
+        "Midjourney: Sinh hình ảnh marketing chuyên nghiệp",
+        "Claude: Phân tích dữ liệu và đề xuất chiến lược",
+        "Jasper AI: Tối ưu SEO và ad copy",
+        "Buffer AI: Tự động lên lịch và phân tích"
+      ],
+      "visual": "Grid layout with tool cards, each card features tool name in bold with icon placeholder, clean white cards on cream background, terracotta accent lines separating tools, minimalist and organized"
+    },
+    {
+      "type": "cta",
+      "headline": "Nâng Cấp Marketing Của Bạn",
+      "subheadline": "Video và Ảnh AI chuyên nghiệp với Veo 3 và Nano Banana Pro",
+      "content": "Tạo nội dung visual chất lượng cao cho mọi kênh marketing chỉ trong vài phút. Không cần kỹ năng thiết kế, không cần đội ngũ sản xuất.\n\nNhắn tin ngay để nhận bản dùng thử trước khi mua.",
+      "visual": "Clean CTA layout with prominent messaging on warm cream background, terracotta action button, before/after product showcase thumbnails, Long Best AI brand mark in corner, professional yet approachable aesthetic"
+    }
+  ]
+}

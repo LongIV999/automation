@@ -12,7 +12,8 @@ const CONFIG = {
 
     // Sheet IDs
     sheetId_LBAI: '1RAHjxLDULl0aRWHSX0aqUh1dqv7li7zwi0DZA6atQj0',
-    sheetId_TVLand: '1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY'
+    sheetId_TVLand: '1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY',
+    sheetId_QNBern: '1MPyLQw9Q4sLlRiSvWSCyY4NvtVGeoDKoib6n3f4PRTo'
 };
 
 async function authorize() {
@@ -51,6 +52,14 @@ async function findRecentFolders(auth) {
 
 function classifySheet(folderName) {
     const lowerName = folderName.toLowerCase();
+
+    // Queen Nail Bern
+    if (lowerName.includes('queennail') || lowerName.includes('queen-nail')) {
+        return {
+            id: CONFIG.sheetId_QNBern,
+            name: 'Queen Nail Bern'
+        };
+    }
 
     // Keywords for Thach Vu Land (Real Estate)
     const tvLandKeywords = [

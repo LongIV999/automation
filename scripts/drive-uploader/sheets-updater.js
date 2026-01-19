@@ -15,7 +15,7 @@ const CONFIG = {
   credentialsPath: process.env.GOOGLE_CREDENTIALS_PATH || './credentials.json',
   tokenPath: process.env.GOOGLE_TOKEN_PATH || './token.json',
   spreadsheetId: process.env.GOOGLE_SHEETS_ID || '1RAHjxLDULl0aRWHSX0aqUh1dqv7li7zwi0DZA6atQj0',
-  sheetName: 'Posts', // Tên tab trong Google Sheets
+  sheetName: 'Post', // Tên tab trong Google Sheets (updated for TVLand)
   scopes: [
     'https://www.googleapis.com/auth/spreadsheets',
     'https://www.googleapis.com/auth/drive.file'
@@ -44,13 +44,14 @@ async function authorize() {
 /**
  * Đọc header row để xác định vị trí các cột
  */
-async function getColumnMapping(auth, spreadsheetId = CONFIG.spreadsheetId) {
+async function getColumnMapping(auth, spreadsheetId = CONFIG.spreadsheetId, sheetName = null) {
   const sheets = google.sheets({ version: 'v4', auth });
+  const targetSheetName = sheetName || CONFIG.sheetName;
 
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheetId,
-      range: `${CONFIG.sheetName}!A1:Z1`
+      range: `${targetSheetName}!A1:Z1`
     });
 
     const headers = response.data.values[0];
@@ -71,13 +72,14 @@ async function getColumnMapping(auth, spreadsheetId = CONFIG.spreadsheetId) {
 /**
  * Tìm row trống tiếp theo
  */
-async function getNextEmptyRow(auth, spreadsheetId = CONFIG.spreadsheetId) {
+async function getNextEmptyRow(auth, spreadsheetId = CONFIG.spreadsheetId, sheetName = null) {
   const sheets = google.sheets({ version: 'v4', auth });
+  const targetSheetName = sheetName || CONFIG.sheetName;
 
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: spreadsheetId,
-      range: `${CONFIG.sheetName}!A:A`
+      range: `${targetSheetName}!A:A`
     });
 
     const rows = response.data.values || [];
@@ -114,40 +116,66 @@ async function getNextEmptyRow(auth, spreadsheetId = CONFIG.spreadsheetId) {
 async function addPostToSheets(postData) {
   console.log('\n📊 Updating Google Sheets...');
 
-  // Determine which spreadsheet to use
+  // Determine which spreadsheet and sheet name to use
   const spreadsheetId = postData.spreadsheetId || CONFIG.spreadsheetId;
+  const sheetName = postData.sheetName || CONFIG.sheetName;
 
   try {
     const auth = await authorize();
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Lấy column mapping - Pass spreadsheetId explicitly
-    const columns = await getColumnMapping(auth, spreadsheetId);
+    // Lấy column mapping - Pass spreadsheetId and sheetName explicitly
+    const columns = await getColumnMapping(auth, spreadsheetId, sheetName);
     console.log(`✓ Column mapping loaded for Sheet: ${spreadsheetId.substring(0, 10)}...`);
 
-    // Tìm row trống - Pass spreadsheetId explicitly
-    const nextRow = await getNextEmptyRow(auth, spreadsheetId);
+    // Tìm row trống - Pass spreadsheetId and sheetName explicitly
+    const nextRow = await getNextEmptyRow(auth, spreadsheetId, sheetName);
     console.log(`✓ Next empty row: ${nextRow}`);
 
     // Chuẩn bị data - Match new column headers
     const date = new Date().toISOString().split('T')[0];
     const timestamp = new Date().toISOString();
 
+    // Build row data - support both legacy (LBAI) and new (TVLand) formats
     const rowData = {
+      // Common fields
       'Post_ID': postData.postId || `post_${Date.now()}`,
-      'Date': date,
+      'Date': date,                                    // LBAI format
+      'Date_Created': date,                            // TVLand format
+      'Date_Planned': postData.datePlanned || date,    // TVLand format
       'Created_At': timestamp,
       'Topic': postData.topic || extractTopicFromName(postData.folderName),
+
+      // Brand-specific (LBAI)
       'Brand': postData.brand || '',
       'Style': postData.style || '',
       'Content_Type': postData.uploadedCount === 1 ? 'Image' : 'Carousel',
-      'Type': postData.uploadedCount === 1 ? 'Image' : 'Carousel',         // Keep for legacy
+
+      // Content fields
+      'Type': postData.uploadedCount === 1 ? 'Image' : 'Carousel',
       'Caption': postData.caption || '',
+
+      // Drive fields (required for n8n)
       'Drive_Folder_ID': postData.folderId,
       'Drive_Link': postData.folderLink,
       'Folder_Link': postData.folderLink, // Alias for screenshot match
+
+      // Status (required for n8n workflow)
       'Status': postData.status || 'Ready',
+
+      // Metrics
       'Images': postData.uploadedCount || '',
+      'Images_Count': postData.uploadedCount || '',    // TVLand format
+
+      // TVLand specific fields
+      'Keywords': postData.keywords || '',
+      'Target_Audience': postData.targetAudience || '',
+      'Priority': postData.priority || 'Medium',
+      'Research_Notes': postData.researchNotes || '',
+
+      // Post results (filled by n8n)
+      'Post_URL': '',
+      'Published_Date': '',
       'FB_Post_ID': '',
       'ReachEngagement': ''
     };
@@ -158,7 +186,7 @@ async function addPostToSheets(postData) {
 
     for (const [columnName, columnLetter] of Object.entries(columns)) {
       if (rowData[columnName] !== undefined) {
-        const range = `${CONFIG.sheetName}!${columnLetter}${nextRow}`;
+        const range = `${sheetName}!${columnLetter}${nextRow}`;
         updates.push({
           range: range,
           values: [[rowData[columnName]]]

@@ -1,0 +1,60 @@
+{
+  "title": "AI Cho Người Mới Bắt Đầu: 5 Điều Cần Biết",
+  "topic": "topic test",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "99% Người Việt Chưa Biết Cách Dùng AI Đúng Cách",
+      "subheadline": "5 điều cơ bản giúp bạn bắt đầu với AI ngay hôm nay",
+      "content": "Học AI không khó như bạn nghĩ. Chỉ cần nắm vững 5 nguyên tắc này, bạn đã có thể ứng dụng AI vào công việc hàng ngày.",
+      "visual": "Clean minimalist design with warm cream background (#F4F3EE), bold headline in black, subtle accent line in Crail orange (#C15F3C), modern Vietnamese professional looking at laptop with subtle AI interface elements"
+    },
+    {
+      "type": "content",
+      "headline": "1. AI Là Công Cụ, Không Phải Phép Màu",
+      "subheadline": "Hiểu đúng để kỳ vọng đúng",
+      "content": "AI giúp bạn làm việc nhanh hơn, nhưng vẫn cần sự sáng tạo và kiểm soát của con người. Đừng kỳ vọng AI sẽ thay thế hoàn toàn công việc của bạn, mà hãy xem nó như một trợ lý thông minh.",
+      "visual": "Split screen showing person working with AI assistant vs working alone, warm color palette with Pampas background, icons representing human creativity plus AI efficiency"
+    },
+    {
+      "type": "list",
+      "headline": "2. Ba Công Cụ AI Miễn Phí Bạn Nên Dùng Ngay",
+      "subheadline": "Bắt đầu không tốn một đồng",
+      "content": [
+        "ChatGPT: Trợ lý viết lách, nghiên cứu, tư vấn",
+        "Canva AI: Thiết kế hình ảnh chuyên nghiệp",
+        "Google Gemini: Tìm kiếm và phân tích thông tin"
+      ],
+      "visual": "Clean grid layout showing three tool logos/screenshots with brief descriptions, numbered 1-2-3, white cards on Pampas background with Crail accent borders"
+    },
+    {
+      "type": "content",
+      "headline": "3. Prompt Tốt Là Chìa Khóa Thành Công",
+      "subheadline": "Cách giao tiếp với AI hiệu quả",
+      "content": "Thay vì hỏi: Viết bài về marketing. Hãy thử: Viết bài blog 800 từ về chiến lược marketing mạng xã hội cho doanh nghiệp nhỏ tại Việt Nam, tập trung vào Facebook và TikTok, giọng văn thân thiện, có ví dụ thực tế.",
+      "visual": "Before and after comparison showing vague prompt vs detailed prompt, with visual indicators of poor results vs excellent results, clean typography on white background with Cloudy accents"
+    },
+    {
+      "type": "prompt",
+      "headline": "4. Mẫu Prompt Đa Năng Cho Mọi Công Việc",
+      "subheadline": "Sao chép và điều chỉnh theo nhu cầu của bạn",
+      "content": "Bạn là chuyên gia về [lĩnh vực]. Hãy giúp tôi [nhiệm vụ cụ thể] với các yêu cầu sau: [chi tiết 1], [chi tiết 2], [chi tiết 3]. Kết quả cần có [định dạng mong muốn] và phù hợp với [đối tượng mục tiêu].",
+      "visual": "Code-style presentation of prompt template with highlighted variables in brackets, monospace font, light background with subtle syntax highlighting in warm tones, copy button indicator"
+    },
+    {
+      "type": "content",
+      "headline": "5. Thực Hành Mỗi Ngày 15 Phút",
+      "subheadline": "Từ người mới đến thành thạo trong 30 ngày",
+      "content": "Tuần 1-2: Làm quen với giao diện và prompt cơ bản. Tuần 3-4: Áp dụng vào công việc thực tế của bạn. Tuần 5+: Tối ưu hóa và khám phá tính năng nâng cao. Chìa khóa là kiên trì và thử nghiệm.",
+      "visual": "Timeline infographic showing 30-day learning journey, numbered weeks with milestone achievements, progress bar from beginner to proficient, warm gradient background from Pampas to White"
+    },
+    {
+      "type": "cta",
+      "headline": "Nâng Cấp Nội Dung Của Bạn Với AI Chuyên Nghiệp",
+      "subheadline": "Tạo Video & Ảnh AI đỉnh cao với Veo 3 và Nano Banana Pro",
+      "content": "Từ ý tưởng đến thành phẩm chỉ trong vài phút. Công nghệ AI tiên tiến nhất hiện nay giúp bạn tạo nội dung viral chất lượng studio. Nhắn tin ngay để nhận bản dùng thử trước khi mua.",
+      "visual": "Professional showcase of AI-generated video and image examples, before-after transformation, Long Best AI branding with Crail accent (#C15F3C), clear call-to-action button, warm inviting layout on Pampas background"
+    }
+  ]
+}

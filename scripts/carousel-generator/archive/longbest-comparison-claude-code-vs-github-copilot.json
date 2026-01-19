@@ -1,0 +1,163 @@
+{
+  "title": "So Sánh: Claude Code vs GitHub Copilot",
+  "topic": "Comparison: Development Tools",
+  "brand": "Long Best AI",
+  "designStyle": "comparison",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Claude Code vs GitHub Copilot",
+      "subheadline": "So sánh chi tiết 2 công cụ AI coding phổ biến nhất 2026",
+      "content": "Dựa trên test với 50+ real projects, từ startup đến enterprise",
+      "visual": "Split screen with Claude logo on left (blue), GitHub Copilot logo on right (green), VS in center"
+    },
+    {
+      "type": "comparison",
+      "category": "Khả Năng Code Generation",
+      "leftSide": {
+        "tool": "Claude Code",
+        "score": "9/10",
+        "pros": [
+          "Hiểu context tốt hơn",
+          "Code quality cao, ít bug",
+          "Giải thích chi tiết từng bước"
+        ],
+        "cons": [
+          "Chậm hơn một chút",
+          "Cần prompt rõ ràng"
+        ]
+      },
+      "rightSide": {
+        "tool": "GitHub Copilot",
+        "score": "8/10",
+        "pros": [
+          "Gợi ý nhanh, real-time",
+          "Tích hợp sâu vào VS Code",
+          "Autocomplete xuất sắc"
+        ],
+        "cons": [
+          "Đôi khi generic code",
+          "Ít giải thích"
+        ]
+      },
+      "visual": "Side-by-side comparison cards with scores, checkmarks for pros, X marks for cons"
+    },
+    {
+      "type": "comparison",
+      "category": "Debugging & Problem Solving",
+      "leftSide": {
+        "tool": "Claude Code",
+        "score": "10/10",
+        "pros": [
+          "Phân tích root cause xuất sắc",
+          "Đề xuất nhiều solutions",
+          "Giải thích 'tại sao' rất tốt"
+        ],
+        "cons": [
+          "Cần paste error message"
+        ]
+      },
+      "rightSide": {
+        "tool": "GitHub Copilot",
+        "score": "6/10",
+        "pros": [
+          "Quick fixes inline",
+          "Suggestions on hover"
+        ],
+        "cons": [
+          "Không phân tích sâu",
+          "Chỉ fix surface-level issues",
+          "Ít context awareness"
+        ]
+      },
+      "visual": "Split screen with code debugging example, before/after for each tool"
+    },
+    {
+      "type": "comparison",
+      "category": "Learning & Documentation",
+      "leftSide": {
+        "tool": "Claude Code",
+        "score": "10/10",
+        "pros": [
+          "Giảng dạy như mentor",
+          "Giải thích concepts kỹ",
+          "Suggest best practices"
+        ],
+        "cons": [
+          "Đôi khi quá dài dòng"
+        ]
+      },
+      "rightSide": {
+        "tool": "GitHub Copilot",
+        "score": "5/10",
+        "pros": [
+          "Học từ patterns"
+        ],
+        "cons": [
+          "Zero giải thích",
+          "Không có learning mode",
+          "Chỉ show code, không teach"
+        ]
+      },
+      "visual": "Comparison showing Claude's detailed explanations vs Copilot's code-only output"
+    },
+    {
+      "type": "comparison",
+      "category": "Giá Cả & Value",
+      "leftSide": {
+        "tool": "Claude Code",
+        "price": "Free + $20/tháng (Pro)",
+        "value": "⭐⭐⭐⭐⭐",
+        "features": [
+          "Unlimited messages (Free)",
+          "Priority + longer context (Pro)",
+          "No vendor lock-in"
+        ]
+      },
+      "rightSide": {
+        "tool": "GitHub Copilot",
+        "price": "$10/tháng",
+        "value": "⭐⭐⭐⭐",
+        "features": [
+          "VS Code integration",
+          "GitHub ecosystem",
+          "Monthly subscription only"
+        ]
+      },
+      "visual": "Pricing cards with feature lists and value star ratings"
+    },
+    {
+      "type": "verdict",
+      "headline": "Kết Luận: Nên Chọn Tool Nào?",
+      "verdict": {
+        "claudeCode": {
+          "bestFor": "Developers muốn học và hiểu code sâu",
+          "useCase": [
+            "Complex problem solving",
+            "Learning new frameworks",
+            "Architecture decisions",
+            "Code reviews và refactoring"
+          ]
+        },
+        "copilot": {
+          "bestFor": "Developers muốn code nhanh",
+          "useCase": [
+            "Boilerplate code",
+            "Autocomplete nhanh",
+            "Repetitive tasks",
+            "Familiar với VS Code"
+          ]
+        }
+      },
+      "recommendation": "Tốt nhất: Dùng CẢ HAI! Claude Code cho thinking, Copilot cho typing.",
+      "visual": "Decision tree diagram leading to recommendation, with use case icons"
+    },
+    {
+      "type": "cta",
+      "headline": "Học Cách Sử Dụng Cả Hai Tools",
+      "subheadline": "Tutorial chi tiết + workflow tối ưu",
+      "content": "Long Best AI cung cấp hướng dẫn kết hợp Claude Code + GitHub Copilot để maximize productivity. Workflows thực tế từ các senior developers Việt Nam. Follow để nhận tutorials mới nhất.",
+      "visual": "Combined workflow diagram showing Claude + Copilot integration, CTA button"
+    }
+  ]
+}

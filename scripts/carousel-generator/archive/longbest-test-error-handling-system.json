@@ -1,0 +1,56 @@
+{
+  "title": "Hệ Thống Xử Lý Lỗi AI: Bí Quyết Tạo Prompt Không Bao Giờ Sai",
+  "topic": "test error handling system",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "99% người dùng AI gặp lỗi vì thiếu kỹ thuật này",
+      "subheadline": "Học cách xây dựng hệ thống xử lý lỗi thông minh cho prompt AI",
+      "visual": "Modern minimalist design with warm cream background (#F4F3EE), featuring a before/after split screen showing chaotic error messages on the left transforming into organized, structured responses on the right. Use Crail accent color (#C15F3C) for key visual elements. Clean typography with geometric sans-serif headlines."
+    },
+    {
+      "type": "content",
+      "headline": "Vấn Đề Phổ Biến Khi Làm Việc Với AI",
+      "content": "Khi tạo prompt, bạn thường gặp phải các lỗi không mong muốn: AI hiểu sai yêu cầu, kết quả không đúng định dạng, hoặc hoàn toàn bỏ qua hướng dẫn quan trọng. Điều này tốn thời gian và làm giảm hiệu quả công việc.",
+      "visual": "Clean infographic showing three common AI error scenarios with simple icons on warm cream background. Use subtle Cloudy color (#B1ADA1) for secondary elements and Crail (#C15F3C) for highlighting problem areas. Minimal, organized layout with generous white space."
+    },
+    {
+      "type": "content",
+      "headline": "Nguyên Nhân Gây Ra Lỗi",
+      "content": "Hệ thống xử lý lỗi yếu hoặc thiếu hẳn trong prompt là nguyên nhân chính. Khi không có cơ chế kiểm tra và điều chỉnh, AI sẽ tự do diễn giải theo cách riêng, dẫn đến kết quả không nhất quán.",
+      "visual": "Simple flowchart diagram on white background showing the path from unclear prompt to unpredictable results. Use Crail (#C15F3C) for error points and black (#000000) for text. Clean, minimal design with clear visual hierarchy."
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt Mẫu: Xây Dựng Hệ Thống Xử Lý Lỗi",
+      "content": "Bạn là trợ lý AI chuyên nghiệp. Khi thực hiện tác vụ, hãy tuân thủ quy trình sau:\n\n1. Đọc kỹ yêu cầu và xác nhận hiểu đúng\n2. Nếu thiếu thông tin: Hỏi rõ trước khi tiếp tục\n3. Nếu yêu cầu mơ hồ: Đưa ra 2-3 cách hiểu và hỏi lựa chọn\n4. Nếu không thể thực hiện: Giải thích lý do cụ thể\n5. Luôn kiểm tra lại kết quả trước khi trả lời\n\nĐịnh dạng đầu ra: [chỉ định rõ ràng]\nKiểm tra lỗi: [liệt kê tiêu chí]",
+      "visual": "Code-style presentation with monospace font on light background. Highlight the prompt structure with numbered steps clearly visible. Use subtle background color (#F4F3EE) with Crail (#C15F3C) accent for step numbers. Professional, technical aesthetic."
+    },
+    {
+      "type": "list",
+      "headline": "5 Nguyên Tắc Vàng Xử Lý Lỗi AI",
+      "content": [
+        "Luôn xác định rõ định dạng đầu ra mong muốn",
+        "Thêm điều kiện kiểm tra và xác nhận trong prompt",
+        "Yêu cầu AI báo lỗi khi gặp vấn đề thay vì đoán mò",
+        "Cung cấp ví dụ cụ thể về kết quả đúng và sai",
+        "Thiết lập cơ chế phản hồi nếu không chắc chắn"
+      ],
+      "visual": "Clean numbered list with icons for each principle. Use grid-based layout on warm cream background (#F4F3EE). Each item has a small Crail (#C15F3C) accent icon. Generous spacing between items, professional sans-serif typography."
+    },
+    {
+      "type": "content",
+      "headline": "Kết Quả Thực Tế",
+      "content": "Sau khi áp dụng hệ thống xử lý lỗi, độ chính xác của AI tăng từ 60% lên 95%. Thời gian chỉnh sửa giảm 70%, công việc trở nên ổn định và dự đoán được. Bạn kiểm soát hoàn toàn chất lượng đầu ra.",
+      "visual": "Before and after comparison showing metrics improvement. Left side shows 60% accuracy with scattered results, right side shows 95% accuracy with organized results. Use warm color palette with Crail (#C15F3C) for success metrics. Clean data visualization style."
+    },
+    {
+      "type": "cta",
+      "headline": "Nâng Tầm Nội Dung Với AI Chuyên Nghiệp",
+      "subheadline": "Tạo Video và Ảnh AI đẳng cấp với Veo 3 và Nano Banana Pro",
+      "content": "Giải pháp AI chuyên nghiệp giúp bạn tạo nội dung video và hình ảnh chất lượng cao, ổn định và nhất quán. Hệ thống xử lý lỗi tích hợp sẵn đảm bảo kết quả hoàn hảo mọi lúc. Nhắn tin ngay để nhận bản dùng thử trước khi mua.",
+      "visual": "Professional showcase featuring Veo 3 and Nano Banana Pro branding with sample AI-generated content. Use Long Best AI brand colors with Crail (#C15F3C) for CTA button. Clean, premium aesthetic on white background with subtle warm accents. Include clear messaging area for contact information."
+    }
+  ]
+}

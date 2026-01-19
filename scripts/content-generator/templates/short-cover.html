@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1080px;
+            height: 1920px;
+            font-family: 'Roboto', sans-serif;
+
+            background: {
+                    {
+                    background
+                }
+            }
+
+            ;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 120px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accent-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+
+            background: {
+                    {
+                    accent
+                }
+            }
+
+            ;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 40px;
+
+            color: {
+                    {
+                    text
+                }
+            }
+
+            ;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .topic-tag {
+            font-size: 32px;
+            font-weight: 700;
+
+            color: {
+                    {
+                    accent
+                }
+            }
+
+            ;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .headline {
+            font-weight: 900;
+
+            font-size: {
+                    {
+                    headlineSize
+                }
+            }
+
+            ;
+            line-height: 1.1;
+
+            color: {
+                    {
+                    text
+                }
+            }
+
+            ;
+            max-width: 95%;
+        }
+
+        .subheadline {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            line-height: 1.45;
+
+            color: {
+                    {
+                    textMuted
+                }
+            }
+
+            ;
+            max-width: 95%;
+        }
+
+        .play-indicator {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+
+            background: {
+                    {
+                    accent
+                }
+            }
+
+            ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 60px 0;
+            box-shadow: 0 15px 50px rgba(193, 95, 60, 0.4);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 60px solid white;
+            border-top: 35px solid transparent;
+            border-bottom: 35px solid transparent;
+            margin-left: 15px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .watermark {
+            font-size: 32px;
+
+            color: {
+                    {
+                    secondary
+                }
+            }
+
+            ;
+        }
+
+        .duration {
+            font-size: 28px;
+
+            color: {
+                    {
+                    secondary
+                }
+            }
+
+            ;
+            background: rgba(0, 0, 0, 0.06);
+            padding: 16px 40px;
+            border-radius: 32px;
+        }
+
+        .decor-line {
+            position: absolute;
+            width: 10px;
+            height: 400px;
+
+            background: {
+                    {
+                    accent
+                }
+            }
+
+            ;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="accent-bar"></div>
+    <div class="decor-line"></div>
+
+    <div class="header">
+        <span class="logo-text">{{brandName}}</span>
+    </div>
+
+    <div class="main-content">
+        {{#if topic}}
+        <span class="topic-tag">{{topic}}</span>
+        {{/if}}
+        <h1 class="headline">{{headline}}</h1>
+        {{#if subheadline}}
+        <p class="subheadline">{{subheadline}}</p>
+        {{/if}}
+        {{#if showPlay}}
+        <div class="play-indicator">
+            <div class="play-icon"></div>
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="footer">
+        <span class="watermark">{{watermark}}</span>
+        {{#if duration}}
+        <span class="duration">{{duration}}</span>
+        {{/if}}
+    </div>
+</body>
+
+</html>

@@ -3,11 +3,13 @@
   "name": "Queen Nail Bern",
   "description": "Premium nail salon in Bern, Switzerland - Nagelstudio für perfekte Nägel",
   "colors": {
-    "primary": "#E8B4C8",
-    "background": "#FFF5F8",
-    "backgroundDark": "#2D1B2E",
-    "accent": "#C77D9D",
-    "text": "#2D1B2E",
+    "primary": "#F43F5E",
+    "secondary": "#FFE4E6",
+    "gradientStart": "#F43F5E",
+    "gradientEnd": "#FFE4E6",
+    "gradientMiddle": "#FDA4AF",
+    "background": "linear-gradient(135deg, #F43F5E 0%, #FDA4AF 50%, #FFE4E6 100%)",
+    "text": "#FFFFFF",
     "textDark": "#FFFFFF"
   },
   "typography": {
@@ -25,6 +27,12 @@
       "brandCorner": 20
     }
   },
+  "designStyle": {
+    "primary": "quote",
+    "secondary": "infographic",
+    "description": "Elegant quote style for promotions and testimonials, infographic for tips and data",
+    "note": "Use 'quote' for single posts with quotes/announcements, 'infographic' for multi-point tips"
+  },
   "branding": {
     "logoText": "Queen Nail Bern",
     "tagline": "Perfektion für Ihre Nägel",
@@ -41,8 +49,8 @@
     "quality": 2
   },
   "googleSheets": {
-    "sheetId": "1lZIYlahiL9UkbgmhGiCLxh9ygfP6PVn1qOfpqeXbDP8",
-    "tabName": "Posts",
+    "sheetId": "1MPyLQw9Q4sLlRiSvWSCyY4NvtVGeoDKoib6n3f4PRTo",
+    "tabName": "Post",
     "contentCalendarTab": "Content_Calendar",
     "archiveTab": "Archive",
     "analyticsTab": "Analytics"

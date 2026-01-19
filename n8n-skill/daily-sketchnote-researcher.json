@@ -1,0 +1,175 @@
+{
+    "name": "Daily Research & Sketchnote Generator",
+    "nodes": [
+        {
+            "parameters": {},
+            "id": "start",
+            "name": "When clicking \"Execute Workflow\"",
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ]
+        },
+        {
+            "parameters": {
+                "assignments": {
+                    "assignments": [
+                        {
+                            "id": "topic",
+                            "name": "topic",
+                            "value": "Model Context Protocol",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "id": "set-topic",
+            "name": "Set Topic",
+            "type": "n8n-nodes-base.set",
+            "typeVersion": 3.4,
+            "position": [
+                220,
+                0
+            ]
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o",
+                "messages": {
+                    "messageValues": [
+                        {
+                            "role": "system",
+                            "content": "You are a visual thinker and researcher. Your job is to: 1. Research the given topic (simulate knowing current info). 2. Summarize key concepts. 3. Brainstorm visual metaphors for a sketchnote."
+                        },
+                        {
+                            "role": "user",
+                            "content": "Topic: {{ $json.topic }}\n\nProvide a brief summary and 3-4 distinct visual metaphor ideas that would look good in a hand-drawn sketchnote."
+                        }
+                    ]
+                },
+                "jsonOutput": true
+            },
+            "id": "ai-researcher",
+            "name": "AI Researcher",
+            "type": "n8n-nodes-base.openAi",
+            "typeVersion": 1,
+            "position": [
+                440,
+                0
+            ],
+            "credentials": {
+                "openAiApi": {
+                    "id": "openai-cred-id",
+                    "name": "OpenAI Account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "prompt": "Hand-drawn sketchnote visual summary of {{ $('Set Topic').item.json.topic }} on pristine white paper. Graphic recording style: black ink fine-liner outlines, shaded with teal, orange, and muted red markers. Center title '{{ $('Set Topic').item.json.topic.toUpperCase() }}' in a 3D rectangular box. Surrounding content: {{ $json.content }}. Sections labeled in distinct, handwritten all-caps text. Arrows connect concepts. Simple doodles. Organized, professional visual brainstorming layout.",
+                "size": "1024x1024",
+                "options": {
+                    "style": "vivid",
+                    "quality": "hd"
+                }
+            },
+            "id": "generate-sketchnote",
+            "name": "Generate Sketchnote",
+            "type": "n8n-nodes-base.openAi",
+            "typeVersion": 1,
+            "position": [
+                660,
+                0
+            ],
+            "credentials": {
+                "openAiApi": {
+                    "id": "openai-cred-id",
+                    "name": "OpenAI Account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "authentication": "oAuth2",
+                "driveId": {
+                    "__rl": true,
+                    "mode": "list",
+                    "value": "My Drive"
+                },
+                "folderId": {
+                    "__rl": true,
+                    "mode": "list",
+                    "value": "root",
+                    "cachedResultName": "My Drive"
+                },
+                "fileId": "={{ $json.url }}",
+                "options": {
+                    "fileName": "sketchnote_{{ $('Set Topic').item.json.topic }}.png"
+                }
+            },
+            "id": "save-to-drive",
+            "name": "Save to Drive",
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+                880,
+                0
+            ],
+            "credentials": {
+                "googleDriveOAuth2Api": {
+                    "id": "drive-cred-id",
+                    "name": "Google Drive Account"
+                }
+            }
+        }
+    ],
+    "connections": {
+        "When clicking \"Execute Workflow\"": {
+            "main": [
+                [
+                    {
+                        "node": "Set Topic",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Set Topic": {
+            "main": [
+                [
+                    {
+                        "node": "AI Researcher",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Researcher": {
+            "main": [
+                [
+                    {
+                        "node": "Generate Sketchnote",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Generate Sketchnote": {
+            "main": [
+                [
+                    {
+                        "node": "Save to Drive",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

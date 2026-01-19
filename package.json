@@ -1,6 +1,16 @@
 {
+  "scripts": {
+    "monitor": "node scripts/workflow-monitor/monitor.js",
+    "dashboard": "open http://localhost:3002",
+    "start:monitor": "./scripts/workflow-monitor/start-all.sh && sleep 3 && open http://localhost:3002",
+    "agent:monitored": "node scripts/daily-agent-monitored.js",
+    "opencode": "opencode"
+  },
   "dependencies": {
     "axios": "^1.13.2",
-    "form-data": "^4.0.5"
+    "chalk": "^5.6.2",
+    "form-data": "^4.0.5",
+    "node-cron": "^4.2.1",
+    "ws": "^8.19.0"
   }
 }

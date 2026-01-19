@@ -16,16 +16,51 @@ const execPromise = util.promisify(exec);
 const logger = require('./utils/logger');
 const { sendTelegramNotification, sendSuccessNotification } = require('./utils/notifier');
 const analytics = require('./utils/db');
+const AIErrorHandler = require('../templates/error-handling/ai-error-handler');
 
-async function runCommand(command, cwd) {
+// Initialize AI Error Handler (will load API key from settings)
+let errorHandler = null;
+async function getErrorHandler() {
+    if (!errorHandler) {
+        const apiKey = process.env.ANTHROPIC_AUTH_TOKEN;
+        if (apiKey) {
+            errorHandler = new AIErrorHandler(apiKey);
+            logger.info('AI Error Handler initialized');
+        }
+    }
+    return errorHandler;
+}
+
+async function runCommand(command, cwd, context = {}) {
     logger.debug(`Running command: ${command}`, { cwd });
     console.log(`\n▶️  Running: ${command}`);
+
+    const handler = await getErrorHandler();
+
+    // If AI error handler available, use it with retry logic
+    if (handler) {
+        return await handler.retryWithAIGuidance(
+            async () => {
+                const { stdout, stderr } = await execPromise(command, { cwd });
+                console.log(stdout.trim());
+                if (stderr && stderr.length < 2000) {
+                    console.error(stderr.trim());
+                }
+                return stdout;
+            },
+            {
+                maxRetries: 3,
+                operationName: `Command: ${command.substring(0, 50)}...`,
+                context: { command, cwd, ...context }
+            }
+        );
+    }
+
+    // Fallback to basic execution if no AI handler
     try {
         const { stdout, stderr } = await execPromise(command, { cwd });
-        // Log output but trim huge whitespace
         console.log(stdout.trim());
         if (stderr && stderr.length < 2000) {
-            // Only log stderr if it's not just progress bars or warnings
             console.error(stderr.trim());
         }
         return stdout;
@@ -58,6 +93,9 @@ async function main() {
 
     const brand = getArgValue('--brand') || 'longbest';
     const style = getArgValue('--style') || 'classic'; // New style arg
+    const format = getArgValue('--format') || 'auto'; // NEW: Format parameter
+    const contentType = getArgValue('--type') || null; // NEW: Content type
+    const bgOnly = args.includes('--bg-only'); // NEW: Background only mode
     const autoPublish = args.includes('--auto-publish'); // New publish flag
 
     // Get topic (remove flags)
@@ -70,8 +108,16 @@ async function main() {
 
     if (!topic) {
         console.error("❌ Please provide a topic.");
-        console.log("Usage: node daily-agent.js \"Your Topic Here\" [--brand name] [--style name] [--auto-publish]");
-        console.log("Supported brands: longbest, thachvuland, queennailbern");
+        console.log("Usage: node daily-agent.js \"Your Topic Here\" [options]");
+        console.log("\nOptions:");
+        console.log("  --brand <name>     Brand (longbest, thachvuland, queennailbern)");
+        console.log("  --format <type>    Format (auto, single, carousel-mini, carousel-standard)");
+        console.log("  --type <type>      Content type (quote, tips, tutorial, etc.)");
+        console.log("  --style <style>    Design style (classic, notebook)");
+        console.log("  --auto-publish     Auto-publish after generation");
+        console.log("\nExamples:");
+        console.log("  node daily-agent.js \"5 AI Tips\" --brand longbest --format auto");
+        console.log("  node daily-agent.js \"Quote\" --brand longbest --format single");
         process.exit(1);
     }
 
@@ -80,6 +126,8 @@ async function main() {
         topic,
         brand,
         style,
+        format,
+        contentType,
         autoPublish
     });
 
@@ -93,9 +141,15 @@ async function main() {
         // 1. Agent Writer
         // ---------------------------------------------------------
         console.log("\n🤖 === STEP 1: CONTENT WRITING (AGENT) ===");
-        logger.info('Step 1: Content writing started', { runId, topic, brand });
+        logger.info('Step 1: Content writing started', { runId, topic, brand, format });
 
-        const writerOutput = await runCommand(`node writer.js "${topic}" --brand ${brand} --style ${style}`, path.join(rootDir, 'agent-writer'));
+        // Build writer command with format parameters
+        let writerCmd = `node writer.js "${topic}" --brand ${brand} --style ${style} --format ${format}`;
+        if (contentType) {
+            writerCmd += ` --type ${contentType}`;
+        }
+
+        const writerOutput = await runCommand(writerCmd, path.join(rootDir, 'agent-writer'));
 
         // Parse output path
         const match = writerOutput.match(/JSON_OUTPUT_FILE: (.*)/);
@@ -133,7 +187,10 @@ async function main() {
 
         // Note: generator.js takes content file and output dir
         // We run from carousel-generator dir to handle relative assets/templates correctly
-        await runCommand(`node ${generatorScript} "${jsonPath}" "${outputDir}"`, path.join(rootDir, 'carousel-generator'));
+        let genCmd = `node ${generatorScript} "${jsonPath}" "${outputDir}"`;
+        if (bgOnly) genCmd += ' --bg-only';
+
+        await runCommand(genCmd, path.join(rootDir, 'carousel-generator'));
 
         logger.info('Step 2: Image generation completed', {
             runId,

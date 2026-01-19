@@ -1,0 +1,45 @@
+{
+  "title": "ChatGPT Prompts - Hướng Dẫn Viết Prompts Chuyên Nghiệp",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "CHATGPT PROMPTS",
+      "subheadline": "Viết Prompts Chuyên Nghiệp Để Tối Ưu Hóa AI"
+    },
+    {
+      "type": "content",
+      "headline": "1. CẤU TRÚC CƠ BẢN",
+      "content": "Role + Task + Context + Format. Ví dụ: 'Bạn là chuyên gia marketing. Tạo slogan cho sản phẩm sữa. Slogan ngắn gọn, hấp dẫn. Format: chỉ trả lời slogan.'"
+    },
+    {
+      "type": "content",
+      "headline": "2. XÁC ĐỊNH ROLE",
+      "content": "Đặt vai trò rõ ràng: 'Bạn là giáo viên toán', 'Bạn là đầu bếp chuyên nghiệp', 'Bạn là luật sư'. AI sẽ trả lời theo góc nhìn của role đó."
+    },
+    {
+      "type": "content",
+      "headline": "3. MÔ TẢ TASK CHI TIẾT",
+      "content": "Thay vì 'Viết bài', hãy nói 'Viết bài blog 800 từ về AI, bao gồm lịch sử, ứng dụng hiện tại và tương lai'. Càng chi tiết càng tốt."
+    },
+    {
+      "type": "content",
+      "headline": "4. THÊM CONTEXT",
+      "content": "Cung cấp background: 'Đối tượng là sinh viên IT', 'Ngân sách 10 triệu', 'Thời hạn 1 tuần'. AI hiểu rõ hơn để đưa ra câu trả lời phù hợp."
+    },
+    {
+      "type": "content",
+      "headline": "5. CHỈ ĐỊNH FORMAT",
+      "content": "Yêu cầu format cụ thể: 'Trả lời dạng bullet points', 'Viết code Python', 'Tạo bảng so sánh'. AI sẽ tuân theo đúng yêu cầu."
+    },
+    {
+      "type": "content",
+      "headline": "6. SỬ DỤNG EXAMPLES",
+      "content": "Đưa ví dụ: 'Ví dụ: Tạo slogan cho cà phê thì 'Thơm ngon mỗi sáng'. Bây giờ tạo slogan cho trà xanh.' AI học từ example."
+    },
+    {
+      "type": "cta",
+      "headline": "ÁP DỤNG NGAY!",
+      "content": "Thử viết prompts theo công thức trên. Kết quả sẽ chuyên nghiệp và chính xác hơn nhiều!"
+    }
+  ]
+}

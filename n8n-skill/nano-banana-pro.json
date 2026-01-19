@@ -1,0 +1,230 @@
+{
+    "name": "Nano Banana Pro (Digital Ad A/B Tester)",
+    "nodes": [
+        {
+            "parameters": {},
+            "id": "start-trigger",
+            "name": "Start / Webhook",
+            "type": "n8n-nodes-base.manualTrigger",
+            "typeVersion": 1,
+            "position": [
+                0,
+                0
+            ]
+        },
+        {
+            "parameters": {
+                "resource": "folder",
+                "options": {},
+                "name": "={{ 'Campaign - ' + $json.brand_name }}",
+                "parentFolderId": {
+                    "__rl": true,
+                    "mode": "id",
+                    "value": "YOUR_ROOT_FOLDER_ID"
+                }
+            },
+            "id": "create-campaign-folder",
+            "name": "Create Campaign Folder",
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+                220,
+                0
+            ],
+            "credentials": {
+                "googleDriveOAuth2Api": {
+                    "id": "1YqDYTAoUT0ShbXU",
+                    "name": "Google Drive account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "modelId": "gemini-1.5-pro",
+                "prompt": "Analyze this product image. Identify the key selling points, material, and vibe. Then, generate 3 distinct advertising concepts for this product.\n\nOutput strictly valid JSON in this format:\n[\n  {\n    \"concept_name\": \"Minimalist Studio\",\n    \"prompt\": \"professional studio photography of [product], soft lighting, minimal grey background, 8k\"\n  },\n  {\n    \"concept_name\": \"Lifestyle\",\n    \"prompt\": \"[product] placed on a wooden table in a sunlit cozy living room, bokeh effect\"\n  },\n  {\n    \"concept_name\": \"Creative/Abstract\",\n    \"prompt\": \"[product] floating in mid-air with colorful geometric shapes, neon lighting, cyberpunk style\"\n  }\n]",
+                "options": {}
+            },
+            "id": "ai-concepting",
+            "name": "AI Strategic Concepting",
+            "type": "n8n-nodes-base.googleGemini",
+            "typeVersion": 1,
+            "position": [
+                440,
+                0
+            ],
+            "notes": "Connect your Gemini Credential here"
+        },
+        {
+            "parameters": {
+                "jsCode": "const jsonString = $input.first().json.content.parts[0].text.replace(/```json/g, '').replace(/```/g, '');\nreturn JSON.parse(jsonString);"
+            },
+            "id": "parse-ai-response",
+            "name": "Parse AI Concepts",
+            "type": "n8n-nodes-base.code",
+            "typeVersion": 2,
+            "position": [
+                660,
+                0
+            ]
+        },
+        {
+            "parameters": {
+                "options": {}
+            },
+            "id": "loop-concepts",
+            "name": "Loop Concepts",
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [
+                880,
+                0
+            ]
+        },
+        {
+            "parameters": {
+                "method": "POST",
+                "url": "https://queue.fal.run/fal-ai/flux/dev",
+                "authentication": "genericCredentialType",
+                "genericAuthType": "httpHeaderAuth",
+                "sendBody": true,
+                "bodyParameters": {
+                    "parameters": [
+                        {
+                            "name": "prompt",
+                            "value": "={{ $json.prompt }} -- high quality, photorealistic"
+                        },
+                        {
+                            "name": "image_size",
+                            "value": "landscape_16_9"
+                        },
+                        {
+                            "name": "num_inference_steps",
+                            "value": "30"
+                        }
+                    ]
+                },
+                "options": {}
+            },
+            "id": "generate-visuals",
+            "name": "Generate Visuals (Flux)",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 4.2,
+            "position": [
+                1100,
+                -100
+            ],
+            "credentials": {
+                "httpHeaderAuth": {
+                    "id": "YOUR_FAL_CREDENTIAL_ID",
+                    "name": "Fal.ai API"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "operation": "upload",
+                "fileContent": "={{ $json.images[0].url }}",
+                "name": "={{ 'Ad_' + $('Loop Concepts').item.json.concept_name + '.jpg' }}",
+                "parents": {
+                    "__rl": true,
+                    "value": "={{ $('Create Campaign Folder').item.json.id }}",
+                    "mode": "id"
+                },
+                "options": {}
+            },
+            "id": "save-final-ads",
+            "name": "Save Final Ads",
+            "type": "n8n-nodes-base.googleDrive",
+            "typeVersion": 3,
+            "position": [
+                1320,
+                -100
+            ],
+            "credentials": {
+                "googleDriveOAuth2Api": {
+                    "id": "1YqDYTAoUT0ShbXU",
+                    "name": "Google Drive account"
+                }
+            }
+        }
+    ],
+    "connections": {
+        "Start / Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Create Campaign Folder",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Create Campaign Folder": {
+            "main": [
+                [
+                    {
+                        "node": "AI Strategic Concepting",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Strategic Concepting": {
+            "main": [
+                [
+                    {
+                        "node": "Parse AI Concepts",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Parse AI Concepts": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Concepts",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Loop Concepts": {
+            "main": [
+                [
+                    {
+                        "node": "Generate Visuals (Flux)",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Generate Visuals (Flux)": {
+            "main": [
+                [
+                    {
+                        "node": "Save Final Ads",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Save Final Ads": {
+            "main": [
+                [
+                    {
+                        "node": "Loop Concepts",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

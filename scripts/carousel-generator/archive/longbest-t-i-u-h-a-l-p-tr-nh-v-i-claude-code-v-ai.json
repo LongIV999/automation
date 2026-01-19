@@ -1,0 +1,56 @@
+{
+  "title": "Tối ưu hóa lập trình với Claude Code và AI",
+  "topic": "Tối ưu hóa lập trình với Claude Code và AI",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "99% lập trình viên Việt chưa biết cách Claude Code giúp code nhanh gấp 3 lần",
+      "subheadline": "Hướng dẫn từ Zero đến Pro trong 7 bước",
+      "visual": "Clean minimal design with warm cream background (#F4F3EE), featuring a subtle code editor interface mockup on the right side, Claude logo in terracotta accent color (#C15F3C), modern sans-serif Vietnamese typography, professional developer workspace aesthetic with soft shadows"
+    },
+    {
+      "type": "content",
+      "headline": "Vấn đề của lập trình viên hiện nay",
+      "content": "Viết code mất nhiều thời gian. Debug lỗi tốn cả ngày. Tài liệu khó hiểu, thiếu ví dụ thực tế. Claude Code của Anthropic giải quyết tất cả điều này.",
+      "visual": "Split screen layout showing frustrated developer on left (warm natural photography style), organized clean code interface on right, using Pampas background (#F4F3EE) with Crail accent highlights (#C15F3C), minimal icons representing time, bugs, and documentation"
+    },
+    {
+      "type": "list",
+      "headline": "5 tính năng Claude Code ít người biết",
+      "content": [
+        "Giải thích code bằng tiếng Việt dễ hiểu",
+        "Tự động tìm và sửa lỗi logic",
+        "Chuyển đổi giữa các ngôn ngữ lập trình",
+        "Tối ưu hiệu suất code tự động",
+        "Viết test case và documentation nhanh chóng"
+      ],
+      "visual": "Clean numbered list layout with generous white space, each item in a subtle card with light Cloudy borders (#B1ADA1), Crail accent numbers (#C15F3C), grid-based modular design, warm cream background, icons representing each feature in minimalist style"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt tối ưu để Claude giúp debug code",
+      "content": "Tôi có đoạn code [ngôn ngữ] bên dưới đang bị lỗi [mô tả lỗi]. Hãy: 1) Phân tích nguyên nhân gốc rễ bằng tiếng Việt, 2) Đưa ra giải pháp cụ thể với code mẫu, 3) Giải thích tại sao giải pháp này hoạt động. Code: [paste code ở đây]",
+      "visual": "Monospace code block style with subtle background highlight in warm tone, before-after code comparison layout, Crail accent for highlighting key parts (#C15F3C), clean typography with adequate line spacing (1.5), annotation arrows showing improvements, professional IDE aesthetic"
+    },
+    {
+      "type": "content",
+      "headline": "Kết quả thực tế từ lập trình viên Việt Nam",
+      "content": "Anh Minh, Senior Dev tại TP.HCM: Giảm 60% thời gian debug. Chị Lan, Freelancer: Hoàn thành project nhanh hơn 2 tuần. Team Startup Hà Nội: Tăng năng suất code lên 3 lần.",
+      "visual": "Testimonial-style layout with three sections, warm natural photography aesthetic showing Vietnamese developers (diverse, authentic), data visualization showing time savings with clean bar charts, Crail accent for metrics (#C15F3C), Pampas background (#F4F3EE), trustworthy and warm presentation"
+    },
+    {
+      "type": "content",
+      "headline": "Cách bắt đầu ngay hôm nay",
+      "content": "Bước 1: Truy cập Claude.ai và tạo tài khoản miễn phí. Bước 2: Thử prompt ở slide trước với code của bạn. Bước 3: Học thêm các prompt nâng cao tại Long Best AI. Mất chỉ 5 phút để bắt đầu.",
+      "visual": "Step-by-step visual flow diagram with numbered circles in Crail color (#C15F3C), clean arrows connecting steps, screenshot-style mockups with annotation overlays, warm cream background (#F4F3EE), minimalist icons, generous white space for Vietnamese text readability, approachable and encouraging design"
+    },
+    {
+      "type": "cta",
+      "headline": "Nâng cấp quy trình làm việc của bạn với AI",
+      "subheadline": "Giải pháp tạo Video và Ảnh AI chuyên nghiệp với Veo 3 và Nano Banana Pro",
+      "content": "Nhắn tin ngay để nhận bản dùng thử trước khi mua",
+      "visual": "Bold call-to-action layout with Crail accent button (#C15F3C), Long Best AI brand mark prominently displayed, clean white and Pampas color scheme (#F4F3EE), professional product showcase of Veo 3 interface, warm and inviting design, clear messaging hierarchy with Vietnamese typography, subtle gradient in warm earth tones"
+    }
+  ]
+}

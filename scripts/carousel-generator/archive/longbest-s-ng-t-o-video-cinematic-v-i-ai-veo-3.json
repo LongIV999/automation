@@ -1,0 +1,62 @@
+{
+  "title": "Sáng tạo video cinematic với AI Veo 3",
+  "topic": "Hướng dẫn tạo video điện ảnh chuyên nghiệp bằng AI Veo 3",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "99% người Việt chưa biết Veo 3 có thể làm được điều này",
+      "subheadline": "Tạo video cinematic chuẩn Hollywood chỉ bằng câu mô tả",
+      "content": "Khám phá bí mật tạo video điện ảnh đẳng cấp mà không cần máy quay đắt tiền",
+      "visual": "Split screen showing amateur phone footage on left versus stunning cinematic AI-generated scene on right, warm cream background #F4F3EE, clean modern layout with accent color #C15F3C highlighting the transformation arrow"
+    },
+    {
+      "type": "content",
+      "headline": "Veo 3 là gì và tại sao nó đặc biệt?",
+      "subheadline": "Công cụ AI tạo video mạnh nhất hiện nay từ Google DeepMind",
+      "content": "Veo 3 có khả năng tạo video độ phân giải cao đến 4K, thời lượng tối đa 2 phút, với chất lượng hình ảnh và chuyển động tự nhiên vượt trội. Điểm mạnh: hiểu ngữ cảnh phức tạp, điều khiển camera như đạo diễn thực thụ, và tạo ra các cảnh quay có chiều sâu điện ảnh.",
+      "visual": "Clean infographic showing Veo 3 key features with icons: 4K resolution badge, 2-minute duration clock, cinematic camera symbol, arranged in grid layout with warm pampas background, black text with crail accent highlights"
+    },
+    {
+      "type": "prompt",
+      "headline": "Prompt mẫu: Cảnh quay đường phố Hà Nội",
+      "subheadline": "Copy và điều chỉnh theo ý muốn của bạn",
+      "content": "Cinematic establishing shot of Hanoi Old Quarter at golden hour, camera slowly tracking forward through narrow street filled with motorbikes, warm amber sunlight filtering through traditional architecture, shallow depth of field, shot on Arri Alexa with anamorphic lens, 24fps, color graded like Wong Kar-wai film",
+      "visual": "Monospace text box displaying the prompt on clean white background, surrounded by subtle frame suggesting a camera viewfinder, accent border in crail color #C15F3C, minimalist and professional layout"
+    },
+    {
+      "type": "list",
+      "headline": "5 bí quyết tạo video cinematic đẳng cấp",
+      "subheadline": "Áp dụng ngay để có kết quả như chuyên gia",
+      "content": [
+        "Mô tả chuyển động camera cụ thể: tracking shot, crane up, dolly zoom",
+        "Chỉ định thiết bị quay: Arri Alexa, REDCamera, anamorphic lens",
+        "Xác định thời điểm ánh sáng: golden hour, blue hour, overcast day",
+        "Sử dụng thuật ngữ điện ảnh: shallow depth of field, bokeh, color grade",
+        "Tham chiếu phong cách đạo diễn: Wes Anderson, Christopher Nolan, Wong Kar-wai"
+      ],
+      "visual": "Numbered list layout with clean typography, each point in separate card with subtle shadow, warm cream background #F4F3EE, crail color #C15F3C for numbers, generous white space between items"
+    },
+    {
+      "type": "content",
+      "headline": "Trước và sau khi áp dụng kỹ thuật prompt",
+      "subheadline": "Sự khác biệt giữa prompt cơ bản và prompt chuyên nghiệp",
+      "content": "Prompt cơ bản: Một con đường ở Hà Nội vào buổi chiều. Kết quả: Video đơn giản, ánh sáng phẳng, thiếu chiều sâu. Prompt nâng cao: Cinematic tracking shot through Hanoi street at golden hour, shot on Arri Alexa. Kết quả: Video có độ sâu trường ảnh, màu sắc điện ảnh, chuyển động camera mượt mà như phim Hollywood.",
+      "visual": "Before and after comparison layout, left side showing basic result with label, right side showing cinematic result with label, connected by transformation arrow in crail color, warm background with clean division between sections"
+    },
+    {
+      "type": "content",
+      "headline": "Ứng dụng thực tế cho công việc",
+      "subheadline": "Tiết kiệm hàng chục triệu chi phí sản xuất",
+      "content": "Video quảng cáo sản phẩm: Tạo cảnh quay sản phẩm đẳng cấp không cần thuê ekip. Video content mạng xã hội: Sản xuất hàng loạt video chất lượng cao mỗi ngày. Pitch deck và thuyết trình: Minh họa ý tưởng bằng video thay vì slide tĩnh. Background cho livestream: Tạo môi trường ảo chuyên nghiệp.",
+      "visual": "Grid layout showing four application scenarios with simple icons, each in clean card format, warm pampas background, crail accent for section dividers, professional and organized presentation"
+    },
+    {
+      "type": "cta",
+      "headline": "Sẵn sàng tạo video cinematic của riêng bạn?",
+      "subheadline": "Giải pháp tạo Video và Ảnh AI chuyên nghiệp",
+      "content": "Long Best AI cung cấp giải pháp tạo Video với Veo 3 và Ảnh với Nano Banana Pro. Chất lượng chuyên nghiệp, dễ sử dụng, tiết kiệm chi phí. Nhắn tin ngay để nhận bản dùng thử trước khi mua.",
+      "visual": "Clean CTA layout with prominent headline, service description in two columns (Veo 3 for video, Nano Banana Pro for images), call-to-action button area in crail color #C15F3C, Long Best AI branding, warm cream background with professional finish"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ cd "$(dirname "$0")/drive-uploader"
 
 OUTPUT_DIR="../carousel-generator/output"
 
-echo "Starting batch upload fix..."
+echo "Starting batch upload fix with Brand Awareness..."
 
 for dir in "$OUTPUT_DIR"/*; do
     if [ -d "$dir" ]; then
@@ -13,7 +13,7 @@ for dir in "$OUTPUT_DIR"/*; do
         if [ "$dirname" == "test" ]; then continue; fi
         
         echo "---------------------------------------------------"
-        echo "Uploading $dirname..."
+        echo "Processing $dirname..."
         
         # Check if directory has images
         count=$(find "$dir" -maxdepth 1 -name "*.png" | wc -l)
@@ -22,7 +22,16 @@ for dir in "$OUTPUT_DIR"/*; do
             continue
         fi
 
-        node upload.js "$dir" --delete
+        # Detect brand
+        BRAND="longbest"
+        if [[ $dirname == thachvuland-* ]]; then
+            BRAND="thachvuland"
+        elif [[ $dirname == longbest-* ]]; then
+            BRAND="longbest"
+        fi
+
+        echo "Detected Brand: $BRAND"
+        node upload.js "$dir" --brand "$BRAND" --delete
     fi
 done
 

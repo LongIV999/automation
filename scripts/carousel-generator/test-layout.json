@@ -1,0 +1,64 @@
+{
+    "title": "Layout Test",
+    "topic": "Testing New Layouts",
+    "brand": "Long Best AI",
+    "designStyle": "classic",
+    "slides": [
+        {
+            "type": "title",
+            "headline": "cách tự học claude code ",
+            "subheadline": "Comparison and Process Flow"
+        },
+        {
+            "type": "comparison",
+            "headline": "Traditional vs AI Coding",
+            "leftTitle": "Manual Coding",
+            "rightTitle": "AI Assisted",
+            "items": [
+                {
+                    "left": "Hours of debugging syntax",
+                    "right": "Instant error explanations"
+                },
+                {
+                    "left": "Writing boilerplate code",
+                    "right": "One-click scaffold generation"
+                },
+                {
+                    "left": "Limited by personal knowledge",
+                    "right": "Access to global coding patterns"
+                }
+            ]
+        },
+        {
+            "type": "process",
+            "headline": "How to Use Daily Agent",
+            "steps": [
+                {
+                    "number": 1,
+                    "title": "Pick a Topic",
+                    "desc": "Choose a trending AI topic or news item."
+                },
+                {
+                    "number": 2,
+                    "title": "Run Writer",
+                    "desc": "Agent generates structured content JSON."
+                },
+                {
+                    "number": 3,
+                    "title": "Generate",
+                    "desc": "Puppeteer renders beautiful slides."
+                },
+                {
+                    "number": 4,
+                    "title": "Publish",
+                    "desc": "Auto-upload to Drive & Facebook."
+                }
+            ]
+        },
+        {
+            "type": "cta",
+            "headline": "Try It Now",
+            "content": "Dm for access"
+        }
+    ]
+}

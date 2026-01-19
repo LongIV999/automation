@@ -1,0 +1,22 @@
+{
+    "title": "Top AI Skill For Success in 2026",
+    "topic": "Top 6 AI Skills for Success in 2026",
+    "brand": "Long Best AI",
+    "formatType": "single-post",
+    "designStyle": "head-silhouette",
+    "slides": [
+        {
+            "type": "content",
+            "headline": "Top 6 AI Skills",
+            "subheadline": "For Success in 2026",
+            "content": [
+                "Prompt Systems: Design multi-agent workflows instructions for reliable outputs. (Tools: CrewAI, AutoGen)",
+                "AI Governance: Audit AI systems for compliance (EU AI Act) and ethics. (Tools: OneTrust, Credo AI)",
+                "Collaboration: Augment human judgment with AI verification skills. (Tools: Human-in-the-loop)",
+                "RAG Systems: Structure data for accurate AI retrieval and knowledge management. (Tools: NotebookLM, Pinecone)",
+                "Agentic Design: Architect autonomous agent hierarchies without coding. (Tools: Zapier, Make)",
+                "Strategic EI: Focus on empathy, negotiation, and high-level vision. (Tools: Your Brain)"
+            ]
+        }
+    ]
+}

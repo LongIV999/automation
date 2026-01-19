@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-1: #6E94D1;
+            /* Blue */
+            --color-2: #8CCB9F;
+            /* Green */
+            --color-3: #F8B4B4;
+            /* Red/Pink */
+            --color-4: #FFD966;
+            /* Yellow */
+            --color-5: #B6EADA;
+            /* Teal/Mint */
+            --color-6: #D9E4FF;
+            /* Light Blue/Purple */
+            --text-dark: #0A3D23;
+            /* Dark Green from the reference */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1080px;
+            height: 1350px;
+            background: white;
+            font-family: 'Poppins', sans-serif;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .big-number {
+            font-size: 280px;
+            font-weight: 800;
+            line-height: 0.8;
+            color: #0A3D23;
+            position: absolute;
+            left: -200px;
+            top: -20px;
+        }
+
+        .title-group {
+            margin-left: 20px;
+        }
+
+        h1 {
+            font-size: 80px;
+            font-weight: 800;
+            color: #0A3D23;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 45px;
+            font-weight: 800;
+            color: #0A3D23;
+            text-transform: uppercase;
+        }
+
+        /* The Head Silhouette Container */
+        .silhouette-container {
+            position: relative;
+            width: 800px;
+            height: 950px;
+            margin-top: 20px;
+        }
+
+        /* SVG Silhouette - Using a generic head shape */
+        .silhouette-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .segment {
+            position: absolute;
+            z-index: 2;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Styling each segment based on the image positions */
+        .s1 {
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 25%;
+            background: var(--color-1);
+            border-radius: 400px 400px 20px 20px;
+            clip-path: ellipse(50% 100% at 50% 100%);
+        }
+
+        .s2 {
+            top: 26%;
+            left: 0%;
+            width: 49%;
+            height: 25%;
+            background: var(--color-2);
+            border-radius: 20px;
+        }
+
+        .s3 {
+            top: 26%;
+            right: 0%;
+            width: 49%;
+            height: 25%;
+            background: var(--color-3);
+            border-radius: 20px;
+        }
+
+        .s4 {
+            top: 52%;
+            left: 10%;
+            width: 45%;
+            height: 20%;
+            background: var(--color-4);
+            border-radius: 20px;
+        }
+
+        .s5 {
+            top: 52%;
+            right: 0%;
+            width: 43%;
+            height: 25%;
+            background: var(--color-5);
+            border-radius: 20px;
+        }
+
+        .s6 {
+            bottom: 0%;
+            left: 20%;
+            width: 60%;
+            height: 25%;
+            background: var(--color-6);
+            border-radius: 20px 20px 400px 400px;
+        }
+
+        .segment h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .segment p {
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .tools {
+            font-size: 16px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tool-icons {
+            display: flex;
+            gap: 10px;
+            margin-left: 5px;
+        }
+
+        /* Avatar in central circle */
+        .avatar-circle {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            border: 8px solid #8CCB9F;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .avatar-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="big-number">6</div>
+        <div class="title-group">
+            <h1>TOP AI SKILL</h1>
+            <div class="subtitle">FOR SUCCESS IN 2026</div>
+        </div>
+    </div>
+
+    <div class="silhouette-container">
+        <!-- Segment 1 -->
+        <div class="segment s1" style="background: #BDD7EE;">
+            <h3>1. Prompt Engineering</h3>
+            <p>Write instructions for reliable, useful AI outputs.<br>Guide AI logic for expert results every time.</p>
+            <div class="tools">Tools: ✨ ChatGPT ✴️ Claude 🔹 Gemini 🔘 Grok</div>
+        </div>
+
+        <!-- Segment 2 -->
+        <div class="segment s2"
+            style="background: #A9D18E; height: 30%; top: 22%; left: 5%; width: 40%; border-radius: 50% 0 0 50%;">
+            <h3>2. AI Workflow Automation</h3>
+            <p>Connect your favorite apps to automate tasks. Build systems that handle your chores automatically.</p>
+            <div class="tools">Tools: ✴️ Zapier Ⓜ️ Make 📗 Notion</div>
+        </div>
+
+        <!-- Segment 3 -->
+        <div class="segment s3"
+            style="background: #F8CBAD; height: 35%; top: 22%; right: 5%; width: 45%; border-radius: 0 50% 50% 0;">
+            <h3>3. AI Video Creation</h3>
+            <p>Turn words into videos without editing skills. Create high-quality clips just by typing ideas.</p>
+            <div class="tools">Tools: 🎬 HeyGen 🎥 Sora 📽️ Runway 🎞️ Veo3</div>
+        </div>
+
+        <!-- Segment 4 -->
+        <div class="segment s4"
+            style="background: #FFE699; top: 53%; left: 10%; width: 45%; border-radius: 50% 0 0 50%;">
+            <h3>4. RAG Systems</h3>
+            <p>Accurate answers. Turn AI into an expert on your private data.</p>
+            <div class="tools">Tools: 📓 NotebookLM 💬 ChatGPT</div>
+        </div>
+
+        <!-- Segment 5 -->
+        <div class="segment s5"
+            style="background: #C5E0B4; top: 58%; right: 5%; width: 40%; border-radius: 0 30% 60% 0;">
+            <h3>5. Vibe Coding</h3>
+            <p>Build websites or apps without writing code. Describe your idea and let AI do the building.</p>
+            <div class="tools">Tools: 💻 Replit ✴️ Claude Code 💠 Cursor 💖 Lovable</div>
+        </div>
+
+        <!-- Segment 6 -->
+        <div class="segment s6"
+            style="background: #DEEBF7; bottom: 5%; left: 25%; width: 55%; border-radius: 0 0 50% 50%;">
+            <h3>6. AI Search Optimization (GEO)</h3>
+            <p>Optimize web content so AI search engines recommend you. Ensure tools like Perplexity suggest your work.
+            </p>
+            <div class="tools">Tools: 🔍 Perplexity 🌐 Searchable 🖊️ NeuronWriter</div>
+        </div>
+
+        <div class="avatar-circle">
+            <img src="https://ca.slack-edge.com/T0266FRGM-U0266FRGQ-g6b0b2b8b9b0-512" alt="Avatar">
+        </div>
+    </div>
+</body>
+
+</html>

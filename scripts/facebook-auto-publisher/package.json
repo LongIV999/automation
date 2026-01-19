@@ -1,0 +1,26 @@
+{
+  "name": "facebook-auto-publisher",
+  "version": "1.0.0",
+  "description": "Auto publish to Facebook with rate limiting - Giải quyết vấn đề rate limit",
+  "main": "publisher.js",
+  "scripts": {
+    "add": "node publisher.js add",
+    "process": "node publisher.js process",
+    "stats": "node publisher.js stats",
+    "schedule": "node scheduler.js"
+  },
+  "keywords": [
+    "facebook",
+    "automation",
+    "rate-limiting",
+    "graph-api"
+  ],
+  "author": "Long Best AI",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0",
+    "form-data": "^4.0.0",
+    "googleapis": "^170.0.0"
+  }
+}

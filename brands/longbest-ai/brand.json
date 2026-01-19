@@ -2,32 +2,38 @@
   "brandId": "longbest-ai",
   "name": "Long Best AI",
   "description": "Vietnamese AI education fanpage",
-
   "colors": {
-    "primary": "#C15F3C",
-    "background": "#F4F3EE",
-    "backgroundDark": "#141413",
-    "accent": "#788c5d",
-    "text": "#faf9f5",
-    "textDark": "#000000"
+    "primary": "#000000",
+    "background": "#FFFFFF",
+    "backgroundDark": "#000000",
+    "accent": "#000000",
+    "text": "#000000",
+    "textDark": "#FFFFFF"
   },
-
   "typography": {
-    "headline": "Poppins",
-    "body": "Lora",
+    "headline": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
     "sizes": {
-      "h1Title": 72,
-      "h1Content": 56,
-      "h2": 36,
-      "subheadline": 28,
-      "content": 24,
-      "listItem": 26,
-      "promptBox": 22,
-      "slideNumber": 24,
-      "brandCorner": 20
+      "h1Title": 48,
+      "h1Content": 36,
+      "h2": 20,
+      "subheadline": 20,
+      "content": 16,
+      "listItem": 16,
+      "promptBox": 14,
+      "slideNumber": 14,
+      "brandCorner": 14
     }
   },
-
+  "designStyle": {
+    "primary": "notebook",
+    "secondary": "tutorial",
+    "tertiary": "infographic",
+    "theme": "black-white-typography",
+    "description": "NotebookLM-inspired clean design - Use 'notebook' for educational content, 'tutorial' for step-by-step guides, 'infographic' for data visualization",
+    "note": "Migrated from 'notebook-lm' to official 'notebook' style"
+  },
   "branding": {
     "logoText": "Long Best AI",
     "tagline": "Học AI Dễ Hiểu, Ứng Dụng Ngay",
@@ -35,7 +41,6 @@
     "website": "",
     "email": ""
   },
-
   "carousel": {
     "slideWidth": 1080,
     "slideHeight": 1350,
@@ -43,40 +48,38 @@
     "format": "png",
     "quality": 2
   },
-
   "googleSheets": {
     "sheetId": "1RAHjxLDULl0aRWHSX0aqUh1dqv7li7zwi0DZA6atQj0",
-    "tabName": "Posts",
+    "tabName": "Post",
     "contentCalendarTab": "Content_Calendar",
     "archiveTab": "Archive",
     "analyticsTab": "Analytics"
   },
-
   "googleDrive": {
     "parentFolderId": null,
     "folderPrefix": "LONGBESTAI",
     "autoDelete": false
   },
-
   "facebook": {
-    "pageId": "YOUR_FACEBOOK_PAGE_ID",
-    "credentialId": "YOUR_N8N_CREDENTIAL_ID",
+    "pageId": "827345413796018",
+    "credentialId": "EAAIlEVK0LRYBQYgvh1P51r2F81NILrYsyZCVDqTfW9BdD5zEYkKuGRK8lwuJVSyb3fdW3ShEXcmdbidq7GAtssZAnLkrq9mphna7WLGL0M7iwOLSmZAZB8FpJ6m38bCxaFB2A3LlNfTreUfOpDyDZAolaawJHoo6oknZCuHUZBbgogt2yzNtB9LShw6JdUjvTZCf6uojtG7Ux0Jcw8KZBsziSm8cHSBqlRUf5Mcm8ZCi6gM0ZBqAzA8WdgPBlAhAxIA",
     "graphApiVersion": "v19.0"
   },
-
   "n8n": {
     "scheduleInterval": "hours",
     "scheduleTriggerEnabled": true,
     "timezone": "Asia/Ho_Chi_Minh"
   },
-
   "posting": {
     "frequency": "3x/week",
-    "schedule": ["Monday", "Wednesday", "Friday"],
+    "schedule": [
+      "Monday",
+      "Wednesday",
+      "Friday"
+    ],
     "timezone": "Asia/Ho_Chi_Minh",
     "autoPost": true
   },
-
   "contentPillars": [
     "Tutorials",
     "Tips & Tricks",
@@ -84,7 +87,6 @@
     "Tool Reviews",
     "News & Updates"
   ],
-
   "metadata": {
     "createdAt": "2026-01-09T07:08:43Z",
     "createdBy": "brand-manager CLI",

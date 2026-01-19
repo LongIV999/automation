@@ -4,36 +4,54 @@
   "description": "Real estate content automation",
 
   "colors": {
-    "primary": "#0A2540",
-    "background": "#F4F3EE",
-    "backgroundDark": "#0A2540",
-    "accent": "#4A7C59",
-    "text": "#faf9f5",
-    "textDark": "#000000"
+    "primary": "#000000",
+    "background": "#FFFFFF",
+    "backgroundDark": "#000000",
+    "accent": "#000000",
+    "text": "#000000",
+    "textDark": "#FFFFFF"
   },
 
   "typography": {
-    "headline": "Poppins",
-    "body": "Lora",
+    "headline": "Inter",
+    "body": "Inter",
+    "mono": "JetBrains Mono",
     "sizes": {
-      "h1Title": 72,
-      "h1Content": 56,
-      "h2": 36,
-      "subheadline": 28,
-      "content": 24,
-      "listItem": 26,
-      "promptBox": 22,
-      "slideNumber": 24,
-      "brandCorner": 20
+      "h1Title": 48,
+      "h1Content": 36,
+      "h2": 20,
+      "subheadline": 20,
+      "content": 16,
+      "listItem": 16,
+      "promptBox": 14,
+      "slideNumber": 14,
+      "brandCorner": 14
     }
+  },
+
+  "designStyle": {
+    "primary": "infographic",
+    "secondary": "notebook",
+    "theme": "professional-real-estate",
+    "description": "Clean infographic style for property listings with data summaries, notebook style for educational real estate content",
+    "note": "Migrated from 'notebook-lm' to 'infographic' (primary) and 'notebook' (secondary)"
   },
 
   "branding": {
     "logoText": "Thach Vu Land",
-    "tagline": "Your tagline here",
+    "tagline": "Đầu Tư BĐS Bình Dương Uy Tín",
     "cornerText": "Thach Vu Land",
-    "website": "",
-    "email": ""
+    "website": "thachvuland.com",
+    "email": "info@thachvuland.com"
+  },
+
+  "contact": {
+    "hotline": "0903.469.888",
+    "phone": "0903.469.888",
+    "address": "32 đường 40, KDC Vạn Phúc, TP Thủ Đức",
+    "fullAddress": "32 đường 40 . KDC Vạn Phúc , TP Thủ Đức",
+    "zalo": "0903.469.888",
+    "workingHours": "8:00 - 18:00 (Thứ 2 - Chủ Nhật)"
   },
 
   "carousel": {
@@ -45,8 +63,8 @@
   },
 
   "googleSheets": {
-    "sheetId": "YOUR_GOOGLE_SHEETS_ID",
-    "tabName": "Posts",
+    "sheetId": "1SNv1t0h-KRXWQ4xANroW5RQN6zHU57OrrXj_OqzfVsY",
+    "tabName": "Post",
     "contentCalendarTab": "Content_Calendar",
     "archiveTab": "Archive",
     "analyticsTab": "Analytics"

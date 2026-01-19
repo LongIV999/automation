@@ -1,0 +1,240 @@
+{
+  "version": "1.0.0",
+  "description": "Content format templates for flexible image generation",
+  "formats": {
+    "single": {
+      "name": "Single Post",
+      "description": "Single image for quotes, announcements, promotions",
+      "slideCount": 1,
+      "dimensions": {
+        "width": 1200,
+        "height": 1200,
+        "aspectRatio": "1:1"
+      },
+      "designStyle": "single-post",
+      "structure": {
+        "slides": [
+          {
+            "type": "title-cta-combined",
+            "required": true,
+            "description": "Title, main content, and CTA in single image"
+          }
+        ]
+      }
+    },
+    "carousel-mini": {
+      "name": "Mini Carousel",
+      "description": "3-5 slides for quick tips, short lists",
+      "slideCount": {
+        "min": 3,
+        "max": 5,
+        "default": 5
+      },
+      "dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspectRatio": "4:5",
+        "alternative": {
+          "width": 1080,
+          "height": 1080,
+          "aspectRatio": "1:1"
+        }
+      },
+      "designStyle": "carousel-compact",
+      "structure": {
+        "slides": [
+          {
+            "type": "title",
+            "required": true,
+            "description": "Eye-catching title slide"
+          },
+          {
+            "type": "content",
+            "count": "2-3",
+            "required": true,
+            "description": "Content slides with tips/steps"
+          },
+          {
+            "type": "cta",
+            "required": true,
+            "description": "Call to action slide"
+          }
+        ]
+      }
+    },
+    "carousel-standard": {
+      "name": "Standard Carousel",
+      "description": "7 slides for educational content, detailed guides (current default)",
+      "slideCount": 7,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspectRatio": "4:5",
+        "alternative": {
+          "width": 1080,
+          "height": 1080,
+          "aspectRatio": "1:1"
+        }
+      },
+      "designStyle": "carousel-standard",
+      "structure": {
+        "slides": [
+          {
+            "type": "title",
+            "required": true,
+            "description": "Title/hook slide"
+          },
+          {
+            "type": "content",
+            "count": "4-5",
+            "required": true,
+            "description": "Content slides"
+          },
+          {
+            "type": "engagement",
+            "required": false,
+            "description": "Optional engagement slide"
+          },
+          {
+            "type": "cta",
+            "required": true,
+            "description": "Call to action slide"
+          }
+        ]
+      }
+    },
+    "carousel-long": {
+      "name": "Long Carousel",
+      "description": "8-15 slides for comprehensive tutorials, case studies",
+      "slideCount": {
+        "min": 8,
+        "max": 15,
+        "default": 10
+      },
+      "dimensions": {
+        "width": 1080,
+        "height": 1350,
+        "aspectRatio": "4:5"
+      },
+      "designStyle": "carousel-detailed",
+      "structure": {
+        "slides": [
+          {
+            "type": "title",
+            "required": true
+          },
+          {
+            "type": "intro",
+            "required": true,
+            "description": "Introduction/overview slide"
+          },
+          {
+            "type": "content",
+            "count": "5-12",
+            "required": true
+          },
+          {
+            "type": "summary",
+            "required": false,
+            "description": "Optional summary slide"
+          },
+          {
+            "type": "cta",
+            "required": true
+          }
+        ]
+      }
+    },
+    "story": {
+      "name": "Story Format",
+      "description": "Vertical format for Facebook/Instagram stories",
+      "slideCount": 1,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920,
+        "aspectRatio": "9:16"
+      },
+      "designStyle": "story-vertical",
+      "structure": {
+        "slides": [
+          {
+            "type": "story-content",
+            "required": true,
+            "description": "Vertical story content with swipe-up CTA"
+          }
+        ]
+      }
+    }
+  },
+  "contentTypeMapping": {
+    "quote": "single",
+    "announcement": "single",
+    "promotion": "single",
+    "news": "single",
+    "testimonial": "single",
+    "tips": "carousel-mini",
+    "list": "carousel-mini",
+    "quick-guide": "carousel-mini",
+    "tutorial": "carousel-standard",
+    "guide": "carousel-standard",
+    "how-to": "carousel-standard",
+    "educational": "carousel-standard",
+    "case-study": "carousel-long",
+    "comprehensive": "carousel-long",
+    "deep-dive": "carousel-long",
+    "story": "story"
+  },
+  "autoDetectionRules": {
+    "quote": {
+      "keywords": ["quote", "wisdom", "inspiration"],
+      "patterns": ["^[\"'`].*[\"'`]$"],
+      "maxWords": 25
+    },
+    "announcement": {
+      "keywords": ["announce", "news", "update", "launch"],
+      "maxWords": 30
+    },
+    "tips": {
+      "patterns": ["^\\d+\\s+(tips|ways|tricks|tools|methods|secrets)"],
+      "countRange": [3, 5]
+    },
+    "tutorial": {
+      "keywords": ["how to", "guide", "tutorial", "step by step", "learn"],
+      "patterns": ["^\\d+\\s+(steps|phases|stages)"],
+      "countRange": [6, 10]
+    },
+    "comprehensive": {
+      "patterns": ["complete guide", "comprehensive", "ultimate", "definitive"],
+      "countRange": [10, 15]
+    }
+  },
+  "facebookRecommendations": {
+    "feed": {
+      "singleImage": {
+        "width": 1200,
+        "height": 1200,
+        "note": "Best for square posts in news feed"
+      },
+      "carousel": {
+        "width": 1080,
+        "height": 1350,
+        "note": "Portrait 4:5 takes more screen space on mobile"
+      },
+      "carouselAlternative": {
+        "width": 1080,
+        "height": 1080,
+        "note": "Square carousel, simpler composition"
+      }
+    },
+    "story": {
+      "width": 1080,
+      "height": 1920,
+      "note": "Full-screen vertical format for stories"
+    },
+    "cover": {
+      "width": 820,
+      "height": 312,
+      "note": "Facebook page cover photo"
+    }
+  }
+}

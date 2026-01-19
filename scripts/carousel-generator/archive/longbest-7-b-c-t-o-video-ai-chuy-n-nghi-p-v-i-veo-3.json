@@ -1,0 +1,60 @@
+{
+  "title": "7 Bước Tạo Video AI Chuyên Nghiệp Với Veo 3",
+  "topic": "Hướng dẫn tạo video AI chất lượng cao với Veo 3 - công cụ mới nhất từ Google DeepMind",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "7 Bước Tạo Video AI Chuyên Nghiệp Với Veo 3",
+      "subheadline": "Từ ý tưởng đến video hoàn chỉnh chỉ trong vài phút",
+      "content": "Hướng dẫn chi tiết dành cho người mới bắt đầu",
+      "visual": "Clean minimal design with warm cream background (#F4F3EE), bold headline in black, accent line in Crail (#C15F3C), subtle geometric shapes representing video frames, professional and welcoming aesthetic"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 1: Chuẩn Bị Ý Tưởng Rõ Ràng",
+      "subheadline": "Xác định chính xác video bạn muốn tạo",
+      "content": "Trước khi bắt đầu, hãy trả lời 3 câu hỏi: Video của bạn về chủ đề gì? Phong cách hình ảnh như thế nào? Thời lượng video mong muốn là bao nhiêu giây?",
+      "visual": "Split layout showing three question boxes on warm background, simple icons representing idea, style, and duration, clean typography with Crail accents for emphasis"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 2: Viết Prompt Mô Tả Chi Tiết",
+      "subheadline": "Càng cụ thể, kết quả càng chính xác",
+      "content": "Mô tả cảnh quay, góc máy, chuyển động, ánh sáng và màu sắc. Ví dụ: Cảnh quay chậm một tách cà phê trên bàn gỗ, ánh sáng buổi sáng nhẹ nhàng từ cửa sổ, màu nâu ấm áp.",
+      "visual": "Before and after comparison, left side showing simple text, right side showing detailed description with highlighted keywords in Crail color, clean white boxes with subtle shadows"
+    },
+    {
+      "type": "prompt",
+      "headline": "Bước 3: Prompt Mẫu Bạn Có Thể Dùng Ngay",
+      "subheadline": "Copy và điều chỉnh theo nhu cầu",
+      "content": "A cinematic slow-motion shot of steaming Vietnamese coffee dripping into a glass, warm morning sunlight streaming through a window, wooden table surface, shallow depth of field, professional color grading with warm brown tones, 1080p quality",
+      "visual": "Code-style box with monospace font on light background, prompt text in black with key elements subtly highlighted, copy icon in corner, clean and technical appearance"
+    },
+    {
+      "type": "list",
+      "headline": "Bước 4-6: Quy Trình Tạo Video",
+      "subheadline": "3 bước thực hiện đơn giản",
+      "content": [
+        "Bước 4: Nhập prompt vào Veo 3 và chọn thời lượng video (5-10 giây)",
+        "Bước 5: Đợi 2-3 phút để AI xử lý và tạo video",
+        "Bước 6: Xem kết quả, tải về hoặc tạo lại nếu cần điều chỉnh"
+      ],
+      "visual": "Numbered steps layout with clean icons, warm cream background sections separated by white space, Crail numbered badges, simple flow arrows connecting steps, minimal and clear design"
+    },
+    {
+      "type": "content",
+      "headline": "Bước 7: Tinh Chỉnh Và Hoàn Thiện",
+      "subheadline": "Tối ưu kết quả để đạt chất lượng cao nhất",
+      "content": "Nếu video chưa như ý, hãy điều chỉnh prompt với mô tả cụ thể hơn về chuyển động, ánh sáng hoặc góc quay. Thử nhiều lần để tìm công thức prompt phù hợp nhất với phong cách của bạn.",
+      "visual": "Refinement concept with side-by-side comparison showing optimization process, subtle gradient overlay in warm tones, clean annotations pointing to improvements, professional layout"
+    },
+    {
+      "type": "cta",
+      "headline": "Tạo Video AI Chuyên Nghiệp Ngay Hôm Nay",
+      "subheadline": "Giải pháp hoàn chỉnh với Veo 3 và Nano Banana Pro",
+      "content": "Long Best AI cung cấp gói giải pháp tạo Video và Ảnh AI chuyên nghiệp, kết hợp Veo 3 với Nano Banana Pro để tối ưu chất lượng. Nhắn tin ngay để nhận bản dùng thử miễn phí trước khi mua.",
+      "visual": "Call-to-action design with Crail accent button, clean layout on white background, subtle product showcase imagery, professional and trustworthy appearance with Long Best AI branding, warm welcoming aesthetic"
+    }
+  ]
+}

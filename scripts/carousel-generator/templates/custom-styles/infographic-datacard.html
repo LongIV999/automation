@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: {{WIDTH}}px;
+            height: {{HEIGHT}}px;
+            background: #F5F5F0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: {{HEADER_BG}};
+            color: {{HEADER_TEXT}};
+            padding: 40px 50px;
+            min-height: 160px;
+        }
+
+        .brand-label {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-box {
+            background: white;
+            border: 2px solid #E0E0E0;
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .stat-box:hover {
+            border-color: {{ACCENT_COLOR}};
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: #000;
+            letter-spacing: -0.5px;
+        }
+
+        /* Highlights Section */
+        .highlights-section {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .highlights-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .highlight-number {
+            background: #000;
+            color: white;
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: {{FOOTER_BG}};
+            color: {{FOOTER_TEXT}};
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-contact {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-icon {
+            font-size: 16px;
+        }
+
+        /* Brand Customization */
+        {{BRAND_STYLES}}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="brand-label">{{BRAND_NAME}}</div>
+        <h1 class="main-title">{{HEADLINE}}</h1>
+        <p class="subtitle">{{SUBHEADLINE}}</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            {{STATS_HTML}}
+        </div>
+
+        <!-- Highlights -->
+        <div class="highlights-section">
+            <h2 class="section-title">{{HIGHLIGHTS_TITLE}}</h2>
+            <ul class="highlights-list">
+                {{HIGHLIGHTS_HTML}}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-info">{{FOOTER_INFO}}</div>
+        <div class="footer-contact">
+            {{FOOTER_CONTACT}}
+        </div>
+    </div>
+</body>
+</html>

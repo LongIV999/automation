@@ -1,0 +1,76 @@
+{
+    "brand": "Long Best AI",
+    "colors": {
+        "accent": "#C15F3C",
+        "accentHover": "#A84D2D",
+        "background": "#F4F3EE",
+        "backgroundAlt": "#FFFFFF",
+        "text": "#000000",
+        "textMuted": "#666666",
+        "secondary": "#B1ADA1",
+        "success": "#4CAF50",
+        "error": "#E53935"
+    },
+    "fonts": {
+        "headline": {
+            "family": "'Roboto', sans-serif",
+            "weight": "700",
+            "sizes": {
+                "xl": "72px",
+                "lg": "48px",
+                "md": "36px",
+                "sm": "24px"
+            }
+        },
+        "body": {
+            "family": "Georgia, serif",
+            "weight": "400",
+            "sizes": {
+                "lg": "24px",
+                "md": "20px",
+                "sm": "16px",
+                "xs": "14px"
+            }
+        },
+        "mono": {
+            "family": "'Roboto Mono', monospace",
+            "weight": "400"
+        }
+    },
+    "dimensions": {
+        "single": {
+            "width": 1080,
+            "height": 1080
+        },
+        "quote": {
+            "width": 1080,
+            "height": 1350
+        },
+        "carousel": {
+            "width": 1080,
+            "height": 1350
+        },
+        "shortform": {
+            "width": 1080,
+            "height": 1920
+        },
+        "infographic": {
+            "width": 1080,
+            "height": 1920
+        }
+    },
+    "watermark": "@longbest_ai",
+    "logo": {
+        "text": "Long Best AI",
+        "icon": "🤖"
+    },
+    "spacing": {
+        "padding": "60px",
+        "gap": "24px"
+    },
+    "borderRadius": "16px",
+    "shadows": {
+        "soft": "0 4px 20px rgba(0,0,0,0.08)",
+        "medium": "0 8px 32px rgba(0,0,0,0.12)"
+    }
+}

@@ -1,0 +1,166 @@
+{
+  "title": "Thống Kê: AI Tools Phổ Biến Nhất 2026",
+  "topic": "Infographic: AI Tools Statistics 2026",
+  "brand": "Long Best AI",
+  "designStyle": "infographic",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "Top 10 AI Tools Được Sử Dụng Nhiều Nhất 2026",
+      "subheadline": "Dựa trên khảo sát 10,000+ developers và creators Việt Nam",
+      "content": "Dữ liệu từ Vietnam AI Community Survey - Q1 2026",
+      "visual": "Modern data visualization with bar charts and percentages, clean minimal design with green accents"
+    },
+    {
+      "type": "stats",
+      "headline": "Hạng 1-3: Generation Tools",
+      "subheadline": "Công cụ tạo nội dung dẫn đầu",
+      "stats": [
+        {
+          "rank": "1",
+          "name": "ChatGPT",
+          "value": "87%",
+          "change": "+12%",
+          "description": "Chat và text generation"
+        },
+        {
+          "rank": "2",
+          "name": "Claude",
+          "value": "65%",
+          "change": "+35%",
+          "description": "Code và long-form writing"
+        },
+        {
+          "rank": "3",
+          "name": "Nano Banana",
+          "value": "42%",
+          "change": "+28%",
+          "description": "Image generation cho marketing"
+        }
+      ],
+      "visual": "Horizontal bar chart with percentages, growth indicators (up arrows), and tool logos"
+    },
+    {
+      "type": "stats",
+      "headline": "Hạng 4-6: Productivity Tools",
+      "subheadline": "Công cụ năng suất làm việc",
+      "stats": [
+        {
+          "rank": "4",
+          "name": "Notion AI",
+          "value": "38%",
+          "change": "+8%",
+          "description": "Note-taking và organization"
+        },
+        {
+          "rank": "5",
+          "name": "Cursor",
+          "value": "31%",
+          "change": "+31%",
+          "description": "AI-powered code editor"
+        },
+        {
+          "rank": "6",
+          "name": "GitHub Copilot",
+          "value": "29%",
+          "change": "-5%",
+          "description": "Code completion"
+        }
+      ],
+      "visual": "Horizontal bar chart continuing from previous slide, consistent color scheme"
+    },
+    {
+      "type": "stats",
+      "headline": "Hạng 7-10: Specialized Tools",
+      "subheadline": "Công cụ chuyên biệt",
+      "stats": [
+        {
+          "rank": "7",
+          "name": "Veo 3",
+          "value": "24%",
+          "change": "+24%",
+          "description": "Video generation mới từ Google"
+        },
+        {
+          "rank": "8",
+          "name": "Midjourney",
+          "value": "22%",
+          "change": "-12%",
+          "description": "Image generation nghệ thuật"
+        },
+        {
+          "rank": "9",
+          "name": "NotebookLM",
+          "value": "18%",
+          "change": "+18%",
+          "description": "Research và podcast generation"
+        },
+        {
+          "rank": "10",
+          "name": "Gemini",
+          "value": "16%",
+          "change": "+4%",
+          "description": "Multimodal AI từ Google"
+        }
+      ],
+      "visual": "Horizontal bar chart completing top 10, with category color coding"
+    },
+    {
+      "type": "insights",
+      "headline": "Key Insights",
+      "subheadline": "Xu hướng đáng chú ý",
+      "insights": [
+        {
+          "icon": "📈",
+          "title": "Claude tăng trưởng mạnh nhất",
+          "value": "+35%",
+          "description": "Developers chuyển từ GPT sang Claude cho coding tasks"
+        },
+        {
+          "icon": "🎨",
+          "title": "Image AI bùng nổ tại VN",
+          "value": "+28%",
+          "description": "Nano Banana và local tools được ưa chuộng hơn Midjourney"
+        },
+        {
+          "icon": "🎥",
+          "title": "Video AI mới nổi",
+          "value": "24%",
+          "description": "Veo 3 lần đầu vào top 10, thay thế Runway"
+        },
+        {
+          "icon": "💰",
+          "title": "Free tiers quyết định",
+          "value": "68%",
+          "description": "Users ưu tiên tools có free plan hào phóng"
+        }
+      ],
+      "visual": "Grid of insight cards with icons, large numbers, and short descriptions"
+    },
+    {
+      "type": "comparison",
+      "headline": "So Sánh: Free vs Paid Usage",
+      "subheadline": "Phân bổ người dùng theo loại tài khoản",
+      "data": {
+        "free": {
+          "percentage": "58%",
+          "users": "5,800",
+          "topTools": ["ChatGPT Free", "Claude Free", "Gemini"]
+        },
+        "paid": {
+          "percentage": "42%",
+          "users": "4,200",
+          "topTools": ["ChatGPT Plus", "Claude Pro", "Cursor Pro"]
+        }
+      },
+      "visual": "Donut chart showing 58/42 split, with breakdown lists for each segment"
+    },
+    {
+      "type": "cta",
+      "headline": "Học Cách Sử Dụng Top 10 Tools",
+      "subheadline": "Tutorials và case studies thực tế",
+      "content": "Long Best AI cung cấp hướng dẫn chi tiết cho tất cả 10 tools này. Từ beginner đến advanced, với examples tiếng Việt. Theo dõi để không bỏ lỡ updates mới nhất về AI tools.",
+      "visual": "CTA card with tool logos grid, subscribe button, and social media links"
+    }
+  ]
+}

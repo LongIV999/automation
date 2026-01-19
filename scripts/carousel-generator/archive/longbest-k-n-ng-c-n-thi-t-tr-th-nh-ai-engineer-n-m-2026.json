@@ -1,0 +1,68 @@
+{
+  "title": "Kỹ năng cần thiết để trở thành AI Engineer năm 2026",
+  "topic": "Kỹ năng cần thiết để trở thành AI Engineer năm 2026",
+  "brand": "Long Best AI",
+  "slides": [
+    {
+      "type": "title",
+      "headline": "99% người học AI đang bỏ lỡ những kỹ năng này",
+      "subheadline": "Lộ trình chuẩn để trở thành AI Engineer 2026",
+      "content": "Công nghệ AI đang phát triển chóng mặt. Những kỹ năng cần thiết để thành công trong lĩnh vực này cũng thay đổi liên tục. Hãy cùng khám phá lộ trình học tập thực tế và hiệu quả nhất.",
+      "visual": "Clean minimal background in warm cream Pampas color, with abstract geometric shapes representing AI and technology in Crail accent color. Professional yet approachable design with generous white space."
+    },
+    {
+      "type": "content",
+      "headline": "Nền tảng lập trình vững chắc",
+      "subheadline": "Không thể bỏ qua bước đầu tiên",
+      "content": "Python là ngôn ngữ chủ đạo trong AI với hơn 80% dự án sử dụng. Bạn cần thành thạo các thư viện như NumPy, Pandas, và PyTorch. Ngoài ra, hiểu biết về JavaScript và SQL sẽ giúp bạn làm việc hiệu quả với dữ liệu và triển khai ứng dụng thực tế.",
+      "visual": "Split-screen layout showing Python code snippets on one side and data visualization charts on the other, using Crail and Cloudy color accents on Pampas background. Clean typography with monospace font for code."
+    },
+    {
+      "type": "list",
+      "headline": "5 kỹ năng kỹ thuật cốt lõi",
+      "subheadline": "Checklist cho AI Engineer chuyên nghiệp",
+      "content": [
+        "Machine Learning: Hiểu thuật toán từ Linear Regression đến Neural Networks",
+        "Deep Learning: Thành thạo TensorFlow và PyTorch cho các mô hình phức tạp",
+        "NLP: Xử lý ngôn ngữ tự nhiên với Transformer và LLM",
+        "Computer Vision: Làm việc với CNN, object detection, image segmentation",
+        "MLOps: Triển khai và quản lý mô hình AI trong môi trường production"
+      ],
+      "visual": "Numbered list design with icons for each skill area. Grid-based layout with subtle Crail accent lines. Each item in its own clean white card with shadow, arranged on Pampas background."
+    },
+    {
+      "type": "content",
+      "headline": "Kinh nghiệm thực chiến với LLM",
+      "subheadline": "Xu hướng không thể thiếu năm 2026",
+      "content": "Khả năng làm việc với Large Language Models như GPT, Claude, và Gemini là yêu cầu bắt buộc. Bạn cần biết cách fine-tune mô hình, prompt engineering, RAG (Retrieval-Augmented Generation), và tối ưu chi phí API. Thực hành với các dự án thực tế sẽ tạo lợi thế cạnh tranh lớn.",
+      "visual": "Diagram showing LLM workflow with API integration, fine-tuning process, and deployment pipeline. Modern technical illustration using Anthropic color palette with clean lines and minimal style."
+    },
+    {
+      "type": "content",
+      "headline": "Soft skills quyết định thành công",
+      "subheadline": "Kỹ năng mềm tạo sự khác biệt",
+      "content": "AI Engineer giỏi không chỉ viết code tốt. Bạn cần kỹ năng giao tiếp để giải thích giải pháp AI cho người không chuyên, tư duy phản biện để đánh giá đạo đức AI, và khả năng làm việc nhóm với Data Scientists, Product Managers. Học liên tục là điều bắt buộc khi công nghệ thay đổi từng tuần.",
+      "visual": "Warm photography-style illustration showing collaborative teamwork, overlaid with subtle abstract shapes representing communication and growth. Uses natural tones aligned with Anthropic brand guidelines."
+    },
+    {
+      "type": "list",
+      "headline": "Lộ trình học tập 6 tháng",
+      "subheadline": "Từ Zero đến sẵn sàng xin việc",
+      "content": [
+        "Tháng 1-2: Nền tảng Python và Toán học (Linear Algebra, Calculus, Statistics)",
+        "Tháng 3-4: Machine Learning cơ bản và các thuật toán phổ biến",
+        "Tháng 5: Deep Learning với PyTorch, xây dựng Neural Networks",
+        "Tháng 6: Thực hành dự án thực tế với LLM, NLP hoặc Computer Vision",
+        "Song song: Xây dựng portfolio trên GitHub và viết blog kỹ thuật"
+      ],
+      "visual": "Timeline infographic with 6-month roadmap, showing progression from beginner to job-ready. Clean stepped layout with Crail milestone markers on Pampas background, generous spacing between months."
+    },
+    {
+      "type": "cta",
+      "headline": "Tạo nội dung AI chuyên nghiệp ngay hôm nay",
+      "subheadline": "Giải pháp Video và Ảnh AI với Veo 3 và Nano Banana Pro",
+      "content": "Bạn đang học AI và muốn tạo nội dung chất lượng cao để xây dựng portfolio? Long Best AI cung cấp giải pháp tạo Video và Ảnh AI chuyên nghiệp với công nghệ Veo 3 và Nano Banana Pro mới nhất. Nhắn tin ngay để nhận bản dùng thử trước khi mua.",
+      "visual": "Professional CTA design with before-after showcase of AI-generated content. Split layout showing impressive AI video and image outputs. Crail accent color for CTA button, clean white card on Pampas background with Long Best AI branding."
+    }
+  ]
+}

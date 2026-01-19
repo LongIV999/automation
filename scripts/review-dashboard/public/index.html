@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Review Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Content Review Dashboard</h1>
+            <p class="subtitle">Review AI-generated content before publishing</p>
+        </header>
+
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <span class="stat-number" id="pending-count">0</span>
+                <span class="stat-label">Pending</span>
+            </div>
+        </div>
+
+        <div id="content-list"></div>
+
+        <!-- Modal for editing -->
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Edit Content</h2>
+                <div id="edit-form"></div>
+            </div>
+        </div>
+
+        <!-- Modal for image preview -->
+        <div id="preview-modal" class="modal">
+            <div class="modal-content modal-large">
+                <span class="close" onclick="closePreviewModal()">&times;</span>
+                <h2>Image Preview</h2>
+                <div id="image-carousel"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

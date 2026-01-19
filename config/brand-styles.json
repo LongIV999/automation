@@ -1,0 +1,140 @@
+{
+    "brands": {
+        "longbest": {
+            "displayName": "Long Best AI",
+            "fonts": [
+                "https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:wght@400;600;800&display=swap"
+            ],
+            "colors": {
+                "bgDark": "#141413",
+                "bgLight": "#faf9f5",
+                "accentPrimary": "#d97757",
+                "accentSecondary": "#788c5d",
+                "textMain": "#faf9f5",
+                "textHighlight": "#d97757"
+            },
+            "typography": {
+                "fontHeadline": "'Poppins', sans-serif",
+                "fontBody": "'Lora', serif"
+            },
+            "design": {
+                "cornerText": "Long Best AI",
+                "slideNumberBg": "rgba(217, 119, 87, 0.1)",
+                "brandCornerColor": "#788c5d",
+                "headlineStyle": "text-transform: uppercase; letter-spacing: 2px;",
+                "promptBoxBorder": "4px solid #d97757",
+                "promptBoxBg": "rgba(250, 249, 245, 0.05)",
+                "listMarkerColor": "#d97757"
+            },
+            "voice": {
+                "tone": "warm, thoughtful, intellectually honest",
+                "language": "Vietnamese (70% VN, 30% EN tech terms)",
+                "audience": "25-35 year old tech-curious Vietnamese"
+            }
+        },
+        "thachvuland": {
+            "displayName": "Thach Vu Land",
+            "fonts": [
+                "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;600&display=swap"
+            ],
+            "colors": {
+                "bgDark": "#0A2540",
+                "bgLight": "#F5F7FA",
+                "accentPrimary": "#4A7C59",
+                "accentSecondary": "#C15F3C",
+                "textMain": "#FFFFFF",
+                "textHighlight": "#4A7C59"
+            },
+            "typography": {
+                "fontHeadline": "'Merriweather', serif",
+                "fontBody": "'Inter', sans-serif"
+            },
+            "design": {
+                "cornerText": "Thach Vu Land",
+                "slideNumberBg": "rgba(74, 124, 89, 0.1)",
+                "brandCornerColor": "#4A7C59",
+                "headlineStyle": "font-weight: 700;",
+                "promptBoxBorder": "4px solid #4A7C59",
+                "promptBoxBg": "rgba(255, 255, 255, 0.05)",
+                "listMarkerColor": "#4A7C59"
+            },
+            "voice": {
+                "tone": "professional, objective, data-driven",
+                "language": "Vietnamese (100%)",
+                "audience": "First-time homebuyers & investors (25-50)"
+            }
+        },
+        "queennailbern": {
+            "displayName": "Queen Nail Bern",
+            "fonts": [
+                "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+            ],
+            "colors": {
+                "bgDark": "linear-gradient(135deg, #f43f5e 0%, #fbbf24 100%)",
+                "bgLight": "#FFF5F8",
+                "accentPrimary": "#ffffff",
+                "accentSecondary": "#ffffff",
+                "textMain": "#ffffff",
+                "textHighlight": "#ffffff"
+            },
+            "typography": {
+                "fontHeadline": "'Playfair Display', serif",
+                "fontBody": "'Montserrat', sans-serif"
+            },
+            "design": {
+                "cornerText": "Queen Nail Bern",
+                "slideNumberBg": "rgba(232, 180, 200, 0.1)",
+                "brandCornerColor": "#ffffff",
+                "headlineStyle": "text-transform: none; font-style: italic;",
+                "promptBoxBorder": "4px solid #ffffff",
+                "promptBoxBg": "rgba(255, 245, 248, 0.05)",
+                "listMarkerColor": "#ffffff"
+            },
+            "voice": {
+                "tone": "elegant, professional, empowering",
+                "language": "German (formal Sie) OR Vietnamese (friendly)",
+                "audience": "Women 18-55 in Bern"
+            }
+        }
+    },
+    "formats": {
+        "default": {
+            "slideWidth": 1080,
+            "slideHeight": 1350,
+            "deviceScaleFactor": 3
+        },
+        "square": {
+            "slideWidth": 1080,
+            "slideHeight": 1080,
+            "deviceScaleFactor": 3
+        }
+    },
+    "typography": {
+        "slideNumber": "24px",
+        "brandCorner": "20px",
+        "h1Title": "72px",
+        "h1Content": "56px",
+        "h2": "36px",
+        "subheadline": "28px",
+        "content": "24px",
+        "listItem": "26px",
+        "promptBox": "22px"
+    },
+    "visualPromptTemplates": {
+        "longbest": {
+            "title": "Modern Vietnamese workspace with {topic} theme, warm orange accent lighting (#d97757), professional 25-30 year old using laptop, cozy and intellectual atmosphere",
+            "content": "Clean infographic showing {concept}, warm color palette with orange (#d97757) and green (#788c5d) accents, professional Vietnamese context",
+            "cta": "Long Best AI community illustration with warm colors, friendly Vietnamese tech learners, inviting atmosphere"
+        },
+        "thachvuland": {
+            "title": "Professional Vietnamese real estate context, navy blue (#0A2540) and sage green (#4A7C59) color scheme, data-driven aesthetic, trustworthy atmosphere",
+            "content": "Clean data visualization showing {concept}, professional charts and diagrams, Vietnamese property market context, authoritative style",
+            "cta": "Professional consultation scene with legal documents and market data charts, navy blue theme, trustworthy advisor aesthetic"
+        },
+        "queennailbern": {
+            "title": "Elegant nail salon aesthetic with pink gradient background, professional Swiss setting, feminine and premium atmosphere",
+            "content": "Beautiful nail design showcase featuring {concept}, vibrant pink-yellow gradient, professional photography, Swiss salon quality",
+            "cta": "Queen Nail Bern salon interior, welcoming and hygienic environment, professional nail station, Bern Switzerland context"
+        }
+    }
+}

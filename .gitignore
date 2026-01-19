@@ -1,13 +1,32 @@
 # Dependencies
 node_modules/
 package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Credentials & Secrets
+# Credentials & Secrets - CRITICAL: DO NOT COMMIT!
+credentials.json
+token.json
+*.env
+.env
+.env.*
+config.json
+secrets/
+
+# Root level credentials
+/credentials.json
+/token.json
+/config/credentials.json
+/config/token.json
+
+# Script-level credentials
 scripts/drive-uploader/credentials.json
 scripts/drive-uploader/token.json
 scripts/drive-uploader/.env
-*.env
-.env.*
+scripts/**/*.env
+scripts/**/credentials.json
+scripts/**/token.json
 
 # Brand-specific credentials (Multi-brand system)
 brands/*/credentials/
@@ -15,24 +34,96 @@ brands/*/.env
 brands/*/credentials.json
 brands/*/token.json
 
-# Outputs
+# API Keys & Tokens
+*.key
+*.pem
+*.p12
+.api-keys
+api-keys.json
+
+# Database files (contains analytics data)
+data/*.db
+data/*.db-shm
+data/*.db-wal
+*.sqlite
+*.sqlite3
+
+# Outputs & Generated Content
+output/
 scripts/carousel-generator/output/
 brands/*/output/
+scripts/output/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.webm
+
+# Logs
 *.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary & Cache files
+tmp/
+temp/
+.cache/
+*.tmp
+*.temp
+.temp/
 
 # System files
 .DS_Store
 .agent/
+.claude/
 *.swp
 *.swo
 *~
-
-# Temporary files
-tmp/
-temp/
-*.tmp
+Thumbs.db
 
 # Backups
 *.bak
+*.backup
 backup/
 backups/
+*.js.backup*
+*.json.backup*
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-*
+.project
+.classpath
+.settings/
+
+# OS generated files
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Content files (can be large)
+scripts/carousel-generator/content/*.json
+!scripts/carousel-generator/content/README.md
+
+# Test outputs
+test-output/
+coverage/
+.nyc_output/
+
+# Build outputs
+dist/
+build/
+*.bundle.js
+
+# Sensitive data files
+firecrawl_*.json
+*.csv
+analytics.db*
+
+# Process files
+*.pid

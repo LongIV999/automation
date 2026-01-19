@@ -88,7 +88,7 @@
         },
         {
             "parameters": {
-                "jsCode": "// Lấy toàn bộ item từ node trước\nconst items = $input.all();\n\n// Sắp xếp theo tên file (name), dạng tự nhiên (1.png < 2.png < 10.png)\nitems.sort((a, b) => {\n  const nameA = a.json.name.toLowerCase();\n  const nameB = b.json.name.toLowerCase();\n  return nameA.localeCompare(nameB, undefined, { numeric: true });\n});\n\n// Trả từng item ra lại (vì n8n expects array of items)\nreturn items;\n"
+                "jsCode": "// Lấy toàn bộ item từ node trước\nlet items = $input.all();\n\n// Filter bỏ các folder (tránh lỗi 404 khi download)\nitems = items.filter(item => item.json.mimeType !== 'application/vnd.google-apps.folder');\n\n// Sắp xếp theo tên file (name), dạng tự nhiên (1.png < 2.png < 10.png)\nitems.sort((a, b) => {\n  const nameA = a.json.name ? a.json.name.toLowerCase() : '';\n  const nameB = b.json.name ? b.json.name.toLowerCase() : '';\n  return nameA.localeCompare(nameB, undefined, { numeric: true });\n});\n\nreturn items;\n"
             },
             "type": "n8n-nodes-base.code",
             "typeVersion": 2,
@@ -224,7 +224,7 @@
                     "parameter": [
                         {
                             "name": "message",
-                            "value": "={{ $('Get row(s) in sheet1').item.json.Caption }}"
+                            "value": "={{ $('Get row(s) in sheet1').first().json.Caption }}"
                         },
                         {
                             "name": "attached_media",
@@ -270,7 +270,7 @@
                 "columns": {
                     "mappingMode": "defineBelow",
                     "value": {
-                        "row_number": "={{ $('Get row(s) in sheet1').item.json.row_number }}",
+                        "row_number": "={{ $('Get row(s) in sheet1').first().json.row_number }}",
                         "Link bài Post": "=fb.com/{{ $json.id }}",
                         "Trạng Thái": "Hoàn Thành"
                     },

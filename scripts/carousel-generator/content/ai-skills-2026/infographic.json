@@ -1,0 +1,22 @@
+{
+    "title": "Kỷ Nguyên AI 2026: Từ Người Dùng Đến Kiến Trúc Sư",
+    "topic": "Top 6 AI Skills for Success in 2026",
+    "brand": "Long Best AI",
+    "formatType": "single-post",
+    "slides": [
+        {
+            "type": "content",
+            "headline": "Top 6 Kỹ Năng AI Thống Trị Năm 2026",
+            "subheadline": "Đừng chỉ dùng AI, hãy chỉ huy nó.",
+            "content": [
+                "Thiết kế Hệ thống Prompt: Xây dựng đội ngũ AI Agent tự vận hành thay vì chỉ viết câu lệnh đơn.",
+                "Đạo đức & Quản trị AI: Làm chủ các quy định (như EU AI Act) để đảm bảo AI an toàn và minh bạch.",
+                "Cộng tác Người-AI: Kỹ năng 'Verify' (xác thực) và điều phối công việc nhịp nhàng giữa người và máy.",
+                "Xây dựng Cấu trúc Dữ liệu: Tối ưu RAG và cơ sở tri thức để AI luôn đưa ra thông tin chính xác nhất.",
+                "Tư duy Hệ thống (No-Code): Thiết kế quy trình tự động hóa phức tạp mà không cần viết mã.",
+                "Trí tuệ Cảm xúc Chiến lược: Tập trung vào đàm phán, sự thấu cảm và tầm nhìn—thứ AI không thể thay thế."
+            ],
+            "visual": "A futuristic infographic layout with a central core of 'Human Intelligence' surrounded by 6 orbiting tech nodes representing AI skills. High-contrast colors with longbest-ai orange and dark charcoal."
+        }
+    ]
+}
